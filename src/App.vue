@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="has-background-light">
     <Navbar />
     <router-view />
   </div>
@@ -16,4 +16,20 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.amaranth {
+  font-family: 'Amaranth', sans-serif;
+}
+
+.has-background-bright-green {
+  background-color: #e1fead !important;
+}
+
+.is-rounded {
+  border-radius: 9999px !important;
+}
+
+.is-sticky {
+  position: sticky !important;
+}
+</style>
