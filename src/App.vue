@@ -17,6 +17,14 @@ export default {
 </script>
 
 <style>
+html {
+  scroll-behavior: smooth;
+}
+
+hr {
+  background-color: #dbdbdb !important;
+}
+
 .amaranth {
   font-family: 'Amaranth', sans-serif;
 }

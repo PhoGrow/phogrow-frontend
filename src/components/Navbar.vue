@@ -1,5 +1,5 @@
 <template>
-  <div class="container py-4 px-4">
+  <div class="container is-sticky py-4 px-4" style="top: 0; z-index: 1">
     <b-navbar class="is-rounded" shadow>
       <template #brand>
         <b-navbar-item
@@ -18,7 +18,7 @@
           tag="router-link"
           :to="{ path }"
           :active="active"
-          :class="{ 'has-text-weight-semibold': active }"
+          :class="[{ 'has-text-weight-semibold': active }, 'has-text-right']"
           @click.native="setActive(path)"
         >
           {{ name }}
@@ -76,6 +76,9 @@ export default {
 }
 
 >>> .navbar-menu.is-active {
+  position: absolute;
+  width: 100%;
+  z-index: -1;
   border-radius: 0 0 1rem 1rem;
   padding-top: calc(3.25rem / 2 + 0.75rem);
   margin-top: calc(-3.25rem / 2);
