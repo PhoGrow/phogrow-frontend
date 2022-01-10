@@ -4,7 +4,7 @@
     <h2 class="subtitle is-3 amaranth">{{ text.subtitle }}</h2>
     <p class="subtitle">{{ text.message }}</p>
     <div class="is-flex is-align-items-center">
-      <a href="#whatWeDo" class="button is-medium is-rounded">{{
+      <a :href="text.buttonHref" class="button is-medium is-rounded">{{
         text.buttonMsg
       }}</a>
       <p class="has-text-grey ml-3">{{ text.buttonMsgSide }}</p>
@@ -23,6 +23,7 @@ export default {
         subtitle: '',
         message: '',
         buttonMsg: '',
+        buttonHref: '',
         buttonMsgSide: ''
       })
     }

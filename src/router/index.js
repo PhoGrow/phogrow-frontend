@@ -19,10 +19,16 @@ const routes = [
     path: '/contact',
     name: 'Contact',
     component: () => import('../views/Contact.vue')
+  },
+  {
+    path: '/:catchAll(.*)',
+    name: 'Home',
+    component: Home
   }
 ];
 
 const router = new VueRouter({
+  mode: 'history',
   routes
 });
 

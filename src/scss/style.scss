@@ -8,6 +8,9 @@ $dark-green: #043f45;
 // Navbar
 $navbar-item-hover-color: $dark-green;
 
+// Footer
+$footer-background-color: $dark;
+
 // Import Bulma and Buefy styles
 @import '~bulma';
 @import '~buefy/src/scss/buefy';

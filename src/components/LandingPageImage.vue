@@ -1,5 +1,7 @@
 <template>
-  <img v-if="image" :src="require('@/assets/illustrations/' + image)" />
+  <figure v-if="image" class="image">
+    <img :src="require('@/assets/illustrations/' + image)" />
+  </figure>
 </template>
 
 <script>
