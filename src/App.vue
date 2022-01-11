@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="has-background-light">
+  <div id="app">
     <Navbar />
     <router-view />
     <Footer />
@@ -25,16 +25,16 @@ html {
   scroll-padding-top: 4rem;
 }
 
-hr {
-  background-color: #dbdbdb !important;
-}
-
 .has-background-bright-green {
   background-color: #e1fead !important;
 }
 
 .amaranth {
   font-family: 'Amaranth', sans-serif !important;
+}
+
+.transition-bg {
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .br-2 {

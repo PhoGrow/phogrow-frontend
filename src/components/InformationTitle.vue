@@ -1,6 +1,8 @@
 <template>
   <div class="has-text-centered py-6">
-    <h1 class="title is-2 has-text-weight-medium amaranth">
+    <h1
+      :class="[{ 'mb-2': note }, 'title is-2 has-text-weight-medium amaranth']"
+    >
       <span class="has-background-white is-rounded bdb-clone py-2 px-6">{{
         title
       }}</span>

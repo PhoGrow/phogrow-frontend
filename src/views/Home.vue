@@ -2,7 +2,7 @@
   <div class="container">
     <LandingPage :text="landingPage.text" :image="landingPage.image" />
     <hr />
-    <div v-for="{ title, note, info } in information" :key="title">
+    <div v-for="{ title, note, info } of information" :key="title">
       <Information :title="title" :note="note" :info="info" />
       <hr />
     </div>

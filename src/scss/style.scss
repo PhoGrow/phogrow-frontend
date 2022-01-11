@@ -5,11 +5,22 @@
 $bright-green: #e1fead;
 $dark-green: #043f45;
 
+// Body
+$body-background-color: $light;
+
+// Link
+$link: $bright-green;
+$link-hover: $dark-green;
+
 // Navbar
 $navbar-item-hover-color: $dark-green;
 
+// Hr
+$hr-background-color: $grey-lighter;
+
 // Footer
 $footer-background-color: $dark;
+$footer-padding: 3rem 1.5rem;
 
 // Import Bulma and Buefy styles
 @import '~bulma';
