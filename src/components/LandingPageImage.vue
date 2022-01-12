@@ -18,7 +18,7 @@
                 (image != 'logo_black.svg' ? 'team/' : '') +
                 image)
             "
-            :style="image == 'logo_black.svg' ? 'width: 60%' : ''"
+            :style="image == 'logo_black.svg' ? 'width: 50%' : ''"
           />
         </figure>
       </div>

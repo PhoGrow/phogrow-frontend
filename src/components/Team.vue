@@ -1,12 +1,14 @@
 <template>
-  <div>
-    <InformationTitle title="We are ..." />
+  <div class="pb-1">
+    <InformationTitle :title="title" />
     <b-collapse
-      v-for="{ workArea, developers } of people"
+      v-for="({ workArea, developers }, i) of people"
       :key="workArea"
-      class="has-background-white mb-6"
+      :class="[isOpen[i] ? 'mb-6' : 'mb-5', 'has-background-white br-2']"
       animation="slide"
       :aria-id="workArea"
+      @open="$set(isOpen, i, true)"
+      @close="$set(isOpen, i, false)"
     >
       <template #trigger="{ open }">
         <div
@@ -15,9 +17,9 @@
           :aria-controls="workArea"
         >
           <p
-            class="card-header-title title has-text-weight-medium amaranth py-4 px-5 mb-0"
+            class="card-header-title title has-text-weight-medium amaranth p-5 mb-0"
           >
-            {{ workArea }} maniacs
+            {{ workArea }}
           </p>
           <a class="card-header-icon px-5">
             <i class="material-icons-round has-text-grey is-size-2">{{
@@ -26,7 +28,7 @@
           </a>
         </div>
       </template>
-      <div class="card-content">
+      <div class="card-content pt-3">
         <div
           v-for="{ image, name, task, message } of developers"
           :key="name"
@@ -51,6 +53,7 @@
           <div class="column is-6-tablet">
             <p class="has-text-grey">{{ message }}</p>
           </div>
+          <div class="column is-narrow"></div>
         </div>
       </div>
     </b-collapse>
@@ -61,12 +64,23 @@
 import InformationTitle from '@/components/InformationTitle.vue';
 
 export default {
-  name: 'People',
+  name: 'Team',
   components: {
     InformationTitle
   },
   props: {
+    title: String,
     people: Array
+  },
+  data() {
+    return {
+      isOpen: []
+    };
+  },
+  created() {
+    for (let i = 0; i < this.people.length; i++) {
+      this.isOpen.push(true);
+    }
   }
 };
 </script>

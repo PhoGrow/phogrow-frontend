@@ -9,7 +9,8 @@
         <a
           :href="hrefs[i]"
           class="button is-large is-rounded has-background-bright-green"
-          >{{ linkTo }}</a
+        >
+          <span class="has-text-weight-medium">{{ linkTo }}</span></a
         >
       </div>
     </div>
