@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <figure v-if="image" class="image">
-      <img :src="require('@/assets/illustrations/' + image)" />
+  <div v-if="images">
+    <figure v-if="images.length == 1" class="image">
+      <img :src="require('@/assets/illustrations/' + images[0])" />
     </figure>
     <div
-      v-if="images"
+      v-if="images.length > 1"
       class="columns is-gapless is-multiline is-mobile has-background-bright-green"
     >
       <div v-for="image of images" :key="image" class="column is-3">
@@ -30,7 +30,6 @@
 export default {
   name: 'LandingPageImage',
   props: {
-    image: String,
     images: Array
   }
 };

@@ -2,22 +2,21 @@
   <div :id="id" class="px-5">
     <InformationTitle :title="title" :note="note" />
     <div
-      v-for="{ image, title, subtitle, message } of info"
+      v-for="({ image, animation, title, subtitle, message }, i) of info"
       :key="title"
       class="columns is-vcentered is-centered is-gapless pb-6"
     >
       <div class="column is-3-tablet is-9-mobile">
-        <figure
-          :class="[
-            { 'is-square has-background-white br-2': !image.includes('.svg') },
-            'image'
-          ]"
-        >
-          <img
-            v-if="image.includes('.svg')"
-            :src="require('@/assets/illustrations/' + image)"
-          />
+        <figure v-if="image" class="image">
+          <img :src="require('@/assets/illustrations/' + image)" />
         </figure>
+        <Observer
+          v-if="animation"
+          @isVisible="(option) => $set(isVisible, i, option)"
+          class="has-background-white br-2"
+        >
+          <Animation v-if="isVisible" :animation="animation" />
+        </Observer>
       </div>
       <div class="column is-narrow m-5"></div>
       <div class="column is-6-tablet">
@@ -37,16 +36,30 @@
 
 <script>
 import InformationTitle from '@/components/InformationTitle.vue';
+import Observer from '@/components/Observer.vue';
+import Animation from '@/components/Animation.vue';
 
 export default {
   name: 'Information',
   components: {
-    InformationTitle
+    InformationTitle,
+    Observer,
+    Animation
   },
   props: {
     title: String,
     note: String,
     info: Array
+  },
+  data() {
+    return {
+      isVisible: []
+    };
+  },
+  created() {
+    for (let i = 0; i < this.info.length; i++) {
+      this.isVisible.push(false);
+    }
   },
   computed: {
     id() {
@@ -61,4 +74,5 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+</style>

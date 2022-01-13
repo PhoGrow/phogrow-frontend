@@ -1,12 +1,12 @@
 <template>
   <div class="container">
-    <LandingPage :text="landingPage.text" :image="landingPage.image" />
+    <LandingPage :text="landingPage.text" :images="landingPage.images" />
     <hr />
     <div v-for="{ title, note, info } of information" :key="title">
       <Information :title="title" :note="note" :info="info" />
       <hr />
     </div>
-    <FurtherLinks :links="links" />
+    <FurtherLinks :title="furtherLinks.title" :links="furtherLinks.links" />
   </div>
 </template>
 
@@ -30,11 +30,15 @@ export default {
           subtitle: 'Experience plant growth in 3D.',
           message:
             'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.',
-          buttonMsg: 'Learn more',
-          buttonHref: '#whatWeDo',
-          buttonMsgSide: '– Scroll down'
+          buttons: [
+            {
+              message: 'Learn more',
+              href: '#whatWeDo',
+              messageOnSide: '– Scroll down'
+            }
+          ]
         },
-        image: 'flowers.svg'
+        images: ['flowers.svg']
       },
       information: [
         {
@@ -90,21 +94,21 @@ export default {
           note: 'Some examples below.',
           info: [
             {
-              image: '',
+              animation: 'reduced_tex.glb',
               title: 'Scientific plant name 1',
               subtitle: 'Common name',
               message:
                 'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
             },
             {
-              image: '',
+              animation: '',
               title: 'Scientific plant name 2',
               subtitle: 'Common name',
               message:
                 'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
             },
             {
-              image: '',
+              animation: '',
               title: 'Scientific plant name 3',
               subtitle: 'Common name',
               message:
@@ -113,16 +117,19 @@ export default {
           ]
         }
       ],
-      links: [
-        {
-          title: 'Who is PhoGrow?',
-          linkTo: 'About Us'
-        },
-        {
-          title: 'What is your contact?',
-          linkTo: 'Contact'
-        }
-      ]
+      furtherLinks: {
+        title: 'Who we are',
+        links: [
+          {
+            title: 'Who is PhoGrow?',
+            linkTo: 'About Us'
+          },
+          {
+            title: 'What is your contact?',
+            linkTo: 'Contact'
+          }
+        ]
+      }
     };
   }
 };

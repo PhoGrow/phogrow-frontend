@@ -73,6 +73,7 @@ export default {
 >>> .navbar-brand {
   background-color: white;
   border-radius: 9999px;
+  margin-left: 0 !important;
 }
 
 >>> .navbar-menu.is-active {
@@ -81,6 +82,7 @@ export default {
   z-index: -1;
   border-radius: 0 0 1rem 1rem;
   padding-top: calc(3.25rem / 2 + 0.75rem);
+  padding-bottom: 0.75rem;
   margin-top: calc(-3.25rem / 2);
 }
 </style>

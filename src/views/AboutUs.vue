@@ -39,9 +39,13 @@ export default {
           subtitle: `– That's us!`,
           message:
             'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.',
-          buttonMsg: 'Learn more',
-          buttonHref: '#ourVision',
-          buttonMsgSide: '– Scroll down'
+          buttons: [
+            {
+              message: 'Learn more',
+              href: '#ourVision',
+              messageOnSide: '– Scroll down'
+            }
+          ]
         },
         images: [
           'tim_scheller.png',

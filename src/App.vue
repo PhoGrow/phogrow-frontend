@@ -25,6 +25,10 @@ html {
   scroll-padding-top: 4rem;
 }
 
+.hero.is-fullheight-with-navbar {
+  min-height: calc(100vh - 7.25rem) !important;
+}
+
 .has-background-bright-green {
   background-color: #e1fead !important;
 }
@@ -46,8 +50,8 @@ html {
   box-decoration-break: clone;
 }
 
-.mt-5n {
-  margin-top: -1.5rem;
+.mb-6n {
+  margin-bottom: -3rem !important;
 }
 
 .is-rounded {
@@ -56,5 +60,9 @@ html {
 
 .is-sticky {
   position: sticky !important;
+}
+
+.is-absolute {
+  position: absolute !important;
 }
 </style>

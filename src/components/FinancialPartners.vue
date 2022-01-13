@@ -2,7 +2,7 @@
   <div>
     <InformationTitle :title="title" />
     <div
-      class="columns is-vcentered is-mobile is-multiline is-justify-content-space-evenly has-background-white br-2 p-3 m-0"
+      class="columns is-vcentered is-mobile is-multiline is-justify-content-space-around has-background-white br-2 p-3 m-0"
     >
       <div
         v-for="{ logo, alt, link } of organizations"

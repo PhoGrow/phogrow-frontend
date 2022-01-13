@@ -1,9 +1,12 @@
 <template>
   <div class="columns is-vcentered is-gapless is-multiline">
+    <div class="column is-12">
+      <InformationTitle :title="title" class="mb-6n" />
+    </div>
     <div v-for="({ title, linkTo }, i) of links" :key="title" class="column">
       <div class="is-flex is-flex-direction-column is-align-items-center">
-        <InformationTitle :title="title" />
-        <span class="icon is-large mt-5n">
+        <InformationTitle :title="title" class="mb-6n" />
+        <span class="icon is-large">
           <i class="material-icons-round is-size-1">keyboard_arrow_down</i>
         </span>
         <a
@@ -31,6 +34,7 @@ export default {
     InformationTitle
   },
   props: {
+    title: String,
     links: Array
   },
   computed: {
