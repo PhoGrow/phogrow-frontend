@@ -48,14 +48,14 @@ export default {
           ]
         },
         images: [
-          'tim_scheller.png',
-          'nina_utzelmann.png',
-          'rene_dietz.png',
+          'tim_scheller.jpg',
+          'nina_utzelmann.jpg',
+          'rene_dietz.jpg',
           'logo_black.svg',
-          'phillipp_schwarz.png',
-          'michelle_graesle.png',
-          'matthias_donst.png',
-          'nina_scheller.png'
+          'philipp_schwarz.jpg',
+          'michelle_graesle.jpg',
+          'matthias_donst.jpg',
+          'nina_scheller.jpg'
         ]
       },
       information: {
@@ -89,21 +89,21 @@ export default {
             workArea: 'Software maniacs',
             developers: [
               {
-                image: 'tim_scheller.png',
+                image: 'tim_scheller.jpg',
                 name: 'Tim Scheller',
                 task: '3D software',
                 message:
                   'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
               },
               {
-                image: 'nina_utzelmann.png',
+                image: 'nina_utzelmann.jpg',
                 name: 'Nina Utzelmann',
                 task: '3D software',
                 message:
                   'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
               },
               {
-                image: 'rene_dietz.png',
+                image: 'rene_dietz.jpg',
                 name: 'René Dietz',
                 task: 'Web development',
                 message:
@@ -115,21 +115,21 @@ export default {
             workArea: 'Hardware maniacs',
             developers: [
               {
-                image: 'phillipp_schwarz.png',
-                name: 'Phillipp Schwarz',
+                image: 'philipp_schwarz.jpg',
+                name: 'Philipp Schwarz',
                 task: 'Specialist',
                 message:
                   'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
               },
               {
-                image: 'michelle_graesle.png',
+                image: 'michelle_graesle.jpg',
                 name: 'Michelle Gräsle',
                 task: 'Specialist',
                 message:
                   'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
               },
               {
-                image: 'matthias_donst.png',
+                image: 'matthias_donst.jpg',
                 name: 'Matthias Donst',
                 task: 'Specialist',
                 message:
@@ -141,7 +141,7 @@ export default {
             workArea: 'Support maniacs',
             developers: [
               {
-                image: 'nina_scheller.png',
+                image: 'nina_scheller.jpg',
                 name: 'Nina Scheller',
                 task: 'Social media',
                 message:
