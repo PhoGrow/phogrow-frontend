@@ -1,34 +1,18 @@
 <template>
-  <div
-    :class="[
-      'is-flex is-relative',
-      {
-        'is-align-items-center is-justify-content-center':
-          animationNotAvailable,
-        'is-align-items-end is-justify-content-end':
-          hasFullscreenSupport && loadedAnimation && !animationNotAvailable
-      }
-    ]"
-    style="height: 20rem"
-  >
-    <p v-if="!loadedAnimation && loadingProgress < 100">
-      {{ loadingProgress }}%
-    </p>
-    <p
-      v-if="animationNotAvailable"
-      class="has-background-warning-light py-1 px-4 is-rounded is-size-5"
-    >
-      Sadly, there is no animation, yet 🥺
-    </p>
-    <b-loading :active="!loadedAnimation" :is-full-page="false"></b-loading>
+  <div class="is-relative is-flex is-align-items-end is-justify-content-end">
+    <b-loading
+      :active="!loadedAnimation"
+      :is-full-page="false"
+      class="br-2"
+    ></b-loading>
     <button
       @click="toggleFullscreen"
-      v-if="hasFullscreenSupport && loadedAnimation && !animationNotAvailable"
-      class="button is-small is-rounded is-dark is-absolute mb-3 mr-3"
+      v-if="hasFullscreenSupport && loadedAnimation"
+      class="button is-rounded has-background-bright-green is-absolute p-4 mb-3 mr-3"
     >
       <span class="icon">
-        <i class="material-icons-round has-text-white">{{
-          !isFullsceen ? 'fullscreen' : 'fullscreen_exit'
+        <i class="material-icons-round">{{
+          isFullscreen ? 'fullscreen_exit' : 'fullscreen'
         }}</i>
       </span>
     </button>
@@ -56,12 +40,15 @@ export default {
   },
   data() {
     return {
-      url: '',
       loadingProgress: 0,
       loadedAnimation: false,
-      animationNotAvailable: false,
       hasFullscreenSupport: screenfull.isEnabled,
-      isFullsceen: false,
+      isFullscreen: false,
+      resizeObserver: new ResizeObserver(this.onWindowResize)
+    };
+  },
+  static() {
+    return {
       scene: new Scene(),
       camera: {},
       renderer: new WebGLRenderer({ alpha: true }),
@@ -117,14 +104,15 @@ export default {
         this.loadingProgress = Math.round((xhr.loaded / xhr.total) * 100);
       },
       (err) => {
-        console.log(err);
-        this.loadedAnimation = true;
-        this.animationNotAvailable = true;
+        console.log('[ERROR] Animation', err);
         return;
       }
     );
 
     this.animate();
+  },
+  beforeDestroy() {
+    this.resizeObserver.unobserve(this.$el);
   },
   methods: {
     init() {
@@ -137,7 +125,7 @@ export default {
 
       this.orbitCtrl = new OrbitControls(this.camera, this.renderer.domElement);
       this.renderer.setSize(this.$el.clientWidth, this.$el.clientHeight);
-      window.addEventListener('resize', this.onWindowResize);
+      this.resizeObserver.observe(this.$el);
       this.$el.appendChild(this.renderer.domElement);
 
       // Setup lights
@@ -184,35 +172,35 @@ export default {
       this.appTimeSeconds += dt;
 
       // Blend in meshes when their blendTime has been reached and blend out the others
-      this.meshes.forEach((mesh) => {
-        if (
-          this.appTimeSeconds >= mesh.blendTime &&
-          this.appTimeSeconds <= mesh.blendTime + this.blendTime
-        ) {
-          mesh.material.alphaTest = 100;
-          // mesh.material.opacity = 1.0;
-          mesh.material.visible = true;
-        } else {
-          // mesh.material.opacity = 0.0;
-          mesh.material.visible = false;
-        }
-      });
-
-      // Restart the timer -> animation starts over from the beginning
-      if (this.appTimeSeconds > this.totalBlendTime) {
-        this.appTimeSeconds = 0;
-        this.meshes.forEach((mesh) => {
-          // mesh.material.opacity = 0.0;
-          mesh.material.visible = false;
-        });
-      }
+      // this.meshes.forEach((mesh) => {
+      //   if (
+      //     this.appTimeSeconds >= mesh.blendTime &&
+      //     this.appTimeSeconds <= mesh.blendTime + this.blendTime
+      //   ) {
+      //     mesh.material.alphaTest = 100;
+      //     // mesh.material.opacity = 1.0;
+      //     mesh.material.visible = true;
+      //   } else {
+      //     // mesh.material.opacity = 0.0;
+      //     mesh.material.visible = false;
+      //   }
+      // });
+      //
+      // // Restart the timer -> animation starts over from the beginning
+      // if (this.appTimeSeconds > this.totalBlendTime) {
+      //   this.appTimeSeconds = 0;
+      //   this.meshes.forEach((mesh) => {
+      //     // mesh.material.opacity = 0.0;
+      //     mesh.material.visible = false;
+      //   });
+      // }
     },
     toggleFullscreen() {
       screenfull.toggle(this.$el);
-      this.isFullsceen = !this.isFullsceen;
-      this.onWindowResize();
     },
-    onWindowResize() {
+    onWindowResize(entries) {
+      this.$el.style.height = entries[0].contentRect.width + 'px';
+      this.isFullscreen = screenfull.isFullscreen;
       this.$nextTick(() => {
         this.camera.aspect = this.$el.clientWidth / this.$el.clientHeight;
         this.camera.updateProjectionMatrix();

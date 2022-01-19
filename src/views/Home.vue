@@ -101,14 +101,14 @@ export default {
                 'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
             },
             {
-              animation: '',
+              animation: 'reduced_tex.glb',
               title: 'Scientific plant name 2',
               subtitle: 'Common name',
               message:
                 'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
             },
             {
-              animation: '',
+              animation: 'reduced_tex.glb',
               title: 'Scientific plant name 3',
               subtitle: 'Common name',
               message:

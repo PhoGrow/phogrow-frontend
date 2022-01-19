@@ -13,9 +13,12 @@
         <Observer
           v-if="animation"
           @isVisible="(option) => $set(isVisible, i, option)"
-          class="has-background-white br-2"
         >
-          <Animation v-if="isVisible" :animation="animation" />
+          <Animation
+            v-if="isVisible[i]"
+            :animation="animation"
+            class="has-background-white br-2"
+          />
         </Observer>
       </div>
       <div class="column is-narrow m-5"></div>
