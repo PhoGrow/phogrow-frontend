@@ -13,6 +13,7 @@
     <FinancialPartners
       :title="partners.title"
       :organizations="partners.organizations"
+      :redirect="partners.redirect"
     />
   </div>
 </template>
@@ -174,7 +175,11 @@ export default {
             alt: 'Cologne Game Lab',
             link: 'https://colognegamelab.de'
           }
-        ]
+        ],
+        redirect: {
+          text: 'Become part of the',
+          hashtag: '#plontgang'
+        }
       }
     };
   }

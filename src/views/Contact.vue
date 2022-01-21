@@ -20,7 +20,7 @@ export default {
       landingPage: {
         text: {
           title: 'What is your contact?',
-          subtitle: '– We got you covered!',
+          subtitle: `– We've got you covered!`,
           message:
             'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.',
           buttons: [

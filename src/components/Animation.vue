@@ -99,6 +99,8 @@ export default {
 
         // Store the overall blending time
         this.totalBlendTime = this.blendTime * this.meshes.length;
+
+        this.$el.children[this.$el.children.length - 1].classList.add('br-2');
       },
       (xhr) => {
         this.loadingProgress = Math.round((xhr.loaded / xhr.total) * 100);

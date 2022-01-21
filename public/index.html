@@ -16,6 +16,11 @@
       rel="stylesheet"
     />
     <title>PhoGrow</title>
+    <style>
+      html {
+        background-color: #e1fead;
+      }
+    </style>
   </head>
   <body>
     <noscript>
@@ -24,7 +29,18 @@
         enabled. Please enable it to continue.</strong
       >
     </noscript>
-    <div id="app"></div>
+    <div id="app">
+      <div
+        style="
+          height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        "
+      >
+        <img src="<%= BASE_URL %>logo_black.svg" width="256" />
+      </div>
+    </div>
     <!-- built files will be auto injected -->
   </body>
 </html>

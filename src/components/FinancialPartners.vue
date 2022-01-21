@@ -25,8 +25,8 @@
     >
       <div class="column is-narrow">
         <p class="is-size-4">
-          Become part of the
-          <span class="has-text-weight-semibold">#plontgang</span>
+          {{ redirect.text }}
+          <span class="has-text-weight-semibold">{{ redirect.hashtag }}</span>
         </p>
       </div>
       <div class="column is-narrow-tablet is-12-mobile my-1"></div>
@@ -60,7 +60,8 @@ export default {
   },
   props: {
     title: String,
-    organizations: Array
+    organizations: Array,
+    redirect: Object
   }
 };
 </script>

@@ -7,7 +7,7 @@
       class="columns is-vcentered is-centered is-gapless pb-6"
     >
       <div class="column is-3-tablet is-9-mobile">
-        <figure v-if="image" class="image">
+        <figure v-if="image" class="image has-background-white p-5 br-2">
           <img :src="require('@/assets/illustrations/' + image)" />
         </figure>
         <Observer
