@@ -29,7 +29,10 @@ const routes = [
 
 const router = new VueRouter({
   mode: 'history',
-  routes
+  routes,
+  scrollBehavior() {
+    document.querySelector('#app').scrollIntoView();
+  }
 });
 
 export default router;
