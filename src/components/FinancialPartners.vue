@@ -20,28 +20,22 @@
         </a>
       </div>
     </div>
-    <div
-      class="columns is-vcentered is-centered is-gapless is-mobile is-multiline m-4"
-    >
-      <div class="column is-narrow">
-        <p class="is-size-4">
-          {{ redirect.text }}
-          <span class="has-text-weight-semibold">{{ redirect.hashtag }}</span>
-        </p>
-      </div>
-      <div class="column is-narrow-tablet is-12-mobile my-1"></div>
-      <div class="column is-narrow">
-        <span class="icon is-large has-text-grey">
-          <i class="material-icons-round is-size-2">keyboard_arrow_right</i>
-        </span>
-      </div>
-      <div class="column is-narrow">
-        <a
-          href="/contact"
-          class="button is-medium is-rounded has-background-bright-green"
+    <div class="columns is-centered is-gapless my-4">
+      <div class="column is-6-tablet">
+        <div
+          class="is-flex is-align-items-center is-justify-content-space-between has-background-bright-green p-5 br-2"
         >
-          <span class="has-text-weight-medium">Contact</span>
-        </a>
+          <p class="is-size-4 mr-5">
+            {{ redirect.text }}
+            <span class="has-text-weight-semibold">{{ redirect.hashtag }}</span>
+          </p>
+          <a
+            href="/contact"
+            class="button is-medium is-rounded is-align-self-flex-end"
+          >
+            <span class="has-text-weight-medium">Contact</span>
+          </a>
+        </div>
       </div>
     </div>
     <p class="has-text-centered has-text-grey my-6">

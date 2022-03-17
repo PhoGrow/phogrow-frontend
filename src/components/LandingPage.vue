@@ -7,11 +7,14 @@
       'hero'
     ]"
   >
-    <div class="hero-body">
+    <div class="hero-body px-0">
       <div
-        class="columns is-vcentered is-gapless is-flex-direction-row-reverse"
+        :class="[
+          'columns is-vcentered is-gapless is-flex-direction-row-reverse',
+          { 'has-background-white p-6 br-2': images }
+        ]"
       >
-        <div class="column is-5-tablet is-10-mobile">
+        <div class="column is-5-tablet">
           <LandingPageImage :images="images" />
         </div>
         <div v-if="images" class="column is-narrow m-5"></div>

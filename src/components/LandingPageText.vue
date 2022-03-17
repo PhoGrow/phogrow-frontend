@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="{ 'px-6': text.buttons.length > 1 }">
     <h1 class="title is-1 amaranth">{{ text.title }}</h1>
     <h2 class="subtitle is-3 amaranth">{{ text.subtitle }}</h2>
     <p class="subtitle">{{ text.message }}</p>

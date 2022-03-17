@@ -29,6 +29,10 @@ html {
   min-height: calc(100vh - 7.25rem) !important;
 }
 
+.dashed-border {
+  border: 2px dashed #dbdbdb;
+}
+
 .has-background-bright-green {
   background-color: #e1fead !important;
 }

@@ -1,20 +1,32 @@
 <template>
-  <div class="columns is-vcentered is-gapless is-multiline">
+  <div class="columns is-gapless is-multiline">
     <div class="column is-12">
-      <InformationTitle :title="title" class="mb-6n" />
+      <InformationTitle :title="title" />
     </div>
-    <div v-for="({ title, linkTo }, i) of links" :key="title" class="column">
-      <div class="is-flex is-flex-direction-column is-align-items-center">
-        <InformationTitle :title="title" class="mb-6n" />
-        <span class="icon is-large">
-          <i class="material-icons-round is-size-1">keyboard_arrow_down</i>
-        </span>
-        <a
-          :href="hrefs[i]"
-          class="button is-large is-rounded has-background-bright-green"
-        >
-          <span class="has-text-weight-medium">{{ linkTo }}</span></a
-        >
+    <div
+      v-for="({ title, linkTo }, i) of links"
+      :key="title"
+      class="column is-6-tablet"
+    >
+      <div class="columns is-gapless is-centered">
+        <div class="column is-10-tablet">
+          <div
+            class="columns is-vcentered is-gapless has-background-bright-green p-6 br-2"
+          >
+            <div class="column">
+              <h1 class="title is-2 has-text-weight-medium amaranth mb-0 mr-6">
+                {{ title }}
+              </h1>
+            </div>
+            <div class="column is-narrow my-5"></div>
+            <div class="column is-narrow is-align-self-flex-end">
+              <a :href="hrefs[i]" class="button is-large is-rounded">
+                <span class="has-text-weight-medium">{{ linkTo }}</span></a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="column is-narrow my-6"></div>
       </div>
     </div>
     <div class="column is-12">
