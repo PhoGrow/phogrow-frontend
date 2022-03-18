@@ -46,6 +46,11 @@ export default {
           name: 'About Us'
         },
         {
+          path: '/roadmap',
+          active: false,
+          name: 'Roadmap'
+        },
+        {
           path: '/contact',
           active: false,
           name: 'Contact'

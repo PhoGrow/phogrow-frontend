@@ -22,6 +22,7 @@ $hr-background-color: $grey-lighter;
 $footer-background-color: $dark;
 $footer-padding: 3rem 1.5rem;
 
-// Import Bulma and Buefy styles
+// Import Bulma, timeline extension and Buefy styles
 @import '~bulma';
 @import '~buefy/src/scss/buefy';
+@import '~bulma-timeline';
