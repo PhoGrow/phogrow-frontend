@@ -176,10 +176,18 @@ export default {
             link: 'https://colognegamelab.de'
           }
         ],
-        redirect: {
-          text: 'Become part of the',
-          hashtag: '#plontgang'
-        }
+        redirect: [
+          {
+            text: `Let's look into our`,
+            hashtag: '#future',
+            to: 'Roadmap'
+          },
+          {
+            text: 'Become part of the',
+            hashtag: '#plontgang',
+            to: 'Contact'
+          }
+        ]
       }
     };
   }

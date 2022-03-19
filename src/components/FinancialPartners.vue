@@ -20,21 +20,30 @@
         </a>
       </div>
     </div>
-    <div class="columns is-centered is-gapless my-4">
-      <div class="column is-6-tablet">
-        <div
-          class="is-flex is-align-items-center is-justify-content-space-between has-background-bright-green p-5 br-2"
-        >
-          <p class="is-size-4 mr-5">
-            {{ redirect.text }}
-            <span class="has-text-weight-semibold">{{ redirect.hashtag }}</span>
-          </p>
-          <a
-            href="/contact"
-            class="button is-medium is-rounded is-align-self-flex-end"
-          >
-            <span class="has-text-weight-medium">Contact</span>
-          </a>
+    <div class="columns is-gapless my-4">
+      <div
+        v-for="{ text, hashtag, to } of redirect"
+        :key="to"
+        class="column is-6-tablet"
+      >
+        <div class="columns is-centered is-gapless">
+          <div class="column is-10-tablet">
+            <div
+              class="is-flex is-align-items-center is-justify-content-space-between has-background-bright-green p-5 br-2"
+            >
+              <p class="is-size-4 mr-5">
+                {{ text }}
+                <span class="has-text-weight-semibold">{{ hashtag }}</span>
+              </p>
+              <a
+                :href="'/' + to.toLowerCase()"
+                class="button is-medium is-rounded is-align-self-flex-end"
+              >
+                <span class="has-text-weight-medium">{{ to }}</span>
+              </a>
+            </div>
+          </div>
+          <div class="column is-narrow my-4"></div>
         </div>
       </div>
     </div>
@@ -55,7 +64,7 @@ export default {
   props: {
     title: String,
     organizations: Array,
-    redirect: Object
+    redirect: Array
   }
 };
 </script>
