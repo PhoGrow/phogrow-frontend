@@ -48,7 +48,7 @@
       </div>
       <div v-if="i < info.length - 1" class="column is-12-tablet">
         <div class="columns is-centered is-mobile m-0">
-          <div class="column is-narrow py-6 px-0 dashed-border"></div>
+          <div class="column is-narrow py-5 px-0 dashed-border"></div>
         </div>
       </div>
     </div>

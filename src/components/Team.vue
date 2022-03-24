@@ -37,24 +37,20 @@
               class="columns is-vcentered"
             >
               <div class="column is-4-tablet">
-                <div class="columns is-gapless">
-                  <div class="column is-narrow">
-                    <div
-                      class="is-inline-flex is-align-items-center has-background-bright-green is-rounded"
-                    >
-                      <figure class="image is-96x96">
-                        <img
-                          class="card is-rounded"
-                          :src="require('@/assets/team/' + image)"
-                        />
-                      </figure>
-                      <div class="ml-5 mr-6">
-                        <p class="is-size-5 has-text-weight-semibold">
-                          {{ name }}
-                        </p>
-                        <p class="has-text-grey">{{ task }}</p>
-                      </div>
-                    </div>
+                <div
+                  class="is-inline-flex is-align-items-center has-background-bright-green is-rounded"
+                >
+                  <figure class="image is-96x96">
+                    <img
+                      class="card is-rounded"
+                      :src="require('@/assets/team/' + image)"
+                    />
+                  </figure>
+                  <div class="ml-5 mr-6">
+                    <p class="is-size-5 has-text-weight-semibold">
+                      {{ name }}
+                    </p>
+                    <p class="has-text-grey">{{ task }}</p>
                   </div>
                 </div>
               </div>
