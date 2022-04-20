@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <Navbar />
+    <!-- <Navbar />
     <router-view />
-    <Footer />
-    <!-- <section class="hero is-fullheight has-background-bright-green">
+    <Footer /> -->
+    <section class="hero is-fullheight has-background-bright-green">
       <div
         class="hero-body is-justify-content-center"
         style="min-height: 100vh"
@@ -35,20 +35,20 @@
           ></iframe>
         </figure>
       </div>
-    </section> -->
+    </section>
   </div>
 </template>
 
 <script>
-import Navbar from '@/components/Navbar.vue';
-import Footer from '@/components/Footer.vue';
+// import Navbar from '@/components/Navbar.vue';
+// import Footer from '@/components/Footer.vue';
 import countdown from 'countdown';
 
 export default {
   name: 'App',
   components: {
-    Navbar,
-    Footer
+    // Navbar,
+    // Footer
   },
   data() {
     return {
