@@ -8,7 +8,7 @@
     <button
       @click="toggleFullscreen"
       v-if="hasFullscreenSupport && loadedAnimation"
-      class="button is-rounded has-background-bright-green is-absolute p-4 mb-3 mr-3"
+      class="button is-rounded has-background-bright-green is-absolute p-4 mb-4 mr-4"
     >
       <span class="icon">
         <i class="material-icons-round">{{

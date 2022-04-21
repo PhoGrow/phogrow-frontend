@@ -6,6 +6,12 @@
       <Information :title="title" :note="note" :info="info" />
       <hr />
     </div>
+    <FinancialPartners
+      :title="partners.title"
+      :organizations="partners.organizations"
+      :redirect="partners.redirect"
+    />
+    <hr />
     <FurtherLinks :title="furtherLinks.title" :links="furtherLinks.links" />
   </div>
 </template>
@@ -13,6 +19,7 @@
 <script>
 import LandingPage from '@/components/LandingPage.vue';
 import Information from '@/components/Information.vue';
+import FinancialPartners from '@/components/FinancialPartners.vue';
 import FurtherLinks from '@/components/FurtherLinks.vue';
 
 export default {
@@ -20,6 +27,7 @@ export default {
   components: {
     LandingPage,
     Information,
+    FinancialPartners,
     FurtherLinks
   },
   data() {
@@ -29,12 +37,12 @@ export default {
           title: 'PhoGrow',
           subtitle: 'Experience plant growth in 3D.',
           message:
-            'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.',
+            'We create digital growing plants for your own creative use case.',
           buttons: [
             {
               message: 'Learn more',
               href: '#whatWeDo',
-              messageOnSide: '– Scroll down'
+              // messageOnSide: '– Scroll down'
             }
           ]
         },
@@ -46,77 +54,114 @@ export default {
           note: '',
           info: [
             {
-              image: 'photo_session.svg',
+              image: 'team.jpg',
               title: 'Capture plants',
               message:
-                'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
+                'In our PhoGrow-Box, real plants grow autonomously under variable conditions. ' +
+                'This growth process is captured by cameras from different perspectives.'
             },
             {
-              image: '3d_modeling.svg',
-              title: 'Create 3D objects',
+              animation: 'reduced_tex.glb',
+              title: 'Our Results',
               message:
-                'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
+                'We create photorealistic animations of real plants and mushrooms, just like the one on your left. ' +
+                'You can look at it from different perspectives by clicking and dragging.'
             },
             {
               image: 'animating.svg',
-              title: 'Animate plant growth',
+              title: 'Applications',
               message:
-                'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
+                'Now you can use the animations in different application areas. ' +
+                'Such as making the change of vegetation in video games and movies, a tangible experience. ' +
+                'Or simply place our plants on your own website. ' +
+                'And of course, your very own ideas where you want to make nature more real.'
             }
           ]
         },
-        {
-          title: 'What you can do',
-          note: '',
-          info: [
-            {
-              image: 'designer.svg',
-              title: 'Assets for your game',
-              message:
-                'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
-            },
-            {
-              image: 'crypto_flowers.svg',
-              title: 'Get exclusive NFTs',
-              message:
-                'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
-            },
-            {
-              image: 'gardening.svg',
-              title: 'Make biology interesting again!',
-              message:
-                'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
-            }
-          ]
-        },
-        {
-          title: 'What you get',
-          note: 'Some examples below.',
-          info: [
-            {
-              animation: 'reduced_tex.glb',
-              title: 'Scientific plant name 1',
-              subtitle: 'Common name',
-              message:
-                'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
-            },
-            {
-              animation: 'reduced_tex.glb',
-              title: 'Scientific plant name 2',
-              subtitle: 'Common name',
-              message:
-                'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
-            },
-            {
-              animation: 'reduced_tex.glb',
-              title: 'Scientific plant name 3',
-              subtitle: 'Common name',
-              message:
-                'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
-            }
-          ]
-        }
+        // {
+        //   title: 'What you can do',
+        //   note: '',
+        //   info: [
+        //     {
+        //       image: 'designer.svg',
+        //       title: 'Assets for your game',
+        //       message:
+        //         'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
+        //     },
+        //     {
+        //       image: 'crypto_flowers.svg',
+        //       title: 'Get exclusive NFTs',
+        //       message:
+        //         'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
+        //     },
+        //     {
+        //       image: 'gardening.svg',
+        //       title: 'Make biology interesting again!',
+        //       message:
+        //         'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
+        //     }
+        //   ]
+        // },
+        // {
+        //   title: 'What you get',
+        //   note: 'Some examples below.',
+        //   info: [
+        //     {
+        //       animation: 'reduced_tex.glb',
+        //       title: 'Scientific plant name 1',
+        //       subtitle: 'Common name',
+        //       message:
+        //         'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
+        //     },
+        //     {
+        //       animation: 'reduced_tex.glb',
+        //       title: 'Scientific plant name 2',
+        //       subtitle: 'Common name',
+        //       message:
+        //         'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
+        //     },
+        //     {
+        //       animation: 'reduced_tex.glb',
+        //       title: 'Scientific plant name 3',
+        //       subtitle: 'Common name',
+        //       message:
+        //         'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
+        //     }
+        //   ]
+        // }
       ],
+      partners: {
+        title: 'Our financial partners',
+        organizations: [
+          {
+            logo: 'th_koeln.svg',
+            alt: 'Technische Hochschule Köln',
+            link: 'https://www.th-koeln.de'
+          },
+          {
+            logo: 'startUpLab.jpg',
+            alt: 'StartUpLab@TH Köln',
+            link: 'https://www.th-koeln.de/forschung/startuplabth-koeln_76381.php'
+          },
+          {
+            logo: 'bmbf.svg',
+            alt: 'Bundesministerium für Bildung und Forschung',
+            link: 'https://www.bmbf.de/'
+          },
+          {
+            logo: 'cgl.svg',
+            alt: 'Cologne Game Lab',
+            link: 'https://colognegamelab.de'
+          }
+        ],
+        redirect: [
+          {
+            text: 'Become part of the',
+            hashtag: '#plontgang',
+            to: 'Contact'
+          }
+        ]
+      },
       furtherLinks: {
         title: 'Who we are',
         links: [
@@ -125,7 +170,7 @@ export default {
             linkTo: 'About Us'
           },
           {
-            title: 'What is your contact?',
+            title: 'Bump into PhoGrow?',
             linkTo: 'Contact'
           }
         ]

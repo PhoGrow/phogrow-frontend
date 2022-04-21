@@ -45,11 +45,11 @@ export default {
           active: false,
           name: 'About Us'
         },
-        {
-          path: '/roadmap',
-          active: false,
-          name: 'Roadmap'
-        },
+        // {
+        //   path: '/roadmap',
+        //   active: false,
+        //   name: 'Roadmap'
+        // },
         {
           path: '/contact',
           active: false,

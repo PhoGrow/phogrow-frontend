@@ -20,7 +20,7 @@
         </a>
       </div>
     </div>
-    <div class="columns is-gapless my-4">
+    <div class="columns is-centered is-gapless pt-4 pb-6">
       <div
         v-for="{ text, hashtag, to } of redirect"
         :key="to"
@@ -47,9 +47,9 @@
         </div>
       </div>
     </div>
-    <p class="has-text-centered has-text-grey my-6">
+    <!-- <p class="has-text-centered has-text-grey my-6">
       You came this far? Check our IG 😉
-    </p>
+    </p> -->
   </div>
 </template>
 

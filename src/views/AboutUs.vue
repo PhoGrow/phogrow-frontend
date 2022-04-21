@@ -9,12 +9,15 @@
     />
     <hr />
     <Team :title="team.title" :people="team.people" />
-    <hr />
-    <FinancialPartners
+    <p class="has-text-centered has-text-grey mb-6">
+      You came this far? Check our IG 😉
+    </p>
+    <!-- <hr /> -->
+    <!-- <FinancialPartners
       :title="partners.title"
       :organizations="partners.organizations"
       :redirect="partners.redirect"
-    />
+    /> -->
   </div>
 </template>
 
@@ -22,15 +25,15 @@
 import LandingPage from '@/components/LandingPage.vue';
 import Information from '@/components/Information.vue';
 import Team from '@/components/Team.vue';
-import FinancialPartners from '@/components/FinancialPartners.vue';
+// import FinancialPartners from '@/components/FinancialPartners.vue';
 
 export default {
   name: 'AboutUs',
   components: {
     LandingPage,
     Information,
-    Team,
-    FinancialPartners
+    Team
+    // FinancialPartners
   },
   data() {
     return {
@@ -38,13 +41,12 @@ export default {
         text: {
           title: 'Who is PhoGrow?',
           subtitle: `– That's us!`,
-          message:
-            'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.',
+          message: 'A team of 8 young people who share a passionated vision.',
           buttons: [
             {
               message: 'Learn more',
-              href: '#ourVision',
-              messageOnSide: '– Scroll down'
+              href: '#ourVision'
+              // messageOnSide: '– Scroll down'
             }
           ]
         },
@@ -67,19 +69,22 @@ export default {
             image: 'explore.svg',
             title: 'Explore plants interactively in 3D',
             message:
-              'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
+              'Dive into a digital world where you can interact with the vegetation and watch the plants grow.'
           },
           {
             image: 'web_devices.svg',
             title: 'Accessible on every platform',
             message:
-              'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
+              'You can experience the beauty of our plants and mushrooms on every device, from anywhere. ' +
+              'Let it be outside in the forest or on a fieldtrip using your Smartphone. ' +
+              'Or simply on your Tablet and Desktop at home.'
           },
           {
             image: 'launching.svg',
-            title: 'Solutions for different applications',
+            title: 'First database for 3D plant growth',
             message:
-              'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
+              'We provide you with the first database of 3D plant growth, ' +
+              'that allows you to experience a huge variety of different vegetations in real time.'
           }
         ]
       },
@@ -87,108 +92,118 @@ export default {
         title: 'We are...',
         people: [
           {
-            workArea: 'Software maniacs',
+            workArea: 'Software',
             developers: [
               {
                 image: 'tim_scheller.jpg',
                 name: 'Tim Scheller',
                 task: '3D software',
                 message:
-                  'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
+                  'Hi, my name is Tim. I love nature, art, and technology. ' +
+                  'I try to incorporate all these passions at PhoGrow by making sure that our plants get captured ' +
+                  'and reconstructed digitally in 3D.'
               },
               {
                 image: 'nina_utzelmann.jpg',
                 name: 'Nina Utzelmann',
                 task: '3D software',
                 message:
-                  'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
+                  'Hi, my name is Nina. I take care of our plants growing digitally ' +
+                  'and the animations look thoroughly realistic.'
               },
               {
                 image: 'rene_dietz.jpg',
                 name: 'René Dietz',
                 task: 'Web development',
                 message:
-                  'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
+                  'Sup, René here. At PhoGrow, I do everything web-related, ' +
+                  'whether the website, webserver or eventually controlling our growbox.'
               }
             ]
           },
           {
-            workArea: 'Hardware maniacs',
+            workArea: 'Hardware',
             developers: [
               {
                 image: 'philipp_schwarz.jpg',
                 name: 'Philipp Schwarz',
-                task: 'Specialist',
+                task: 'Engine',
                 message:
-                  'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
+                  'Hi, my name is Philipp. I take care of the hardware at PhoGrow. ' +
+                  'From the box design to the finished construction, ' +
+                  'I work with microcomputers, motors, controls, mechanics and structures ' +
+                  'to create an ideal home for our plants.'
               },
               {
                 image: 'michelle_graesle.jpg',
                 name: 'Michelle Gräsle',
-                task: 'Specialist',
+                task: 'Electronics',
                 message:
-                  'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
+                  'Hi, my name is Michelle. Hardware and electronics are part of my responsibility here. ' +
+                  'I am new to the PhoGrow team and support wherever I can.'
               },
               {
                 image: 'matthias_donst.jpg',
                 name: 'Matthias Donst',
-                task: 'Specialist',
+                task: 'Construction',
                 message:
-                  'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
+                  'Hi, my name is Matthias. I love plants, practical work with wood and like to deal with business topics. ' +
+                  'In these areas, I support PhoGrow as best as possible.'
               }
             ]
           },
           {
-            workArea: 'Support maniacs',
+            workArea: 'Web Presence',
             developers: [
               {
                 image: 'nina_scheller.jpg',
                 name: 'Nina Scheller',
                 task: 'Social media',
                 message:
-                  'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
+                  'Hi, my name is Nina. I am the woman behind our social media. ' +
+                  'Taking pictures, editing and preparing new posts is my area of responsibility.'
               }
             ]
           }
         ]
-      },
-      partners: {
-        title: 'Our financial partners',
-        organizations: [
-          {
-            logo: 'th_koeln.svg',
-            alt: 'Technische Hochschule Köln',
-            link: 'https://www.th-koeln.de'
-          },
-          {
-            logo: 'startUpLab.jpg',
-            alt: 'StartUpLab@TH Köln',
-            link: 'https://www.th-koeln.de/forschung/startuplabth-koeln_76381.php'
-          },
-          {
-            logo: 'bmbf.svg',
-            alt: 'Bundesministerium für Bildung und Forschung',
-            link: 'https://www.bmbf.de/'
-          },
-          {
-            logo: 'cgl.svg',
-            alt: 'Cologne Game Lab',
-            link: 'https://colognegamelab.de'
-          }
-        ],
-        redirect: [
-          {
-            text: `Let's look into our`,
-            hashtag: '#future',
-            to: 'Roadmap'
-          },
-          {
-            text: 'Become part of the',
-            hashtag: '#plontgang',
-            to: 'Contact'
-          }
-        ]
       }
+      // partners: {
+      //   title: 'Our financial partners',
+      //   organizations: [
+      //     {
+      //       logo: 'th_koeln.svg',
+      //       alt: 'Technische Hochschule Köln',
+      //       link: 'https://www.th-koeln.de'
+      //     },
+      //     {
+      //       logo: 'startUpLab.jpg',
+      //       alt: 'StartUpLab@TH Köln',
+      //       link: 'https://www.th-koeln.de/forschung/startuplabth-koeln_76381.php'
+      //     },
+      //     {
+      //       logo: 'bmbf.svg',
+      //       alt: 'Bundesministerium für Bildung und Forschung',
+      //       link: 'https://www.bmbf.de/'
+      //     },
+      //     {
+      //       logo: 'cgl.svg',
+      //       alt: 'Cologne Game Lab',
+      //       link: 'https://colognegamelab.de'
+      //     }
+      //   ],
+      //   redirect: [
+      //     {
+      //       text: `Let's look into our`,
+      //       hashtag: '#future',
+      //       to: 'Roadmap'
+      //     },
+      //     {
+      //       text: 'Become part of the',
+      //       hashtag: '#plontgang',
+      //       to: 'Contact'
+      //     }
+      //   ]
+      // }
     };
   }
 };

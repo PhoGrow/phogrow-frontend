@@ -14,8 +14,22 @@
           class="columns is-vcentered is-gapless has-background-white p-5 br-2"
         >
           <div class="column is-4-tablet is-9-mobile">
-            <figure v-if="image" class="image has-background-light p-5 br-2">
-              <img :src="require('@/assets/illustrations/' + image)" />
+            <figure
+              v-if="image"
+              :class="[
+                { 'has-background-light p-5 br-2': image.includes('.svg') },
+                'image'
+              ]"
+            >
+              <img
+                :src="
+                  require('@/assets/' +
+                    (image.includes('.svg')
+                      ? 'illustrations/' + image
+                      : 'team/' + image))
+                "
+                :class="{ 'br-2': image.includes('.jpg') }"
+              />
             </figure>
             <Observer
               v-if="animation"

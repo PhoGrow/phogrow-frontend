@@ -19,10 +19,10 @@ export default {
     return {
       landingPage: {
         text: {
-          title: 'What is your contact?',
+          title: 'Bump into PhoGrow?',
           subtitle: `– We've got you covered!`,
           message:
-            'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.',
+            'Questions or suggestions – Reach out to us. We look forward to your inquiry.',
           buttons: [
             {
               message: 'Send mail',

@@ -13,6 +13,7 @@
           'columns is-vcentered is-gapless is-flex-direction-row-reverse',
           { 'has-background-white p-6 br-2': images }
         ]"
+        style="width: 100%"
       >
         <div class="column is-5-tablet">
           <LandingPageImage :images="images" />
