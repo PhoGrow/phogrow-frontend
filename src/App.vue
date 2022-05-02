@@ -57,7 +57,7 @@ export default {
   },
   created() {
     const timerId = countdown(
-      new Date(2022, 4, 2),
+      new Date(2022, 4, 16),
       ({ days }) => {
         this.countdown = days;
         if (new Date().getDay() == new Date(2022, 4, 2).getDay()) {
