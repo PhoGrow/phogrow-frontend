@@ -40,15 +40,15 @@
 </template>
 
 <script>
-// import Navbar from '@/components/Navbar.vue';
-// import Footer from '@/components/Footer.vue';
+import Navbar from '@/components/Navbar.vue';
+import Footer from '@/components/Footer.vue';
 import countdown from 'countdown';
 
 export default {
   name: 'App',
   components: {
-    // Navbar,
-    // Footer
+    Navbar,
+    Footer
   },
   data() {
     return {
