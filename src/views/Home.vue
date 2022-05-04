@@ -41,7 +41,7 @@ export default {
           buttons: [
             {
               message: 'Learn more',
-              href: '#whatWeDo',
+              href: '#whatWeDo'
               // messageOnSide: '– Scroll down'
             }
           ]
@@ -61,7 +61,7 @@ export default {
                 'This growth process is captured by cameras from different perspectives.'
             },
             {
-              animation: 'reduced_tex.glb',
+              animation: 'austernSeitling_reduced.glb',
               title: 'Our Results',
               message:
                 'We create photorealistic animations of real plants and mushrooms, just like the one on your left. ' +
@@ -71,13 +71,12 @@ export default {
               image: 'animating.svg',
               title: 'Applications',
               message:
-                'Now you can use the animations in different application areas. ' +
-                'Such as making the change of vegetation in video games and movies, a tangible experience. ' +
-                'Or simply place our plants on your own website. ' +
-                'And of course, your very own ideas where you want to make nature more real.'
+                'Now you can use the animations in your applications. ' +
+                'Place our plants on your website, movies and video games. ' +
+                'Or, of course, in your very own use cases where you want to make nature more real.'
             }
           ]
-        },
+        }
         // {
         //   title: 'What you can do',
         //   note: '',

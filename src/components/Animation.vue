@@ -71,6 +71,8 @@ export default {
         // Add animation to scene
         this.loadedAnimation = true;
         const transScene = this.transform(gltf.scene);
+        transScene.scale.set(1.5, 1.5, 1.5);
+        transScene.rotateY(180);
         this.scene.add(transScene);
 
         // Get all meshes
@@ -131,7 +133,7 @@ export default {
       this.$el.appendChild(this.renderer.domElement);
 
       // Setup lights
-      this.lightSet = new AmbientLight(0xffffff, 1);
+      this.lightSet = new AmbientLight(0xffffff, 1.5);
       this.scene.add(this.lightSet);
     },
     // Position the scene such that everything fits into the camera-view
@@ -140,8 +142,8 @@ export default {
       const size = boundingBox.getSize(new Vector3()).length();
       const center = boundingBox.getCenter(new Vector3());
 
-      scene.position.x += scene.position.x - center.x;
-      scene.position.y += scene.position.y - center.y;
+      scene.position.x += scene.position.x - center.x + 0.15;
+      scene.position.y += scene.position.y - center.y - 0.15;
       scene.position.z += scene.position.z - center.z;
       this.orbitCtrl.maxDistance = size * 10;
       this.camera.near = size / 100;
@@ -149,7 +151,7 @@ export default {
 
       this.camera.position.copy(center);
       this.camera.position.x += size / 2.0;
-      this.camera.position.y += size / 5.0;
+      this.camera.position.y += size / 10.0;
       this.camera.position.z += size / 2.0;
       this.camera.lookAt(center);
       this.camera.updateMatrix();

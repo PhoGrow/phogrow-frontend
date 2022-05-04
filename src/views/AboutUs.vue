@@ -69,7 +69,8 @@ export default {
             image: 'explore.svg',
             title: 'Explore plants interactively in 3D',
             message:
-              'Dive into a digital world where you can interact with the vegetation and watch the plants grow.'
+              'Dive into a digital world where you can interact with the vegetation and watch the plants grow. ' +
+              'Experience the plants from every perspective at every stage of growth.'
           },
           {
             image: 'web_devices.svg',
@@ -108,7 +109,7 @@ export default {
                 name: 'Nina Utzelmann',
                 task: '3D software',
                 message:
-                  'Hi, my name is Nina. I take care of our plants growing digitally ' +
+                  `Hello frens, I'm Nina. I take care of our plants growing digitally ` +
                   'and the animations look thoroughly realistic.'
               },
               {
@@ -129,7 +130,7 @@ export default {
                 name: 'Philipp Schwarz',
                 task: 'Engine',
                 message:
-                  'Hi, my name is Philipp. I take care of the hardware at PhoGrow. ' +
+                  'Hey guys, my name is Philipp. I take care of the hardware at PhoGrow. ' +
                   'From the box design to the finished construction, ' +
                   'I work with microcomputers, motors, controls, mechanics and structures ' +
                   'to create an ideal home for our plants.'
@@ -139,7 +140,7 @@ export default {
                 name: 'Michelle Gräsle',
                 task: 'Electronics',
                 message:
-                  'Hi, my name is Michelle. Hardware and electronics are part of my responsibility here. ' +
+                  `Hi, I'm Michelle. Hardware and electronics are part of my responsibility here. ` +
                   'I am new to the PhoGrow team and support wherever I can.'
               },
               {
@@ -160,7 +161,7 @@ export default {
                 name: 'Nina Scheller',
                 task: 'Social media',
                 message:
-                  'Hi, my name is Nina. I am the woman behind our social media. ' +
+                  `Hello, it's me, Nina. I am the woman behind our social media. ` +
                   'Taking pictures, editing and preparing new posts is my area of responsibility.'
               }
             ]
