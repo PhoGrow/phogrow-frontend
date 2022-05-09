@@ -16,7 +16,7 @@
           Tim Scheller<br />
         </p>
         <br />
-        <p>
+        <p class="has-text-grey-dark">
           <strong>Kontakt</strong> <br />
           Telefon: +4922158903235<br />
           E-Mail:
