@@ -13,11 +13,11 @@
     </LandingPage>
     <hr />
     <SlotWithTitle :title="information.title">
-      <Information :info="information.info" />
+      <InformationItem :info="information.info" />
     </SlotWithTitle>
     <hr />
     <SlotWithTitle :title="team.title">
-      <Team :people="team.people" />
+      <TeamItem :people="team.people" />
     </SlotWithTitle>
   </div>
 </template>
@@ -28,8 +28,8 @@ import LandingPage from '@/components/LandingPage.vue';
 import LandingPageText from '@/components/LandingPageText.vue';
 import LandingPageImage from '@/components/LandingPageImage.vue';
 import SlotWithTitle from '@/components/SlotWithTitle.vue';
-import Information from '@/components/Information.vue';
-import Team from '@/components/Team.vue';
+import InformationItem from '@/components/InformationItem.vue';
+import TeamItem from '@/components/TeamItem.vue';
 
 export default Vue.extend({
   name: 'AboutUs',
@@ -38,8 +38,8 @@ export default Vue.extend({
     LandingPageText,
     LandingPageImage,
     SlotWithTitle,
-    Information,
-    Team,
+    InformationItem,
+    TeamItem,
   },
   data() {
     return {

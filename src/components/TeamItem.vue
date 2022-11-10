@@ -77,7 +77,7 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: 'Team',
+  name: 'TeamItem',
   props: {
     people: Array,
   },

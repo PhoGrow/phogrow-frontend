@@ -1,22 +1,22 @@
 <template>
   <div id="app">
-    <Navbar />
+    <NavBar />
     <router-view />
-    <Footer />
+    <FooterItem />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import Navbar from '@/components/Navbar.vue';
-import Footer from '@/components/Footer.vue';
+import NavBar from '@/components/NavBar.vue';
+import FooterItem from '@/components/FooterItem.vue';
 
 export default Vue.extend({
   name: 'App',
   components: {
-    Navbar,
-    Footer
-  }
+    NavBar,
+    FooterItem,
+  },
 });
 </script>
 

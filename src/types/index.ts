@@ -1,5 +1,3 @@
-
-
 export interface Plant {
   _id: string;
   data: PlantData;

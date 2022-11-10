@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
+import HomeView from '../views/HomeView.vue';
 
 Vue.use(VueRouter);
 
@@ -13,8 +13,8 @@ const router = new VueRouter({
   routes: [
     {
       path: '/',
-      name: 'Home',
-      component: Home,
+      name: 'HomeView',
+      component: HomeView,
     },
     {
       path: '/aboutus',
@@ -23,13 +23,13 @@ const router = new VueRouter({
     },
     {
       path: '/roadmap',
-      name: 'Roadmap',
-      component: () => import('../views/Roadmap.vue'),
+      name: 'RoadMap',
+      component: () => import('../views/RoadMap.vue'),
     },
     {
       path: '/contact',
-      name: 'Contact',
-      component: () => import('../views/Contact.vue'),
+      name: 'ContactView',
+      component: () => import('../views/ContactView.vue'),
     },
     {
       path: '/:catchAll(.*)',

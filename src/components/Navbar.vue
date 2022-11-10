@@ -34,7 +34,7 @@ import Vue from 'vue';
 import type { Route } from 'vue-router';
 
 export default Vue.extend({
-  name: 'Navbar',
+  name: 'NavBar',
   data() {
     return {
       items: [

@@ -10,7 +10,7 @@
     </LandingPage>
     <hr />
     <SlotWithTitle :title="milestones.title">
-      <Milestones :steps="milestones.steps" />
+      <MileStones :steps="milestones.steps" />
     </SlotWithTitle>
     <!-- <hr /> -->
   </div>
@@ -21,17 +21,17 @@ import Vue from 'vue';
 import LandingPage from '@/components/LandingPage.vue';
 import LandingPageText from '@/components/LandingPageText.vue';
 import LandingPageImage from '@/components/LandingPageImage.vue';
-import Milestones from '@/components/Milestones.vue';
 import SlotWithTitle from '@/components/SlotWithTitle.vue';
+import MileStones from '@/components/MileStones.vue';
 
 export default Vue.extend({
-  name: 'Roadmap',
+  name: 'RoadMap',
   components: {
     LandingPage,
     LandingPageText,
     LandingPageImage,
     SlotWithTitle,
-    Milestones,
+    MileStones,
   },
   data() {
     return {

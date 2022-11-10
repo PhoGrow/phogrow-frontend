@@ -6,7 +6,7 @@
       </template>
     </LandingPage>
     <SlotWithTitle :title="imprint.title">
-      <Imprint />
+      <ImprintItem />
     </SlotWithTitle>
   </div>
 </template>
@@ -16,15 +16,15 @@ import Vue from 'vue';
 import LandingPage from '@/components/LandingPage.vue';
 import LandingPageText from '@/components/LandingPageText.vue';
 import SlotWithTitle from '@/components/SlotWithTitle.vue';
-import Imprint from '@/components/Imprint.vue';
+import ImprintItem from '@/components/ImprintItem.vue';
 
 export default Vue.extend({
-  name: 'Contact',
+  name: 'ContactView',
   components: {
     LandingPage,
     LandingPageText,
     SlotWithTitle,
-    Imprint,
+    ImprintItem,
   },
   data() {
     return {

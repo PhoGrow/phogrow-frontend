@@ -14,7 +14,7 @@
     <hr />
     <div v-for="{ title, info } of information" :key="title">
       <SlotWithTitle :title="title">
-        <Information :info="info" />
+        <InformationItem :info="info" />
       </SlotWithTitle>
       <hr />
     </div>
@@ -37,18 +37,18 @@ import LandingPage from '@/components/LandingPage.vue';
 import LandingPageText from '@/components/LandingPageText.vue';
 import LandingPageImage from '@/components/LandingPageImage.vue';
 import SlotWithTitle from '@/components/SlotWithTitle.vue';
-import Information from '@/components/Information.vue';
+import InformationItem from '@/components/InformationItem.vue';
 import FinancialPartners from '@/components/FinancialPartners.vue';
 import FurtherLinks from '@/components/FurtherLinks.vue';
 
 export default Vue.extend({
-  name: 'Home',
+  name: 'HomeView',
   components: {
     LandingPage,
     LandingPageText,
     LandingPageImage,
     SlotWithTitle,
-    Information,
+    InformationItem,
     FinancialPartners,
     FurtherLinks,
   },

@@ -5,7 +5,7 @@
         class="columns is-centered is-vcentered is-variable is-6 is-multiline has-background-white br-2 p-5 m-0"
       >
         <div
-          v-for="({ title, linkTo }, i) of links"
+          v-for="{ title, linkTo } of links"
           :key="title"
           class="column is-6-tablet py-5"
         >

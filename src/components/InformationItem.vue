@@ -20,12 +20,12 @@
               }"
               :custom-class="image.includes('.jpg') ? 'br-2' : ''"
             ></b-image>
-            <Observer
+            <ObserverItem
               v-if="animation"
               @is-visible="(option) => $set(isVisible, i, option)"
             >
-              <Animation v-if="isVisible[i]" :animation="animation" />
-            </Observer>
+              <AnimationItem v-if="isVisible[i]" :animation="animation" />
+            </ObserverItem>
           </div>
           <div class="column is-narrow m-5"></div>
           <div class="column">
@@ -55,14 +55,14 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import Observer from '@/components/Observer.vue';
-import Animation from '@/components/Animation.vue';
+import ObserverItem from '@/components/ObserverItem.vue';
+import AnimationItem from '@/components/AnimationItem.vue';
 
 export default Vue.extend({
-  name: 'Information',
+  name: 'InformationItem',
   components: {
-    Observer,
-    Animation,
+    ObserverItem,
+    AnimationItem,
   },
   props: {
     info: Array,

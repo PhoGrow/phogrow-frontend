@@ -43,7 +43,7 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: 'Milestones',
+  name: 'MileStones',
   props: {
     steps: Array,
   },
