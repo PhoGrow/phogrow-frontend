@@ -1,25 +1,28 @@
 <template>
-  <div class="is-relative is-flex is-align-items-end is-justify-content-end">
+  <div
+    class="is-relative is-flex is-align-items-end is-justify-content-end has-background-light br-2"
+  >
     <b-loading
       :active="!loadedAnimation"
       :is-full-page="false"
       class="br-2"
     ></b-loading>
     <button
-      @click="toggleFullscreen"
       v-if="hasFullscreenSupport && loadedAnimation"
-      class="button is-rounded has-background-bright-green is-absolute p-4 mb-4 mr-4"
+      class="button is-rounded has-background-bright-green is-absolute p-2 mb-4 mr-4"
+      @click="toggleFullscreen"
     >
-      <span class="icon">
-        <i class="material-icons-round">{{
-          isFullscreen ? 'fullscreen_exit' : 'fullscreen'
-        }}</i>
-      </span>
+      <b-image
+        :src="
+          '/icons/' + (isFullscreen ? 'fullscreen_exit' : 'fullscreen') + '.svg'
+        "
+      ></b-image>
     </button>
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import screenfull from 'screenfull';
 import {
   Scene,
@@ -28,15 +31,20 @@ import {
   AmbientLight,
   Box3,
   Vector3,
-  Mesh
+  Mesh,
+  Group,
 } from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import IconItem from '@/components/IconItem.vue';
 
-export default {
-  name: 'Animation',
+export default Vue.extend({
+  name: 'AnimationItem',
+  components: {
+    IconItem,
+  },
   props: {
-    animation: String
+    animation: String,
   },
   data() {
     return {
@@ -44,39 +52,52 @@ export default {
       loadedAnimation: false,
       hasFullscreenSupport: screenfull.isEnabled,
       isFullscreen: false,
-      resizeObserver: new ResizeObserver(this.onWindowResize)
-    };
-  },
-  static() {
-    return {
-      scene: new Scene(),
-      camera: {},
-      renderer: new WebGLRenderer({ alpha: true }),
-      loader: new GLTFLoader(),
-      orbitCtrl: {},
-      lightSet: {},
-      meshes: [],
+      // animation
       prevTime: 0,
       appTimeSeconds: 0,
       blendTime: 2.0,
-      totalBlendTime: 0
+      totalBlendTime: 0,
+    } as {
+      loadingProgress: number;
+      loadedAnimation: boolean;
+      hasFullscreenSupport: boolean;
+      isFullscreen: boolean;
+      resizeObserver: ResizeObserver;
+      scene: Scene;
+      camera: PerspectiveCamera;
+      renderer: WebGLRenderer;
+      loader: GLTFLoader;
+      orbitCtrl: OrbitControls;
+      lightSet: AmbientLight;
+      meshes: Mesh[];
+      prevTime: number;
+      appTimeSeconds: number;
+      blendTime: number;
+      totalBlendTime: number;
     };
   },
+  created() {
+    this.meshes = [] as Mesh[];
+  },
   mounted() {
+    this.resizeObserver = new ResizeObserver(this.onWindowResize);
+    this.scene = new Scene();
+    this.renderer = new WebGLRenderer({ alpha: true });
+    this.loader = new GLTFLoader();
+
     this.init();
 
     this.loader.load(
-      '/animations/' + this.animation,
+      `/animations/${this.animation}`,
       (gltf) => {
         // Add animation to scene
-        this.loadedAnimation = true;
         const transScene = this.transform(gltf.scene);
         transScene.scale.set(1.5, 1.5, 1.5);
         transScene.rotateY(180);
         this.scene.add(transScene);
 
         // Get all meshes
-        const listObjs = {};
+        const listObjs: any = {};
         transScene.traverse((obj) => {
           if (obj instanceof Mesh) {
             listObjs[obj.name] = obj;
@@ -102,24 +123,28 @@ export default {
         // Store the overall blending time
         this.totalBlendTime = this.blendTime * this.meshes.length;
 
-        this.$el.children[this.$el.children.length - 1].classList.add('br-2');
+        this.$el.children[this.$el.children.length - 1].classList.add(
+          'has-background-light',
+          'br-2'
+        );
+        this.loadedAnimation = true;
+
+        this.animate(0);
       },
       (xhr) => {
         this.loadingProgress = Math.round((xhr.loaded / xhr.total) * 100);
       },
       (err) => {
-        console.log('[ERROR] Animation', err);
+        console.log(err);
         return;
       }
     );
-
-    this.animate();
   },
   beforeDestroy() {
-    this.resizeObserver.unobserve(this.$el);
+    this.resizeObserver.disconnect();
   },
   methods: {
-    init() {
+    init(): void {
       this.camera = new PerspectiveCamera(
         75,
         this.$el.clientWidth / this.$el.clientHeight,
@@ -137,7 +162,7 @@ export default {
       this.scene.add(this.lightSet);
     },
     // Position the scene such that everything fits into the camera-view
-    transform(scene) {
+    transform(scene: Group): Group {
       const boundingBox = new Box3().setFromObject(scene);
       const size = boundingBox.getSize(new Vector3()).length();
       const center = boundingBox.getCenter(new Vector3());
@@ -159,7 +184,7 @@ export default {
 
       return scene;
     },
-    animate(time) {
+    animate(time: number): void {
       requestAnimationFrame(this.animate);
 
       // Start once the animation is loaded
@@ -199,20 +224,22 @@ export default {
       //   });
       // }
     },
-    toggleFullscreen() {
+    toggleFullscreen(): void {
       screenfull.toggle(this.$el);
     },
-    onWindowResize(entries) {
-      this.$el.style.height = entries[0].contentRect.width + 'px';
+    onWindowResize(entries: ResizeObserverEntry[]): void {
+      (
+        this.$el as HTMLElement
+      ).style.height = `${entries[0].contentRect.width}px`;
       this.isFullscreen = screenfull.isFullscreen;
       this.$nextTick(() => {
         this.camera.aspect = this.$el.clientWidth / this.$el.clientHeight;
         this.camera.updateProjectionMatrix();
         this.renderer.setSize(this.$el.clientWidth, this.$el.clientHeight);
       });
-    }
-  }
-};
+    },
+  },
+});
 </script>
 
 <style scoped></style>

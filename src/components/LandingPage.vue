@@ -1,48 +1,41 @@
 <template>
   <section
     :class="[
-      bgImage
-        ? 'is-fullheight-with-navbar bg-image br-2 mt-2'
+      'hero',
+      hasBgImage
+        ? 'is-fullheight-with-navbar bg-image br-2 mt-2 mb-6'
         : 'is-halfheight',
-      'hero'
     ]"
   >
     <div class="hero-body px-0">
       <div
         :class="[
           'columns is-vcentered is-gapless is-flex-direction-row-reverse',
-          { 'has-background-white p-6 br-2': images }
+          { 'has-background-white p-6 br-2': !hasBgImage },
         ]"
         style="width: 100%"
       >
         <div class="column is-5-tablet">
-          <LandingPageImage :images="images" />
+          <slot name="image"></slot>
         </div>
-        <div v-if="images" class="column is-narrow m-5"></div>
+        <div v-if="!hasBgImage" class="column is-narrow m-5"></div>
         <div class="column">
-          <LandingPageText :text="text" />
+          <slot name="text"></slot>
         </div>
       </div>
     </div>
   </section>
 </template>
 
-<script>
-import LandingPageText from '@/components/LandingPageText.vue';
-import LandingPageImage from '@/components/LandingPageImage.vue';
+<script lang="ts">
+import Vue from 'vue';
 
-export default {
+export default Vue.extend({
   name: 'LandingPage',
-  components: {
-    LandingPageText,
-    LandingPageImage
-  },
   props: {
-    text: Object,
-    images: Array,
-    bgImage: Boolean
-  }
-};
+    hasBgImage: Boolean,
+  },
+});
 </script>
 
 <style scoped>
@@ -51,7 +44,7 @@ export default {
       rgba(255, 255, 255, 0.75),
       rgba(255, 255, 255, 0.75)
     ),
-    url('../assets/team/team.jpg') no-repeat center center;
+    url('/team/team.jpg') no-repeat center center;
   background-size: cover;
 }
 </style>

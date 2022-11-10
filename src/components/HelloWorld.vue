@@ -2,10 +2,12 @@
   <div></div>
 </template>
 
-<script>
-export default {
-  name: 'HelloWorld'
-};
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
+  name: 'HelloWorld',
+});
 </script>
 
 <style scoped></style>

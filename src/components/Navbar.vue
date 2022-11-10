@@ -1,13 +1,13 @@
 <template>
   <div class="container is-sticky py-4 px-4" style="top: 0; z-index: 1">
-    <b-navbar class="is-rounded" shadow>
+    <b-navbar class="is-rounded" style="border: 0.5rem solid white" shadow>
       <template #brand>
         <b-navbar-item
           tag="router-link"
-          :to="{ path: '/' }"
+          to="/"
           class="has-background-bright-green is-rounded px-5"
         >
-          <img :src="require('@/assets/logo_black.svg')" />
+          <img src="/logos/logo_black.svg" />
           <h1 class="amaranth is-size-4 ml-3 mr-5">PhoGrow</h1>
         </b-navbar-item>
       </template>
@@ -16,9 +16,9 @@
           v-for="{ path, active, name } of items"
           :key="path"
           tag="router-link"
-          :to="{ path }"
+          :to="path"
           :active="active"
-          :class="[{ 'has-text-weight-semibold': active }, 'has-text-right']"
+          :class="['has-text-right', { 'has-text-weight-semibold': active }]"
           @click.native="setActive(path)"
         >
           {{ name }}
@@ -29,8 +29,11 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+import type { Route } from 'vue-router';
+
+export default Vue.extend({
   name: 'Navbar',
   data() {
     return {
@@ -38,12 +41,12 @@ export default {
         {
           path: '/',
           active: true,
-          name: 'Home'
+          name: 'Home',
         },
         {
           path: '/aboutus',
           active: false,
-          name: 'About Us'
+          name: 'About Us',
         },
         // {
         //   path: '/roadmap',
@@ -53,35 +56,35 @@ export default {
         {
           path: '/contact',
           active: false,
-          name: 'Contact'
-        }
-      ]
+          name: 'Contact',
+        },
+      ],
     };
   },
   watch: {
-    $route(to) {
+    $route(to: Route): void {
       this.setActive(to.path);
-    }
+    },
   },
   methods: {
-    setActive(path) {
+    setActive(path: string): void {
       for (const [i, item] of this.items.entries()) {
-        this.items[i].active = item.path == path ? true : false;
+        this.items[i].active = item.path === path ? true : false;
       }
-      document.activeElement.blur();
-    }
-  }
-};
+      (document.activeElement as HTMLElement).blur();
+    },
+  },
+});
 </script>
 
 <style scoped>
->>> .navbar-brand {
+::v-deep .navbar-brand {
   background-color: white;
   border-radius: 9999px;
   margin-left: 0 !important;
 }
 
->>> .navbar-menu.is-active {
+::v-deep .navbar-menu.is-active {
   position: absolute;
   width: 100%;
   z-index: -1;

@@ -1,19 +1,30 @@
 <template>
   <div class="container">
-    <LandingPage :text="landingPage.text" :bgImage="landingPage.bgImage" />
-    <Imprint :title="imprint.title" :text="imprint.text" />
+    <LandingPage :hasBgImage="landingPage.hasBgImage">
+      <template #text>
+        <LandingPageText :text="landingPage.text" :linkage="imprint.title" />
+      </template>
+    </LandingPage>
+    <SlotWithTitle :title="imprint.title">
+      <Imprint />
+    </SlotWithTitle>
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import LandingPage from '@/components/LandingPage.vue';
+import LandingPageText from '@/components/LandingPageText.vue';
+import SlotWithTitle from '@/components/SlotWithTitle.vue';
 import Imprint from '@/components/Imprint.vue';
 
-export default {
+export default Vue.extend({
   name: 'Contact',
   components: {
     LandingPage,
-    Imprint
+    LandingPageText,
+    SlotWithTitle,
+    Imprint,
   },
   data() {
     return {
@@ -26,26 +37,25 @@ export default {
           buttons: [
             {
               message: 'Send mail',
-              href: 'mailto:phogrow@gmail.com'
+              href: 'mailto:phogrow@gmail.com',
             },
             {
               message: 'Follow us',
-              href: 'https://instagram.com/phogrow3d'
+              href: 'https://instagram.com/phogrow3d',
             },
             {
               message: 'See imprint',
-              href: '#imprint'
-            }
-          ]
+            },
+          ],
         },
-        bgImage: true
+        hasBgImage: true,
       },
       imprint: {
-        title: 'Imprint'
-      }
+        title: 'Imprint',
+      },
     };
-  }
-};
+  },
+});
 </script>
 
 <style scoped></style>

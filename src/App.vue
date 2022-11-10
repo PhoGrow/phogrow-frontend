@@ -6,27 +6,28 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import Navbar from '@/components/Navbar.vue';
 import Footer from '@/components/Footer.vue';
 
-export default {
+export default Vue.extend({
   name: 'App',
   components: {
     Navbar,
     Footer
   }
-};
+});
 </script>
 
 <style>
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 4rem;
+  scroll-padding-top: 4.75rem;
 }
 
 .hero.is-fullheight-with-navbar {
-  min-height: calc(100vh - 7.25rem) !important;
+  min-height: calc(100vh - 8.25rem) !important;
 }
 
 .dashed-border {
@@ -41,10 +42,6 @@ html {
   font-family: 'Amaranth', sans-serif !important;
 }
 
-.transition-bg {
-  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 .br-2 {
   border-radius: 2rem !important;
 }
@@ -52,10 +49,6 @@ html {
 .bdb-clone {
   line-height: 1.5;
   box-decoration-break: clone;
-}
-
-.mb-6n {
-  margin-bottom: -3rem !important;
 }
 
 .is-rounded {

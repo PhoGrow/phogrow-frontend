@@ -1,5 +1,9 @@
 // Import Bulma's core
-@import '~bulma/sass/utilities/_all';
+@import 'bulma/sass/utilities/_all.sass';
+@font-face {
+  font-family: 'Amaranth';
+  src: url('/fonts/Amaranth-Regular.ttf') format('truetype');
+}
 
 // Set your colors
 $bright-green: #e1fead;
@@ -9,7 +13,7 @@ $dark-green: #043f45;
 $body-background-color: $light;
 
 // Link
-$link: $bright-green;
+// $link: $bright-green;
 $link-hover: $dark-green;
 
 // Navbar
@@ -20,12 +24,15 @@ $hr-background-color: $grey-lighter;
 
 // Footer
 $footer-background-color: $dark;
-$footer-padding: 3rem 1.5rem;
+$footer-padding: 3rem 3rem;
+
+// Button
+$button-focus-box-shadow-color: none;
 
 // Timeline
 $timeline-icon-size: $size-4;
 
 // Import Bulma, timeline extension and Buefy styles
-@import '~bulma';
-@import '~buefy/src/scss/buefy';
-@import '~bulma-timeline';
+@import 'bulma/bulma.sass';
+@import 'buefy/src/scss/buefy.scss';
+@import 'bulma-timeline/dist/css/bulma-timeline.sass';

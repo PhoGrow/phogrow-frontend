@@ -1,34 +1,56 @@
 <template>
   <div class="container">
-    <LandingPage :text="landingPage.text" :images="landingPage.images" />
+    <LandingPage>
+      <template #text>
+        <LandingPageText
+          :text="landingPage.text"
+          :linkage="information[0].title"
+        />
+      </template>
+      <template #image>
+        <LandingPageImage :images="landingPage.images" />
+      </template>
+    </LandingPage>
     <hr />
-    <div v-for="{ title, note, info } of information" :key="title">
-      <Information :title="title" :note="note" :info="info" />
+    <div v-for="{ title, info } of information" :key="title">
+      <SlotWithTitle :title="title">
+        <Information :info="info" />
+      </SlotWithTitle>
       <hr />
     </div>
-    <FinancialPartners
-      :title="partners.title"
-      :organizations="partners.organizations"
-      :redirect="partners.redirect"
-    />
+    <SlotWithTitle :title="partners.title">
+      <FinancialPartners
+        :organizations="partners.organizations"
+        :redirect="partners.redirect"
+      />
+    </SlotWithTitle>
     <hr />
-    <FurtherLinks :title="furtherLinks.title" :links="furtherLinks.links" />
+    <SlotWithTitle :title="furtherLinks.title">
+      <FurtherLinks :links="furtherLinks.links" />
+    </SlotWithTitle>
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import LandingPage from '@/components/LandingPage.vue';
+import LandingPageText from '@/components/LandingPageText.vue';
+import LandingPageImage from '@/components/LandingPageImage.vue';
+import SlotWithTitle from '@/components/SlotWithTitle.vue';
 import Information from '@/components/Information.vue';
 import FinancialPartners from '@/components/FinancialPartners.vue';
 import FurtherLinks from '@/components/FurtherLinks.vue';
 
-export default {
+export default Vue.extend({
   name: 'Home',
   components: {
     LandingPage,
+    LandingPageText,
+    LandingPageImage,
+    SlotWithTitle,
     Information,
     FinancialPartners,
-    FurtherLinks
+    FurtherLinks,
   },
   data() {
     return {
@@ -38,45 +60,38 @@ export default {
           subtitle: 'Experience plant growth in 3D.',
           message:
             'We create digital growing plants for your own creative use case.',
-          buttons: [
-            {
-              message: 'Learn more',
-              href: '#whatWeDo'
-              // messageOnSide: '– Scroll down'
-            }
-          ]
+          buttons: [{ message: 'Learn more' }],
         },
-        images: ['flowers.svg']
+        images: ['flowers.svg'],
       },
       information: [
         {
           title: 'What we do',
-          note: '',
           info: [
             {
               image: 'team.jpg',
               title: 'Capture plants',
               message:
                 'In our PhoGrow-Box, real plants grow autonomously under variable conditions. ' +
-                'This growth process is captured by cameras from different perspectives.'
+                'This growth process is captured by cameras from different perspectives.',
             },
             {
               animation: 'austernSeitling_reduced.glb',
               title: 'Our Results',
               message:
                 'We create photorealistic animations of real plants and mushrooms, just like the one on your left. ' +
-                'You can look at it from different perspectives by clicking and dragging.'
+                'You can look at it from different perspectives by clicking and dragging.',
             },
             {
               image: 'animating.svg',
               title: 'Applications',
               message:
-                'Now you can use the animations in your applications. ' +
-                'Place our plants on your website, movies and video games. ' +
-                'Or, of course, in your very own use cases where you want to make nature more real.'
-            }
-          ]
-        }
+                'Now you can use the animations in your application. ' +
+                'Place our plants on your website, movies, or video games. ' +
+                'Or, of course, in your very own use case where you want to make nature more real.',
+            },
+          ],
+        },
         // {
         //   title: 'What you can do',
         //   note: '',
@@ -135,48 +150,53 @@ export default {
           {
             logo: 'th_koeln.svg',
             alt: 'Technische Hochschule Köln',
-            link: 'https://www.th-koeln.de'
-          },
-          {
-            logo: 'startUpLab.jpg',
-            alt: 'StartUpLab@TH Köln',
-            link: 'https://www.th-koeln.de/forschung/startuplabth-koeln_76381.php'
-          },
-          {
-            logo: 'bmbf.svg',
-            alt: 'Bundesministerium für Bildung und Forschung',
-            link: 'https://www.bmbf.de/'
+            link: 'https://www.th-koeln.de',
           },
           {
             logo: 'cgl.svg',
             alt: 'Cologne Game Lab',
-            link: 'https://colognegamelab.de'
-          }
+            link: 'https://colognegamelab.de',
+          },
+          {
+            logo: 'startUpLab.jpg',
+            alt: 'StartUpLab@TH Köln',
+            link: 'https://www.th-koeln.de/forschung/startuplabth-koeln_76381.php',
+          },
+          {
+            logo: 'bmbf.svg',
+            alt: 'Bundesministerium für Bildung und Forschung',
+            link: 'https://www.bmbf.de/',
+          },
         ],
         redirect: [
+          // {
+          //   text: `Let's look into our`,
+          //   hashtag: '#future',
+          //   to: 'Roadmap',
+          // },
           {
-            text: 'Become part of the',
-            hashtag: '#plontgang',
-            to: 'Contact'
-          }
-        ]
+            text: 'Become part of our',
+            hashtag: '#plantgang',
+            to: 'Contact',
+          },
+        ],
       },
       furtherLinks: {
         title: 'Who we are',
         links: [
           {
             title: 'Who is PhoGrow?',
-            linkTo: 'About Us'
+            linkTo: 'About Us',
           },
           {
             title: 'Bump into PhoGrow?',
-            linkTo: 'Contact'
-          }
-        ]
-      }
+            linkTo: 'Contact',
+          },
+        ],
+      },
     };
-  }
-};
+  },
+});
 </script>
 
 <style scoped></style>

@@ -10,20 +10,14 @@
             }}</span>
             does not exist.
           </h1>
-          <h2 class="subtitle is-3">
+          <h2 class="subtitle is-3 is-flex is-align-items-baseline">
             Get back to our
-            <a href="/" class="is-inline-block"
-              ><div
-                @mouseover="isHovered = true"
-                @mouseleave="isHovered = false"
-                :class="[
-                  { 'has-background-bright-green': isHovered },
-                  'card is-shadowless transition-bg py-1 px-3 mx-1 mt-2'
-                ]"
-              >
-                <p class="has-text-weight-semibold">Home</p>
-              </div></a
+            <router-link
+              to="/"
+              class="button is-large is-rounded is-white p-4 mx-2"
             >
+              <span class="has-text-weight-semibold">Home</span>
+            </router-link>
             page ♥
           </h2>
         </div>
@@ -32,15 +26,12 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
   name: 'NotFound',
-  data() {
-    return {
-      isHovered: false
-    };
-  }
-};
+});
 </script>
 
 <style scoped></style>

@@ -1,49 +1,48 @@
 <template>
-  <div v-if="images">
-    <figure
-      v-if="images.length == 1"
-      class="image has-background-light p-5 br-2"
-    >
-      <img :src="require('@/assets/illustrations/' + images[0])" />
-    </figure>
+  <div>
+    <b-image
+      v-if="images.length === 1"
+      :src="'/illustrations/' + images[0]"
+      class="has-background-light p-5 br-2"
+    ></b-image>
     <div
       v-if="images.length > 1"
       class="columns is-gapless is-multiline is-mobile has-background-bright-green p-5 br-2"
     >
       <div v-for="(image, i) of images" :key="image" class="column is-3">
-        <figure
-          class="image is-flex is-align-items-center is-justify-content-center"
+        <b-image
+          :src="(image.includes('logo') ? '/logos/' : '/team/') + image"
+          class="is-flex is-align-items-center is-justify-content-center"
           style="height: 100%"
-        >
-          <img
-            :src="
-              require('@/assets/' +
-                (image != 'logo_black.svg' ? 'team/' : '') +
-                image)
-            "
-            :style="image == 'logo_black.svg' ? 'width: 50%' : ''"
-            :class="{
-              'border-top-left-rounded': i == 0,
-              'border-bottom-left-rounded': i == images.length / 2,
-              'border-bottom-right-rounded': i == images.length - 1
-            }"
-          />
-        </figure>
+          :custom-class="
+            i === 0
+              ? 'border-top-left-rounded'
+              : i === images.length / 2
+              ? 'border-bottom-left-rounded'
+              : i === images.length - 1
+              ? 'border-bottom-right-rounded'
+              : image.includes('logo')
+              ? 'is-half-width'
+              : ''
+          "
+        ></b-image>
       </div>
     </div>
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
   name: 'LandingPageImage',
   props: {
-    images: Array
-  }
-};
+    images: Array<string>,
+  },
+});
 </script>
 
-<style scoped>
+<style>
 .border-top-left-rounded {
   border-top-left-radius: 2rem;
 }
@@ -54,5 +53,9 @@ export default {
 
 .border-bottom-right-rounded {
   border-bottom-right-radius: 2rem;
+}
+
+.is-half-width {
+  width: 50% !important;
 }
 </style>

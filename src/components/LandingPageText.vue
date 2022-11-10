@@ -7,34 +7,30 @@
       <a
         v-for="{ message, href } of text.buttons"
         :key="message"
-        :href="href"
+        :href="href ? href : '#' + linkage.replaceAll(' ', '')"
         class="button is-medium is-rounded mr-3 mb-3"
       >
         <span>{{ message }}</span>
-        <figure v-if="href.includes('instagram')" class="image is-32x32 ml-3">
-          <img :src="require('@/assets/instagram.png')" />
-        </figure>
+        <b-image
+          v-if="href && href.includes('instagram')"
+          src="/logos/instagram.png"
+          class="is-32x32 ml-3"
+        ></b-image>
       </a>
-      <p v-if="messageOnSide" class="has-text-grey mb-3">
-        {{ messageOnSide }}
-      </p>
     </div>
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
   name: 'LandingPageText',
   props: {
-    text: Object
+    text: Object,
+    linkage: String,
   },
-  data() {
-    return {
-      messageOnSide:
-        this.text.buttons[this.text.buttons.length - 1].messageOnSide
-    };
-  }
-};
+});
 </script>
 
 <style scoped></style>
