@@ -87,7 +87,7 @@ export default Vue.extend({
               title: 'Applications',
               message:
                 'Now you can use the animations in your application. ' +
-                'Place our plants on your website, movies, or video games. ' +
+                'Place our plants inside your website, movie, or video game. ' +
                 'Or, of course, in your very own use case where you want to make nature more real.',
             },
           ],

@@ -36,13 +36,9 @@ import {
 } from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import IconItem from '@/components/IconItem.vue';
 
 export default Vue.extend({
   name: 'AnimationItem',
-  components: {
-    IconItem,
-  },
   props: {
     animation: String,
   },

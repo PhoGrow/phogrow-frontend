@@ -76,7 +76,7 @@ export default Vue.extend({
             title: 'Accessible on every platform',
             message:
               'You can experience the beauty of our plants and mushrooms on every device, from anywhere. ' +
-              'Let it be outside in the forest on a fieldtrip using your smartphone ' +
+              'Let it be outside in the forest, on a fieldtrip using your smartphone, ' +
               'or simply on your tablet and desktop at home.',
           },
           {
