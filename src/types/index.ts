@@ -50,3 +50,13 @@ export interface IMilestone {
     description: string;
   }[];
 }
+
+export interface IBlogEntry {
+  image: string;
+  categories: string[];
+  title: string;
+  date: string;
+  author: string;
+  tldr: string;
+  text: string;
+}

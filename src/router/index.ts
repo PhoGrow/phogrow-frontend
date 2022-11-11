@@ -27,6 +27,16 @@ const router = new VueRouter({
       component: () => import('../views/RoadMap.vue'),
     },
     {
+      path: '/blog',
+      name: 'BlogView',
+      component: () => import('../views/BlogView.vue'),
+    },
+    {
+      path: '/blog/:year-month-title',
+      name: 'BlogEntry',
+      component: () => import('../views/BlogEntry.vue'),
+    },
+    {
       path: '/contact',
       name: 'ContactView',
       component: () => import('../views/ContactView.vue'),

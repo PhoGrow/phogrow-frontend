@@ -44,6 +44,11 @@ export default Vue.extend({
           name: 'Home',
         },
         {
+          path: '/blog',
+          active: false,
+          name: 'Blog',
+        },
+        {
           path: '/aboutus',
           active: false,
           name: 'About Us',
