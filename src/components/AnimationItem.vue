@@ -93,7 +93,7 @@ export default Vue.extend({
         this.scene.add(transScene);
 
         // Get all meshes
-        const listObjs: any = {};
+        const listObjs = {} as { [name: string]: Mesh<any, any> };
         transScene.traverse((obj) => {
           if (obj instanceof Mesh) {
             listObjs[obj.name] = obj;

@@ -6,7 +6,7 @@
       >
         <div
           v-for="{ title, linkTo } of links"
-          :key="title"
+          :key="linkTo"
           class="column is-6-tablet py-5"
         >
           <div
@@ -37,11 +37,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import type { IRedirect } from '@/types';
 
 export default Vue.extend({
   name: 'FurtherLinks',
   props: {
-    links: Array,
+    links: Array<IRedirect>,
   },
 });
 </script>

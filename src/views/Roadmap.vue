@@ -23,6 +23,7 @@ import LandingPageText from '@/components/LandingPageText.vue';
 import LandingPageImage from '@/components/LandingPageImage.vue';
 import SlotWithTitle from '@/components/SlotWithTitle.vue';
 import MileStones from '@/components/MileStones.vue';
+import type { ILandingPageText, IMilestone } from '@/types';
 
 export default Vue.extend({
   name: 'RoadMap',
@@ -42,7 +43,7 @@ export default Vue.extend({
           message:
             'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.',
           buttons: [{ message: 'Learn more' }],
-        },
+        } as ILandingPageText,
         images: ['scrum_board.svg'],
       },
       milestones: {
@@ -105,7 +106,7 @@ export default Vue.extend({
               },
             ],
           },
-        ],
+        ] as IMilestone[],
       },
     };
   },

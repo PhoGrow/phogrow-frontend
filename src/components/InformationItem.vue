@@ -57,6 +57,7 @@
 import Vue from 'vue';
 import ObserverItem from '@/components/ObserverItem.vue';
 import AnimationItem from '@/components/AnimationItem.vue';
+import type { IInformation } from '@/types';
 
 export default Vue.extend({
   name: 'InformationItem',
@@ -65,7 +66,7 @@ export default Vue.extend({
     AnimationItem,
   },
   props: {
-    info: Array,
+    info: Array<IInformation>,
   },
   data() {
     return {

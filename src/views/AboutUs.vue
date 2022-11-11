@@ -30,6 +30,7 @@ import LandingPageImage from '@/components/LandingPageImage.vue';
 import SlotWithTitle from '@/components/SlotWithTitle.vue';
 import InformationItem from '@/components/InformationItem.vue';
 import TeamItem from '@/components/TeamItem.vue';
+import type { ILandingPageText, IInformation, ITeam } from '@/types';
 
 export default Vue.extend({
   name: 'AboutUs',
@@ -49,7 +50,7 @@ export default Vue.extend({
           subtitle: `– That's us!`,
           message: 'A team of 8 young people who share a passionated vision.',
           buttons: [{ message: 'Learn more' }],
-        },
+        } as ILandingPageText,
         images: [
           'tim_scheller.jpg',
           'nina_utzelmann.jpg',
@@ -86,7 +87,7 @@ export default Vue.extend({
               'We provide you with the first database of 3D plant growth ' +
               'that allows to experience a huge variety of different vegetations in real time.',
           },
-        ],
+        ] as IInformation[],
       },
       team: {
         title: 'We are...',
@@ -165,7 +166,7 @@ export default Vue.extend({
               },
             ],
           },
-        ],
+        ] as ITeam[],
       },
     };
   },

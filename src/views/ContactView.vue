@@ -17,6 +17,7 @@ import LandingPage from '@/components/LandingPage.vue';
 import LandingPageText from '@/components/LandingPageText.vue';
 import SlotWithTitle from '@/components/SlotWithTitle.vue';
 import ImprintItem from '@/components/ImprintItem.vue';
+import type { ILandingPageText } from '@/types';
 
 export default Vue.extend({
   name: 'ContactView',
@@ -47,7 +48,7 @@ export default Vue.extend({
               message: 'See imprint',
             },
           ],
-        },
+        } as ILandingPageText,
         hasBgImage: true,
       },
       imprint: {

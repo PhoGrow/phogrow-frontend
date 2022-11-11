@@ -22,12 +22,13 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue, { type PropType } from 'vue';
+import type { ILandingPageText } from '@/types';
 
 export default Vue.extend({
   name: 'LandingPageText',
   props: {
-    text: Object,
+    text: Object as PropType<ILandingPageText>,
     linkage: String,
   },
 });

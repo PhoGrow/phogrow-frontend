@@ -40,6 +40,12 @@ import SlotWithTitle from '@/components/SlotWithTitle.vue';
 import InformationItem from '@/components/InformationItem.vue';
 import FinancialPartners from '@/components/FinancialPartners.vue';
 import FurtherLinks from '@/components/FurtherLinks.vue';
+import type {
+  ILandingPageText,
+  IInformation,
+  IPartner,
+  IRedirect,
+} from '@/types';
 
 export default Vue.extend({
   name: 'HomeView',
@@ -61,7 +67,7 @@ export default Vue.extend({
           message:
             'We create digital growing plants for your own creative use case.',
           buttons: [{ message: 'Learn more' }],
-        },
+        } as ILandingPageText,
         images: ['flowers.svg'],
       },
       information: [
@@ -90,7 +96,7 @@ export default Vue.extend({
                 'Place our plants inside your website, movie, or video game. ' +
                 'Or, of course, in your very own use case where you want to make nature more real.',
             },
-          ],
+          ] as IInformation[],
         },
         // {
         //   title: 'What you can do',
@@ -149,25 +155,25 @@ export default Vue.extend({
         organizations: [
           {
             logo: 'th_koeln.svg',
-            alt: 'Technische Hochschule Köln',
+            name: 'Technische Hochschule Köln',
             link: 'https://www.th-koeln.de',
           },
           {
             logo: 'cgl.svg',
-            alt: 'Cologne Game Lab',
+            name: 'Cologne Game Lab',
             link: 'https://colognegamelab.de',
           },
           {
             logo: 'startUpLab.jpg',
-            alt: 'StartUpLab@TH Köln',
+            name: 'StartUpLab@TH Köln',
             link: 'https://www.th-koeln.de/forschung/startuplabth-koeln_76381.php',
           },
           {
             logo: 'bmbf.svg',
-            alt: 'Bundesministerium für Bildung und Forschung',
+            name: 'Bundesministerium für Bildung und Forschung',
             link: 'https://www.bmbf.de/',
           },
-        ],
+        ] as IPartner[],
         redirect: [
           // {
           //   text: `Let's look into our`,
@@ -177,9 +183,9 @@ export default Vue.extend({
           {
             text: 'Become part of our',
             hashtag: '#plantgang',
-            to: 'Contact',
+            linkTo: 'Contact',
           },
-        ],
+        ] as IRedirect[],
       },
       furtherLinks: {
         title: 'Who we are',
@@ -192,7 +198,7 @@ export default Vue.extend({
             title: 'Bump into PhoGrow?',
             linkTo: 'Contact',
           },
-        ],
+        ] as IRedirect[],
       },
     };
   },

@@ -5,21 +5,21 @@
         class="columns is-vcentered is-centered is-variable is-6 is-mobile is-multiline has-background-white br-2 px-5 pt-6 pb-5 m-0"
       >
         <div
-          v-for="{ logo, alt, link } of organizations"
-          :key="logo"
+          v-for="{ logo, name, link } of organizations"
+          :key="name"
           class="column is-3-tablet is-8-mobile py-0 mb-6"
         >
           <a :href="link" target="_blank" rel="noopener noreferrer">
             <b-image
               :src="'/partners/' + logo"
-              :alt="alt"
-              :title="alt"
+              :alt="name"
+              :title="name"
             ></b-image>
           </a>
         </div>
         <div
-          v-for="{ text, hashtag, to } of redirect"
-          :key="to"
+          v-for="{ text, hashtag, linkTo } of redirect"
+          :key="linkTo"
           class="column is-8-tablet pt-0"
         >
           <div
@@ -34,10 +34,10 @@
             <div class="column is-narrow my-5"></div>
             <div class="column is-narrow">
               <router-link
-                :to="'/' + to.toLowerCase()"
+                :to="'/' + linkTo.toLowerCase()"
                 class="button is-medium is-rounded is-fullwidth"
               >
-                <span class="has-text-weight-medium">{{ to }}</span>
+                <span class="has-text-weight-medium">{{ linkTo }}</span>
               </router-link>
             </div>
           </div>
@@ -49,12 +49,13 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import type { IPartners, IRedirect } from '@/types';
 
 export default Vue.extend({
   name: 'FinancialPartners',
   props: {
-    organizations: Array,
-    redirect: Array,
+    organizations: Array<IPartners>,
+    redirect: Array<IRedirect>,
   },
 });
 </script>
