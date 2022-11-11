@@ -49,12 +49,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import type { IPartners, IRedirect } from '@/types';
+import type { IPartner, IRedirect } from '@/types';
 
 export default Vue.extend({
   name: 'FinancialPartners',
   props: {
-    organizations: Array<IPartners>,
+    organizations: Array<IPartner>,
     redirect: Array<IRedirect>,
   },
 });

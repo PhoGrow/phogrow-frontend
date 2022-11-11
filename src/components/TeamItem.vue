@@ -75,12 +75,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import type { IPeople } from '@/types';
+import type { ITeam } from '@/types';
 
 export default Vue.extend({
   name: 'TeamItem',
   props: {
-    people: Array<IPeople>,
+    people: Array<ITeam>,
   },
   data() {
     return {
