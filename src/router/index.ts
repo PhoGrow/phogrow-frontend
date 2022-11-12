@@ -32,7 +32,7 @@ const router = new VueRouter({
       component: () => import('../views/BlogView.vue'),
     },
     {
-      path: '/blog/:year-month-title',
+      path: '/blog/:year_month_title',
       name: 'BlogEntry',
       component: () => import('../views/BlogEntry.vue'),
     },

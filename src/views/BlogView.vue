@@ -2,15 +2,33 @@
   <div class="container">
     <LandingPage>
       <template #text>
-        <LandingPageText :text="landingPage.text" :linkage="blogs.title" />
+        <LandingPageText :text="landingPage.text" :linkage="blog.title" />
       </template>
       <template #image>
         <LandingPageImage :images="landingPage.images" />
       </template>
     </LandingPage>
     <hr />
-    <SlotWithTitle :title="blogs.title">
-      <BlogItem />
+    <SlotWithTitle :title="blog.title">
+      <div class="columns is-multiline">
+        <BlogItem
+          v-for="entry of blogEntries"
+          :key="entry.date"
+          :entry="entry"
+          class="column is-4"
+        />
+      </div>
+      <ObserverItem
+        v-if="hasEntries"
+        @is-visible="(option) => loadNextEntries(option)"
+        class="is-relative p-6"
+      >
+        <b-loading
+          :active="isLoading"
+          :is-full-page="false"
+          class="br-2"
+        ></b-loading>
+      </ObserverItem>
     </SlotWithTitle>
   </div>
 </template>
@@ -22,6 +40,7 @@ import LandingPageText from '@/components/LandingPageText.vue';
 import LandingPageImage from '@/components/LandingPageImage.vue';
 import SlotWithTitle from '@/components/SlotWithTitle.vue';
 import BlogItem from '@/components/BlogItem.vue';
+import ObserverItem from '@/components/ObserverItem.vue';
 import type { ILandingPageText, IBlogEntry } from '@/types';
 
 export default Vue.extend({
@@ -32,6 +51,7 @@ export default Vue.extend({
     LandingPageImage,
     SlotWithTitle,
     BlogItem,
+    ObserverItem,
   },
   data() {
     return {
@@ -45,22 +65,28 @@ export default Vue.extend({
         } as ILandingPageText,
         images: ['blog_post.svg'],
       },
-      blogs: {
+      blog: {
         title: 'Our blog posts',
       },
-      currentYear: 2022,
-      currentMonth: 11,
+      lastEntryYear: 2022,
+      lastEntryMonth: 11,
+      currentYear: 0,
+      currentMonth: 0,
       isLoading: false,
-      blogPosts: [] as IBlogEntry[],
+      hasEntries: true,
+      blogEntries: [] as IBlogEntry[],
     };
   },
-  async created() {
+  created() {
     const date = new Date();
     this.currentYear = date.getFullYear();
     this.currentMonth = date.getMonth() + 1;
   },
   methods: {
-    async getNextPosts(): Promise<void> {
+    async loadNextEntries(loadMore: boolean): Promise<void> {
+      if (!loadMore) {
+        return;
+      }
       this.isLoading = true;
       const res = await fetch(
         '/blog/' +
@@ -71,14 +97,25 @@ export default Vue.extend({
           '.json'
       );
       if (res.ok) {
-        this.blogPosts.push(await res.json());
+        const { entries }: { entries: IBlogEntry[] } = await res.json();
+        this.blogEntries.push(...entries);
       }
       this.isLoading = false;
+      if (
+        this.currentYear === this.lastEntryYear &&
+        this.currentMonth === this.lastEntryMonth
+      ) {
+        this.hasEntries = false;
+        return;
+      }
       if (this.currentMonth === 1) {
         this.currentMonth = 12;
-        this.currentYear--;
+        this.currentYear -= 1;
       } else {
-        this.currentMonth--;
+        this.currentMonth -= 1;
+      }
+      if (!res.ok) {
+        this.loadNextEntries(true);
       }
     },
   },

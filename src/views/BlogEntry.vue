@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div>{{ $route.params.year_month_title }}</div>
 </template>
 
 <script lang="ts">
