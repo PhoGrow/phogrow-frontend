@@ -10,12 +10,12 @@
     </LandingPage>
     <hr />
     <SlotWithTitle :title="blog.title">
-      <div class="columns is-multiline">
+      <div class="columns is-multiline is-variable is-6-tablet is-0-mobile">
         <BlogItem
           v-for="entry of blogEntries"
           :key="entry.date"
           :entry="entry"
-          class="column is-4"
+          class="column is-4 mb-5"
         />
       </div>
       <ObserverItem
@@ -63,7 +63,7 @@ export default Vue.extend({
             'We want to give a better perspective on our work and beyond.',
           buttons: [{ message: 'Learn more' }],
         } as ILandingPageText,
-        images: ['blog_post.svg'],
+        images: ['social_user.svg'],
       },
       blog: {
         title: 'Our blog posts',

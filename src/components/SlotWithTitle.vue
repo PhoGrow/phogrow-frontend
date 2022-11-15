@@ -1,6 +1,6 @@
 <template>
   <div :id="title.replaceAll(' ', '')">
-    <div class="has-text-centered py-6">
+    <div v-if="title" class="has-text-centered py-6">
       <h1
         :class="[
           'title is-2 has-text-weight-medium amaranth',
@@ -13,7 +13,7 @@
       </h1>
       <p v-if="note" class="is-size-5 has-text-grey">{{ note }}</p>
     </div>
-    <div class="pt-3 pb-6">
+    <div :class="['pb-6', title ? 'pt-3' : 'pt-6']">
       <slot></slot>
     </div>
   </div>

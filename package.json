@@ -15,6 +15,7 @@
   "dependencies": {
     "buefy": "^0.9.22",
     "bulma-timeline": "^3.0.5",
+    "marked": "^4.2.2",
     "pinia": "^2.0.16",
     "screenfull": "^6.0.2",
     "three": "^0.146.0",
@@ -24,6 +25,7 @@
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.0",
     "@types/jsdom": "^16.2.14",
+    "@types/marked": "^4.0.7",
     "@types/node": "^16.11.45",
     "@types/three": "^0.144.0",
     "@vitejs/plugin-legacy": "^2.0.0",
