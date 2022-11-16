@@ -10,13 +10,17 @@
     </LandingPage>
     <hr />
     <SlotWithTitle :title="blog.title">
-      <div class="columns is-multiline is-variable is-6-tablet is-0-mobile">
-        <BlogItem
-          v-for="entry of blogEntries"
-          :key="entry.date"
-          :entry="entry"
-          class="column is-4 mb-5"
-        />
+      <div class="columns is-centered is-gapless">
+        <div class="column is-10">
+          <div class="columns is-multiline is-variable is-6-tablet is-0-mobile">
+            <BlogItem
+              v-for="entry of blogEntries"
+              :key="entry.date"
+              :entry="entry"
+              class="column is-6 mb-5"
+            />
+          </div>
+        </div>
       </div>
       <ObserverItem
         v-if="hasEntries"

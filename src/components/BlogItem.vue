@@ -1,5 +1,5 @@
 <template>
-  <router-link
+  <component
     :is="isFullPage ? 'div' : 'router-link'"
     :to="
       '/blog/' +
@@ -29,7 +29,7 @@
             >{{ category }}</b-tag
           >
         </b-taglist>
-        <p :class="['title', isFullPage ? 'is-2' : 'is-4']">
+        <p :class="['title', isFullPage ? 'is-2' : 'is-3']">
           {{ entry.title }}
         </p>
         <p :class="['subtitle has-text-grey', isFullPage ? 'is-5' : 'is-6']">
@@ -47,14 +47,19 @@
         :class="['card-content', isFullPage ? 'is-size-5' : 'line-clamp']"
         style="border-bottom: 3rem solid transparent"
       >
-        <p :class="{ 'has-background-light br-2 p-5 my-2': isFullPage }">
+        <p :class="{ 'has-background-light br-2 p-5 my-3': isFullPage }">
           <span v-if="isFullPage" class="has-text-weight-semibold">TLDR</span>
           {{ entry.tldr }}
         </p>
-        <p v-if="isFullPage" v-html="textInHtml" class="pt-5"></p>
+        <p
+          v-if="isFullPage && markdownInHtml"
+          v-html="markdownInHtml"
+          id="markdown"
+          class="pt-5"
+        ></p>
       </div>
     </div>
-  </router-link>
+  </component>
 </template>
 
 <script lang="ts">
@@ -71,17 +76,41 @@ export default Vue.extend({
   data() {
     return {
       date: {} as Date,
+      markdownInHtml: '',
     };
   },
   created() {
     this.date = new Date(this.entry.date);
+    this.markdownInHtml = marked.parse(this.entry.text);
   },
-  computed: {
-    textInHtml(): string {
-      return marked.parse(this.entry.text);
+  mounted() {
+    if (this.isFullPage) {
+      this.setClassesForMarkdown();
+    }
+  },
+  methods: {
+    setClassesForMarkdown(): void {
+      const markdown = this.$el.querySelector('#markdown');
+      const headers = markdown?.querySelectorAll('h1, h2, h3, h4, h5, h6');
+      if (headers) {
+        for (const header of headers) {
+          header.classList.add('title', 'is-4', 'pt-5');
+        }
+      }
+      const paragraphs = markdown?.querySelectorAll('p, pre');
+      if (paragraphs) {
+        for (const paragraph of paragraphs) {
+          paragraph.classList.add('mb-3');
+        }
+      }
     },
   },
 });
 </script>
 
-<style scoped></style>
+<style>
+ul {
+  list-style: unset;
+  margin-left: 1.5rem;
+}
+</style>

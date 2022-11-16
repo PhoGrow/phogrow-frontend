@@ -39,15 +39,23 @@ export default Vue.extend({
   },
   methods: {
     async loadEntry(): Promise<void> {
-      const [year, month, ...titleArray] =
+      const [year, month, ...titleInArray] =
         this.$route.params.year_month_title.split('-');
-      const titleLowerCase = titleArray.join(' ');
+      const titleInLowerCase = titleInArray.join(' ');
       const res = await fetch('/blog/' + year + '/' + month + '.json');
       if (res.ok) {
         const { entries }: { entries: IBlogEntry[] } = await res.json();
         this.blogEntry = entries.filter(
-          ({ title }) => title.toLowerCase() === titleLowerCase
+          ({ title }) =>
+            title.replaceAll('-', ' ').toLowerCase() === titleInLowerCase
         )[0];
+        const markdown = await fetch(
+          '/blog/' + year + '/markdown/' + this.blogEntry.text
+        );
+        if (markdown.ok) {
+          const text = await markdown.text();
+          this.blogEntry.text = text;
+        }
       }
       if (!(this.blogEntry && Object.keys(this.blogEntry).length)) {
         this.$router.push('/');
