@@ -1,5 +1,5 @@
 <template>
-  <div class="container is-sticky py-4 px-4" style="top: 0; z-index: 1">
+  <div class="container is-sticky p-4" style="top: 0; z-index: 1">
     <b-navbar class="is-rounded" style="border: 0.5rem solid white" shadow>
       <template #brand>
         <b-navbar-item

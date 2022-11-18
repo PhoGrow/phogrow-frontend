@@ -1,11 +1,11 @@
 <template>
   <div class="columns is-centered is-gapless">
-    <div class="column has-background-white br-2"></div>
+    <div class="column box"></div>
     <div class="column"></div>
-    <div class="column has-background-white br-2"></div>
+    <div class="column box"></div>
     <div class="column"></div>
     <div class="column is-6-tablet">
-      <div class="timeline has-background-white p-6 br-2">
+      <div class="timeline box">
         <div v-for="{ year, items } of steps" :key="year">
           <header class="timeline-header">
             <span
@@ -22,8 +22,8 @@
               <b-image :src="'/icons/' + marker + '.svg'"></b-image>
             </div>
             <div class="timeline-content">
-              <p class="heading">{{ quarter }} {{ year }}</p>
-              <h2 class="subtitle has-text-weight-medium mb-2">
+              <p class="heading mb-0">{{ quarter }} {{ year }}</p>
+              <h2 class="subtitle has-text-weight-medium mb-3">
                 {{ title }}
               </h2>
               <p class="has-text-grey">{{ description }}</p>
@@ -33,9 +33,9 @@
       </div>
     </div>
     <div class="column"></div>
-    <div class="column has-background-white br-2"></div>
+    <div class="column box"></div>
     <div class="column"></div>
-    <div class="column has-background-white br-2"></div>
+    <div class="column box"></div>
   </div>
 </template>
 

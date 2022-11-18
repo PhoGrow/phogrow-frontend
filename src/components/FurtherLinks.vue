@@ -2,7 +2,7 @@
   <div class="columns is-centered is-gapless">
     <div class="column is-10-tablet">
       <div
-        class="columns is-centered is-vcentered is-variable is-6 is-multiline has-background-white br-2 p-5 m-0"
+        class="columns is-centered is-vcentered is-variable is-6 is-multiline box p-5 m-0"
       >
         <div
           v-for="{ title, linkTo } of links"
@@ -10,7 +10,7 @@
           class="column is-6-tablet py-5"
         >
           <div
-            class="columns is-vcentered is-gapless has-background-bright-green p-6 br-2"
+            class="columns is-vcentered is-gapless box has-background-bright-green"
           >
             <div class="column">
               <h1 class="title is-2 has-text-weight-medium amaranth mb-0">

@@ -6,9 +6,7 @@
       class="columns is-centered is-gapless is-multiline m-0"
     >
       <div class="column is-8-tablet">
-        <div
-          class="columns is-vcentered is-gapless has-background-white p-6 br-2"
-        >
+        <div class="columns is-vcentered is-gapless box">
           <div class="column is-5-tablet is-10-mobile">
             <b-image
               v-if="image"
@@ -16,7 +14,7 @@
                 (image.includes('.svg') ? '/illustrations/' : '/team/') + image
               "
               :class="{
-                'has-background-light p-5 br-2': image.includes('.svg'),
+                'box has-background-light p-5': image.includes('.svg'),
               }"
               :custom-class="image.includes('.jpg') ? 'br-2' : ''"
             ></b-image>

@@ -2,7 +2,7 @@
   <div class="columns is-centered is-gapless is-multiline m-0'">
     <div class="column is-10-tablet">
       <div
-        class="columns is-vcentered is-centered is-variable is-6 is-mobile is-multiline has-background-white br-2 px-5 pt-6 pb-5 m-0"
+        class="columns is-vcentered is-centered is-variable is-6 is-mobile is-multiline box px-5 pb-5 m-0"
       >
         <div
           v-for="{ logo, name, link } of organizations"
@@ -23,7 +23,7 @@
           class="column is-8-tablet pt-0"
         >
           <div
-            class="columns is-vcentered is-gapless has-background-bright-green br-2 p-5"
+            class="columns is-vcentered is-gapless box has-background-bright-green p-5"
           >
             <div class="column">
               <p class="is-size-4">

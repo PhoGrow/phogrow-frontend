@@ -3,11 +3,11 @@
     <b-image
       v-if="images.length === 1"
       :src="'/illustrations/' + images[0]"
-      class="has-background-light p-5 br-2"
+      class="box has-background-light p-5"
     ></b-image>
     <div
       v-if="images.length > 1"
-      class="columns is-gapless is-multiline is-mobile has-background-bright-green p-5 br-2"
+      class="columns is-gapless is-multiline is-mobile box has-background-bright-green p-5"
     >
       <div v-for="(image, i) of images" :key="image" class="column is-3">
         <b-image

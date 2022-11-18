@@ -4,7 +4,7 @@
       <b-collapse
         v-for="({ workArea, developers }, i) of people"
         :key="workArea"
-        class="has-background-white br-2 mb-6"
+        class="card mb-6"
         animation="slide"
         :aria-id="workArea"
         @open="$set(isOpen, i, true)"
@@ -33,7 +33,7 @@
             </a>
           </div>
         </template>
-        <div class="card-content px-6 pt-0 pb-6">
+        <div class="card-content pt-0">
           <div
             v-for="({ image, name, task, message }, i) of developers"
             :key="name"
@@ -46,7 +46,7 @@
                 <b-image
                   :src="'/team/' + image"
                   class="is-96x96"
-                  custom-class="is-rounded card"
+                  custom-class="is-rounded"
                 ></b-image>
                 <div class="ml-5 mr-6">
                   <p class="is-size-5 has-text-weight-semibold">

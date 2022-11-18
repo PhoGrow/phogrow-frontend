@@ -4,7 +4,7 @@
     <div class="columns is-centered is-gapless">
       <div class="column is-8">
         <SlotWithTitle title="">
-          <BlogItem v-if="!isLoading" :entry="blogEntry" isFullPage />
+          <BlogItem v-if="!isLoading" :entry="blogEntry" is-full-page />
         </SlotWithTitle>
       </div>
     </div>
