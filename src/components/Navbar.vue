@@ -83,13 +83,13 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-::v-deep .navbar-brand {
+:deep(.navbar-brand) {
   background-color: white;
   border-radius: 9999px;
   margin-left: 0 !important;
 }
 
-::v-deep .navbar-menu.is-active {
+:deep(.navbar-menu.is-active) {
   position: absolute;
   width: 100%;
   z-index: -1;

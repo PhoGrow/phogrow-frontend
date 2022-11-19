@@ -20,7 +20,7 @@
             ></b-image>
             <ObserverItem
               v-if="animation"
-              @is-visible="(option) => $set(isVisible, i, option)"
+              @is-visible="$set(isVisible, i, $event)"
             >
               <AnimationItem v-if="isVisible[i]" :animation="animation" />
             </ObserverItem>

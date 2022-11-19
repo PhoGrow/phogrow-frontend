@@ -24,7 +24,7 @@
       </div>
       <ObserverItem
         v-if="hasEntries"
-        @is-visible="(option) => loadNextEntries(option)"
+        @is-visible="loadNextEntries($event)"
         class="is-relative p-6"
       >
         <b-loading
