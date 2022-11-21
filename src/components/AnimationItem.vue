@@ -2,27 +2,30 @@
   <div
     class="is-relative is-flex is-align-items-end is-justify-content-end has-background-light br-2"
   >
-    <b-loading
+    <o-skeleton
       :active="!loadedAnimation"
-      :is-full-page="false"
-      class="br-2"
-    ></b-loading>
+      height="100%"
+      :rounded="false"
+      class="is-absolute"
+      style="height: 100%"
+    ></o-skeleton>
     <button
       v-if="hasFullscreenSupport && loadedAnimation"
       class="button is-rounded has-background-bright-green is-absolute p-2 mb-4 mr-4"
       @click="toggleFullscreen"
     >
-      <b-image
+      <ImageItem
         :src="
           '/icons/' + (isFullscreen ? 'fullscreen_exit' : 'fullscreen') + '.svg'
         "
-      ></b-image>
+      />
     </button>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import ImageItem from '@/components/ImageItem.vue';
 import screenfull from 'screenfull';
 import {
   Scene,
@@ -39,6 +42,9 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 export default Vue.extend({
   name: 'AnimationItem',
+  components: {
+    ImageItem,
+  },
   props: {
     animation: String,
   },
@@ -51,7 +57,7 @@ export default Vue.extend({
       // animation
       prevTime: 0,
       appTimeSeconds: 0,
-      blendTime: 2.0,
+      blendTime: 2,
       totalBlendTime: 0,
     } as {
       loadingProgress: number;
@@ -80,9 +86,7 @@ export default Vue.extend({
     this.scene = new Scene();
     this.renderer = new WebGLRenderer({ alpha: true });
     this.loader = new GLTFLoader();
-
     this.init();
-
     this.loader.load(
       `/animations/${this.animation}`,
       (gltf) => {
@@ -91,15 +95,15 @@ export default Vue.extend({
         transScene.scale.set(1.5, 1.5, 1.5);
         transScene.rotateY(180);
         this.scene.add(transScene);
-
         // Get all meshes
-        const listObjs = {} as { [name: string]: Mesh<any, any> };
+        const listObjs = {} as {
+          [name: string]: Mesh<any, any>;
+        };
         transScene.traverse((obj) => {
           if (obj instanceof Mesh) {
             listObjs[obj.name] = obj;
           }
         });
-
         // Sort meshes by names
         // Apply blending start times to them
         let counter = 0;
@@ -109,22 +113,19 @@ export default Vue.extend({
           const obj = listObjs[key];
           obj.material.side = 2;
           // obj.material.transparent = true;
-          obj.material.opacity = 1.0;
+          obj.material.opacity = 1;
           // obj.material.visible = false;
           obj.blendTime = counter * this.blendTime;
           this.meshes.push(obj);
           counter++;
         }
-
         // Store the overall blending time
         this.totalBlendTime = this.blendTime * this.meshes.length;
-
         this.$el.children[this.$el.children.length - 1].classList.add(
           'has-background-light',
           'br-2'
         );
         this.loadedAnimation = true;
-
         this.animate(0);
       },
       (xhr) => {
@@ -147,14 +148,12 @@ export default Vue.extend({
         0.1,
         1000
       );
-
       this.orbitCtrl = new OrbitControls(this.camera, this.renderer.domElement);
       this.renderer.setSize(this.$el.clientWidth, this.$el.clientHeight);
       this.resizeObserver.observe(this.$el);
       this.$el.appendChild(this.renderer.domElement);
-
       // Setup lights
-      this.lightSet = new AmbientLight(0xffffff, 1.5);
+      this.lightSet = new AmbientLight(16777215, 1.5);
       this.scene.add(this.lightSet);
     },
     // Position the scene such that everything fits into the camera-view
@@ -162,40 +161,34 @@ export default Vue.extend({
       const boundingBox = new Box3().setFromObject(scene);
       const size = boundingBox.getSize(new Vector3()).length();
       const center = boundingBox.getCenter(new Vector3());
-
       scene.position.x += scene.position.x - center.x + 0.15;
       scene.position.y += scene.position.y - center.y - 0.15;
       scene.position.z += scene.position.z - center.z;
       this.orbitCtrl.maxDistance = size * 10;
       this.camera.near = size / 100;
       this.camera.far = size * 100;
-
       this.camera.position.copy(center);
-      this.camera.position.x += size / 2.0;
-      this.camera.position.y += size / 10.0;
-      this.camera.position.z += size / 2.0;
+      this.camera.position.x += size / 2;
+      this.camera.position.y += size / 10;
+      this.camera.position.z += size / 2;
       this.camera.lookAt(center);
       this.camera.updateMatrix();
       this.camera.updateProjectionMatrix();
-
       return scene;
     },
     animate(time: number): void {
       requestAnimationFrame(this.animate);
-
       // Start once the animation is loaded
       if (!this.loadedAnimation) {
         this.prevTime = time;
         return;
       }
-
       // Rendering, control and timing updates
       this.renderer.render(this.scene, this.camera);
       this.orbitCtrl.update();
       const dt = (time - this.prevTime) / 1000;
       this.prevTime = time;
       this.appTimeSeconds += dt;
-
       // Blend in meshes when their blendTime has been reached and blend out the others
       // this.meshes.forEach((mesh) => {
       //   if (
@@ -238,4 +231,8 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped></style>
+<style>
+.b-skeleton .b-skeleton-item {
+  border-radius: 2rem;
+}
+</style>

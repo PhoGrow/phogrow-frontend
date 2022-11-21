@@ -1,6 +1,12 @@
 <template>
   <div class="container">
-    <b-loading :active="isLoading"></b-loading>
+    <o-skeleton
+      :active="isLoading"
+      height="100%"
+      :rounded="false"
+      class="is-absolute"
+      style="height: 100%"
+    ></o-skeleton>
     <div class="columns is-centered is-gapless">
       <div class="column is-8">
         <SlotWithTitle title="">

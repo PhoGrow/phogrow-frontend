@@ -22,16 +22,14 @@
           </div>
         </div>
       </div>
-      <ObserverItem
-        v-if="hasEntries"
-        @is-visible="loadNextEntries($event)"
-        class="is-relative p-6"
-      >
-        <b-loading
+      <ObserverItem v-if="hasEntries" @is-visible="loadNextEntries($event)">
+        <o-skeleton
           :active="isLoading"
-          :is-full-page="false"
-          class="br-2"
-        ></b-loading>
+          class="is-align-items-center my-5"
+          height="6rem"
+          width="6rem"
+          circle
+        ></o-skeleton>
       </ObserverItem>
     </SlotWithTitle>
   </div>

@@ -15,20 +15,20 @@
   >
     <div class="card">
       <div class="card-image">
-        <b-image
+        <ImageItem
           :src="'/blog/' + date.getFullYear() + '/images/' + entry.image"
-        ></b-image>
+        />
       </div>
       <header class="px-6 py-5">
-        <b-taglist class="m-0">
-          <b-tag
+        <div :class="['tags mb-0', { 'are-medium': isFullPage }]">
+          <span
             v-for="category of entry.categories"
             :key="category"
-            :size="isFullPage ? 'is-medium' : ''"
-            rounded
-            >{{ category }}</b-tag
+            class="tag is-rounded"
           >
-        </b-taglist>
+            {{ category }}
+          </span>
+        </div>
         <p class="title is-3">{{ entry.title }}</p>
         <p class="subtitle is-6 has-text-grey">
           {{
@@ -61,6 +61,7 @@
 
 <script lang="ts">
 import Vue, { type PropType } from 'vue';
+import ImageItem from '@/components/ImageItem.vue';
 import { marked } from 'marked';
 import type { IBlogEntry } from '@/types';
 
@@ -69,6 +70,9 @@ export default Vue.extend({
   props: {
     entry: Object as PropType<IBlogEntry>,
     isFullPage: Boolean,
+  },
+  components: {
+    ImageItem,
   },
   data() {
     return {

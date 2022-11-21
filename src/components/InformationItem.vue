@@ -8,7 +8,7 @@
       <div class="column is-8-tablet">
         <div class="columns is-vcentered is-gapless box">
           <div class="column is-5-tablet is-10-mobile">
-            <b-image
+            <ImageItem
               v-if="image"
               :src="
                 (image.includes('.svg') ? '/illustrations/' : '/team/') + image
@@ -17,7 +17,7 @@
                 'box has-background-light p-5': image.includes('.svg'),
               }"
               :custom-class="image.includes('.jpg') ? 'br-2' : ''"
-            ></b-image>
+            />
             <ObserverItem
               v-if="animation"
               @is-visible="$set(isVisible, i, $event)"
@@ -53,6 +53,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import ImageItem from '@/components/ImageItem.vue';
 import ObserverItem from '@/components/ObserverItem.vue';
 import AnimationItem from '@/components/AnimationItem.vue';
 import type { IInformation } from '@/types';
@@ -60,6 +61,7 @@ import type { IInformation } from '@/types';
 export default Vue.extend({
   name: 'InformationItem',
   components: {
+    ImageItem,
     ObserverItem,
     AnimationItem,
   },

@@ -17,7 +17,7 @@
           <span class="has-text-weight-semibold is-size-6 mr-2"
             >@phogrow3d</span
           >
-          <b-image src="/logos/instagram.png" class="is-32x32"></b-image>
+          <ImageItem src="/logos/instagram.png" class="is-32x32" />
         </a>
       </div>
     </div>
@@ -26,9 +26,13 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import ImageItem from '@/components/ImageItem.vue';
 
 export default Vue.extend({
   name: 'FooterItem',
+  components: {
+    ImageItem,
+  },
 });
 </script>
 

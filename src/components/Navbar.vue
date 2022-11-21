@@ -1,101 +1,101 @@
 <template>
   <div class="container is-sticky p-4" style="top: 0; z-index: 1">
-    <b-navbar class="is-rounded" style="border: 0.5rem solid white" shadow>
-      <template #brand>
-        <b-navbar-item
-          tag="router-link"
+    <nav
+      class="navbar is-rounded has-shadow"
+      style="border: 0.5rem solid white"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="navbar-brand ml-0">
+        <router-link
           to="/"
-          class="has-background-bright-green is-rounded px-5"
+          class="navbar-item has-background-bright-green is-rounded px-5"
         >
           <img src="/logos/logo_black.svg" />
           <h1 class="amaranth is-size-4 ml-3 mr-5">PhoGrow</h1>
-        </b-navbar-item>
-      </template>
-      <template #end>
-        <b-navbar-item
-          v-for="{ path, active, name } of items"
-          :key="path"
-          tag="router-link"
-          :to="path"
-          :active="active"
-          :class="['has-text-right', { 'has-text-weight-semibold': active }]"
-          @click.native="setActive(path)"
+        </router-link>
+        <a
+          role="button"
+          :class="['navbar-burger', { 'is-active': hasOpenMenu }]"
+          :aria-expanded="hasOpenMenu ? true : false"
+          aria-label="menu"
+          data-target="navbar"
+          @click="hasOpenMenu = !hasOpenMenu"
         >
-          {{ name }}
-        </b-navbar-item>
-        <div class="is-hidden-touch px-4"></div>
-      </template>
-    </b-navbar>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div id="navbar" :class="['navbar-menu', { 'is-active': hasOpenMenu }]">
+        <div class="navbar-end">
+          <router-link
+            v-for="{ path, name } of items"
+            :key="path"
+            :to="path"
+            :active="$route.path === path"
+            :class="[
+              'navbar-item has-text-right px-4',
+              { 'has-text-weight-semibold': $route.path === path },
+            ]"
+            @click.native="hasOpenMenu = false"
+          >
+            {{ name }}
+          </router-link>
+          <div class="is-hidden-touch px-4"></div>
+        </div>
+      </div>
+    </nav>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import type { Route } from 'vue-router';
 
 export default Vue.extend({
   name: 'NavBar',
   data() {
     return {
+      hasOpenMenu: false,
       items: [
         {
           path: '/',
-          active: true,
           name: 'Home',
         },
         {
           path: '/blog',
-          active: false,
           name: 'Blog',
         },
         {
           path: '/aboutus',
-          active: false,
           name: 'About Us',
         },
         // {
         //   path: '/roadmap',
-        //   active: false,
         //   name: 'Roadmap'
         // },
         {
           path: '/contact',
-          active: false,
           name: 'Contact',
         },
       ],
     };
   },
-  watch: {
-    $route(to: Route): void {
-      this.setActive(to.path);
-    },
-  },
-  methods: {
-    setActive(path: string): void {
-      for (const [i, item] of this.items.entries()) {
-        this.items[i].active = item.path === path ? true : false;
-      }
-      (document.activeElement as HTMLElement).blur();
-    },
+  updated() {
+    (document.activeElement as HTMLElement).blur();
   },
 });
 </script>
 
 <style scoped>
-:deep(.navbar-brand) {
-  background-color: white;
-  border-radius: 9999px;
-  margin-left: 0 !important;
-}
-
-:deep(.navbar-menu.is-active) {
+.navbar-menu.is-active {
   position: absolute;
-  width: 100%;
+  width: calc(100% + 1rem);
+  left: -0.5rem;
   z-index: -1;
-  border-radius: 0 0 1rem 1rem;
-  padding-top: calc(3.25rem / 2 + 0.75rem);
+  border-radius: 2rem 2rem 1rem 1rem;
+  padding-top: calc(4.25rem - 0.5rem + 0.75rem);
   padding-bottom: 0.75rem;
-  margin-top: calc(-3.25rem / 2);
+  margin-top: calc(-4.25rem + 0.5rem);
 }
 </style>

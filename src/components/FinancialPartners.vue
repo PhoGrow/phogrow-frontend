@@ -10,11 +10,7 @@
           class="column is-3-tablet is-8-mobile py-0 mb-6"
         >
           <a :href="link" target="_blank" rel="noopener noreferrer">
-            <b-image
-              :src="'/partners/' + logo"
-              :alt="name"
-              :title="name"
-            ></b-image>
+            <ImageItem :src="'/partners/' + logo" :alt="name" :title="name" />
           </a>
         </div>
         <div
@@ -49,10 +45,14 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import ImageItem from '@/components/ImageItem.vue';
 import type { IPartner, IRedirect } from '@/types';
 
 export default Vue.extend({
   name: 'FinancialPartners',
+  components: {
+    ImageItem,
+  },
   props: {
     organizations: Array<IPartner>,
     redirect: Array<IRedirect>,

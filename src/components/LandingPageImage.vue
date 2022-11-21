@@ -1,16 +1,17 @@
 <template>
   <div>
-    <b-image
+    <ImageItem
       v-if="images.length === 1"
       :src="'/illustrations/' + images[0]"
+      :lazy="false"
       class="box has-background-light p-5"
-    ></b-image>
+    />
     <div
       v-if="images.length > 1"
       class="columns is-gapless is-multiline is-mobile box has-background-bright-green p-5"
     >
       <div v-for="(image, i) of images" :key="image" class="column is-3">
-        <b-image
+        <ImageItem
           :src="(image.includes('logo') ? '/logos/' : '/team/') + image"
           class="is-flex is-align-items-center is-justify-content-center"
           style="height: 100%"
@@ -25,7 +26,8 @@
               ? 'is-half-width'
               : ''
           "
-        ></b-image>
+          :lazy="false"
+        />
       </div>
     </div>
   </div>
@@ -33,9 +35,13 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import ImageItem from '@/components/ImageItem.vue';
 
 export default Vue.extend({
   name: 'LandingPageImage',
+  components: {
+    ImageItem,
+  },
   props: {
     images: Array<string>,
   },

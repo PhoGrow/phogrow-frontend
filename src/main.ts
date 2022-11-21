@@ -1,14 +1,15 @@
 import Vue from 'vue';
 import { createPinia, PiniaVuePlugin } from 'pinia';
 
-import App from './App.vue';
-import router from './router';
+import App from '@/App.vue';
+import router from '@/router';
 
-import Buefy from 'buefy';
+import Oruga from '@oruga-ui/oruga';
+import { bulmaConfig } from '@oruga-ui/theme-bulma';
 import '@/assets/style.scss';
 
 Vue.use(PiniaVuePlugin);
-Vue.use(Buefy);
+Vue.use(Oruga, bulmaConfig);
 
 new Vue({
   router,

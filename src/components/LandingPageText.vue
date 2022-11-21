@@ -11,11 +11,12 @@
         class="button is-medium is-rounded mr-3 mb-3"
       >
         <span>{{ message }}</span>
-        <b-image
+        <ImageItem
           v-if="href && href.includes('instagram')"
           src="/logos/instagram.png"
+          :lazy="false"
           class="is-32x32 ml-3"
-        ></b-image>
+        />
       </a>
     </div>
   </div>
@@ -23,10 +24,14 @@
 
 <script lang="ts">
 import Vue, { type PropType } from 'vue';
+import ImageItem from '@/components/ImageItem.vue';
 import type { ILandingPageText } from '@/types';
 
 export default Vue.extend({
   name: 'LandingPageText',
+  components: {
+    ImageItem,
+  },
   props: {
     text: Object as PropType<ILandingPageText>,
     linkage: String,

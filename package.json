@@ -13,7 +13,8 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "buefy": "^0.9.22",
+    "@oruga-ui/oruga": "^0.5.9",
+    "@oruga-ui/theme-bulma": "^0.2.8",
     "bulma-timeline": "^3.0.5",
     "marked": "^4.2.2",
     "pinia": "^2.0.16",
