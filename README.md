@@ -29,6 +29,7 @@ npm run test:unit
 ```sh
 # Run on Vite's dev server
 npm run test:e2e:dev
+
 # Then, on the production build
 npm run build
 npm run test:e2e
