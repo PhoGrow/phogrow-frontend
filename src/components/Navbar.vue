@@ -7,13 +7,13 @@
       aria-label="main navigation"
     >
       <div class="navbar-brand ml-0">
-        <router-link
+        <RouterLink
           to="/"
           class="navbar-item has-background-bright-green is-rounded px-5"
         >
           <img src="/logos/logo_black.svg" />
           <h1 class="amaranth is-size-4 ml-3 mr-5">PhoGrow</h1>
-        </router-link>
+        </RouterLink>
         <a
           role="button"
           :class="['navbar-burger', { 'is-active': hasOpenMenu }]"
@@ -29,7 +29,7 @@
       </div>
       <div id="navbar" :class="['navbar-menu', { 'is-active': hasOpenMenu }]">
         <div class="navbar-end">
-          <router-link
+          <RouterLink
             v-for="{ path, name } of items"
             :key="path"
             :to="path"
@@ -38,10 +38,10 @@
               'navbar-item has-text-right px-4',
               { 'has-text-weight-semibold': $route.path === path },
             ]"
-            @click.native="hasOpenMenu = false"
+            @click="hasOpenMenu = false"
           >
             {{ name }}
-          </router-link>
+          </RouterLink>
           <div class="is-hidden-touch px-4"></div>
         </div>
       </div>
@@ -50,10 +50,14 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue';
+import { RouterLink } from 'vue-router';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'NavBar',
+  components: {
+    RouterLink,
+  },
   data() {
     return {
       hasOpenMenu: false,

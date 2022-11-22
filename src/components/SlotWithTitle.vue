@@ -1,5 +1,5 @@
 <template>
-  <div :id="title.replaceAll(' ', '')">
+  <div :id="title?.split(' ').join('')">
     <div v-if="title" class="has-text-centered py-6">
       <h1
         :class="[
@@ -20,9 +20,9 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'SlotWithTitle',
   props: {
     title: String,

@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 import ImageItem from '@/components/ImageItem.vue';
 import screenfull from 'screenfull';
 import {
@@ -40,7 +40,7 @@ import {
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'AnimationItem',
   components: {
     ImageItem,
@@ -137,7 +137,7 @@ export default Vue.extend({
       }
     );
   },
-  beforeDestroy() {
+  beforeUnmount() {
     this.resizeObserver.disconnect();
   },
   methods: {
@@ -153,7 +153,7 @@ export default Vue.extend({
       this.resizeObserver.observe(this.$el);
       this.$el.appendChild(this.renderer.domElement);
       // Setup lights
-      this.lightSet = new AmbientLight(16777215, 1.5);
+      this.lightSet = new AmbientLight(0xffffff, 1.5);
       this.scene.add(this.lightSet);
     },
     // Position the scene such that everything fits into the camera-view

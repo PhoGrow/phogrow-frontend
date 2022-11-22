@@ -1,6 +1,6 @@
 <template>
   <component
-    :is="isFullPage ? 'div' : 'router-link'"
+    :is="isFullPage ? 'div' : 'RouterLink'"
     :to="
       '/blog/' +
       date.getFullYear() +
@@ -8,7 +8,7 @@
       (date.getMonth() + 1 < 10 ? '0' : '') +
       (date.getMonth() + 1) +
       '-' +
-      entry.title.replaceAll(' ', '-').toLowerCase()
+      entry.title.split(' ').join('-').toLowerCase()
     "
     target="_blank"
     rel="noopener noreferrer"
@@ -60,19 +60,24 @@
 </template>
 
 <script lang="ts">
-import Vue, { type PropType } from 'vue';
-import ImageItem from '@/components/ImageItem.vue';
+import { defineComponent, type PropType } from 'vue';
+import { RouterLink } from 'vue-router';
+import { ImageItem } from '@/components';
 import { marked } from 'marked';
 import type { IBlogEntry } from '@/types';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'BlogItem',
-  props: {
-    entry: Object as PropType<IBlogEntry>,
-    isFullPage: Boolean,
-  },
   components: {
+    RouterLink,
     ImageItem,
+  },
+  props: {
+    entry: {
+      type: Object as PropType<IBlogEntry>,
+      required: true,
+    },
+    isFullPage: Boolean,
   },
   data() {
     return {

@@ -29,12 +29,12 @@
             </div>
             <div class="column is-narrow my-5"></div>
             <div class="column is-narrow">
-              <router-link
+              <RouterLink
                 :to="'/' + linkTo.toLowerCase()"
                 class="button is-medium is-rounded is-fullwidth"
               >
                 <span class="has-text-weight-medium">{{ linkTo }}</span>
-              </router-link>
+              </RouterLink>
             </div>
           </div>
         </div>
@@ -44,18 +44,20 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import ImageItem from '@/components/ImageItem.vue';
+import { defineComponent, type PropType } from 'vue';
+import { RouterLink } from 'vue-router';
+import { ImageItem } from '@/components';
 import type { IPartner, IRedirect } from '@/types';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FinancialPartners',
   components: {
     ImageItem,
+    RouterLink,
   },
   props: {
-    organizations: Array<IPartner>,
-    redirect: Array<IRedirect>,
+    organizations: Array as PropType<IPartner[]>,
+    redirect: Array as PropType<IRedirect[]>,
   },
 });
 </script>

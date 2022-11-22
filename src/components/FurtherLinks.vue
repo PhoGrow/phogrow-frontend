@@ -19,13 +19,13 @@
             </div>
             <div class="column is-narrow my-6"></div>
             <div class="column is-narrow is-align-self-flex-end">
-              <router-link
+              <RouterLink
                 :to="'/' + linkTo.replace(' ', '').toLowerCase()"
                 class="button is-large is-rounded is-fullwidth"
               >
                 <span class="has-text-weight-medium">{{
                   linkTo
-                }}</span></router-link
+                }}</span></RouterLink
               >
             </div>
           </div>
@@ -36,13 +36,17 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent, type PropType } from 'vue';
+import { RouterLink } from 'vue-router';
 import type { IRedirect } from '@/types';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FurtherLinks',
+  components: {
+    RouterLink,
+  },
   props: {
-    links: Array<IRedirect>,
+    links: Array as PropType<IRedirect[]>,
   },
 });
 </script>

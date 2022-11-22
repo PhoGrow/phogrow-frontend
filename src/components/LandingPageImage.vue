@@ -34,16 +34,19 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import ImageItem from '@/components/ImageItem.vue';
+import { defineComponent, type PropType } from 'vue';
+import { ImageItem } from '@/components';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'LandingPageImage',
   components: {
     ImageItem,
   },
   props: {
-    images: Array<string>,
+    images: {
+      type: Array as PropType<string[]>,
+      required: true,
+    },
   },
 });
 </script>

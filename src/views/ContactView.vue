@@ -12,14 +12,16 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import LandingPage from '@/components/LandingPage.vue';
-import LandingPageText from '@/components/LandingPageText.vue';
-import SlotWithTitle from '@/components/SlotWithTitle.vue';
-import ImprintItem from '@/components/ImprintItem.vue';
+import { defineComponent } from 'vue';
+import {
+  LandingPage,
+  LandingPageText,
+  SlotWithTitle,
+  ImprintItem,
+} from '@/components';
 import type { ILandingPageText } from '@/types';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'ContactView',
   components: {
     LandingPage,

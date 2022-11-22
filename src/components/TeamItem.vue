@@ -72,17 +72,17 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import ImageItem from '@/components/ImageItem.vue';
+import { defineComponent, type PropType } from 'vue';
+import { ImageItem } from '@/components';
 import type { ITeam } from '@/types';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'TeamItem',
   components: {
     ImageItem,
   },
   props: {
-    people: Array<ITeam>,
+    people: Array as PropType<ITeam[]>,
   },
 });
 </script>

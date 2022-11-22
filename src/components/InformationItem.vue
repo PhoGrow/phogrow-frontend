@@ -18,10 +18,7 @@
               }"
               :custom-class="image.includes('.jpg') ? 'br-2' : ''"
             />
-            <ObserverItem
-              v-if="animation"
-              @is-visible="$set(isVisible, i, $event)"
-            >
+            <ObserverItem v-if="animation" @is-visible="isVisible[i] = $event">
               <AnimationItem v-if="isVisible[i]" :animation="animation" />
             </ObserverItem>
           </div>
@@ -52,13 +49,12 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import ImageItem from '@/components/ImageItem.vue';
+import { defineComponent, type PropType } from 'vue';
+import { ImageItem, AnimationItem } from '@/components';
 import ObserverItem from '@/components/ObserverItem.vue';
-import AnimationItem from '@/components/AnimationItem.vue';
 import type { IInformation } from '@/types';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'InformationItem',
   components: {
     ImageItem,
@@ -66,7 +62,10 @@ export default Vue.extend({
     AnimationItem,
   },
   props: {
-    info: Array<IInformation>,
+    info: {
+      type: Array as PropType<IInformation[]>,
+      required: true,
+    },
   },
   data() {
     return {

@@ -17,15 +17,17 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import LandingPage from '@/components/LandingPage.vue';
-import LandingPageText from '@/components/LandingPageText.vue';
-import LandingPageImage from '@/components/LandingPageImage.vue';
-import SlotWithTitle from '@/components/SlotWithTitle.vue';
-import MileStones from '@/components/MileStones.vue';
+import { defineComponent } from 'vue';
+import {
+  LandingPage,
+  LandingPageText,
+  LandingPageImage,
+  SlotWithTitle,
+  MileStones,
+} from '@/components';
 import type { ILandingPageText, IMilestone } from '@/types';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'RoadMap',
   components: {
     LandingPage,

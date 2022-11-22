@@ -12,12 +12,12 @@
           </h1>
           <h2 class="subtitle is-3 is-flex is-align-items-baseline">
             Get back to our
-            <router-link
+            <RouterLink
               to="/"
               class="button is-large is-rounded is-white p-4 mx-2"
             >
               <span class="has-text-weight-semibold">Home</span>
-            </router-link>
+            </RouterLink>
             page ♥
           </h2>
         </div>
@@ -27,10 +27,14 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue';
+import { RouterLink } from 'vue-router';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'NotFound',
+  components: {
+    RouterLink,
+  },
 });
 </script>
 

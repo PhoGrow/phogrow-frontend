@@ -40,17 +40,17 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import ImageItem from '@/components/ImageItem.vue';
+import { defineComponent, type PropType } from 'vue';
+import { ImageItem } from '@/components';
 import type { IMilestone } from '@/types';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'MileStones',
   components: {
     ImageItem,
   },
   props: {
-    steps: Array<IMilestone>,
+    steps: Array as PropType<IMilestone[]>,
   },
 });
 </script>

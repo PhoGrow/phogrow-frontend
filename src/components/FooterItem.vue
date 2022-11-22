@@ -25,10 +25,10 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import ImageItem from '@/components/ImageItem.vue';
+import { defineComponent } from 'vue';
+import { ImageItem } from '@/components';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FooterItem',
   components: {
     ImageItem,

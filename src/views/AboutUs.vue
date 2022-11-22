@@ -23,16 +23,18 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import LandingPage from '@/components/LandingPage.vue';
-import LandingPageText from '@/components/LandingPageText.vue';
-import LandingPageImage from '@/components/LandingPageImage.vue';
-import SlotWithTitle from '@/components/SlotWithTitle.vue';
-import InformationItem from '@/components/InformationItem.vue';
-import TeamItem from '@/components/TeamItem.vue';
+import { defineComponent } from 'vue';
+import {
+  LandingPage,
+  LandingPageText,
+  LandingPageImage,
+  SlotWithTitle,
+  InformationItem,
+  TeamItem,
+} from '@/components';
 import type { ILandingPageText, IInformation, ITeam } from '@/types';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'AboutUs',
   components: {
     LandingPage,

@@ -32,14 +32,16 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import LandingPage from '@/components/LandingPage.vue';
-import LandingPageText from '@/components/LandingPageText.vue';
-import LandingPageImage from '@/components/LandingPageImage.vue';
-import SlotWithTitle from '@/components/SlotWithTitle.vue';
-import InformationItem from '@/components/InformationItem.vue';
-import FinancialPartners from '@/components/FinancialPartners.vue';
-import FurtherLinks from '@/components/FurtherLinks.vue';
+import { defineComponent } from 'vue';
+import {
+  LandingPage,
+  LandingPageText,
+  LandingPageImage,
+  SlotWithTitle,
+  InformationItem,
+  FinancialPartners,
+  FurtherLinks,
+} from '@/components';
 import type {
   ILandingPageText,
   IInformation,
@@ -47,7 +49,7 @@ import type {
   IRedirect,
 } from '@/types';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'HomeView',
   components: {
     LandingPage,

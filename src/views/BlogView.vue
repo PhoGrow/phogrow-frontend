@@ -36,16 +36,18 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import LandingPage from '@/components/LandingPage.vue';
-import LandingPageText from '@/components/LandingPageText.vue';
-import LandingPageImage from '@/components/LandingPageImage.vue';
-import SlotWithTitle from '@/components/SlotWithTitle.vue';
-import BlogItem from '@/components/BlogItem.vue';
-import ObserverItem from '@/components/ObserverItem.vue';
+import { defineComponent } from 'vue';
+import {
+  LandingPage,
+  LandingPageText,
+  LandingPageImage,
+  SlotWithTitle,
+  BlogItem,
+  ObserverItem,
+} from '@/components';
 import type { ILandingPageText, IBlogEntry } from '@/types';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'BlogView',
   components: {
     LandingPage,
@@ -99,7 +101,7 @@ export default Vue.extend({
           '.json'
       );
       if (res.ok) {
-        const { entries }: { entries: IBlogEntry[] } = await res.json();
+        const { entries } = await res.json();
         this.blogEntries.push(...entries);
       }
       this.isLoading = false;

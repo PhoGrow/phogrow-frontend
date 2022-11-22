@@ -7,7 +7,7 @@
       <a
         v-for="{ message, href } of text.buttons"
         :key="message"
-        :href="href ? href : '#' + linkage.replaceAll(' ', '')"
+        :href="href ? href : '#' + linkage?.split(' ').join('')"
         class="button is-medium is-rounded mr-3 mb-3"
       >
         <span>{{ message }}</span>
@@ -23,17 +23,20 @@
 </template>
 
 <script lang="ts">
-import Vue, { type PropType } from 'vue';
-import ImageItem from '@/components/ImageItem.vue';
+import { defineComponent, type PropType } from 'vue';
+import { ImageItem } from '@/components';
 import type { ILandingPageText } from '@/types';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'LandingPageText',
   components: {
     ImageItem,
   },
   props: {
-    text: Object as PropType<ILandingPageText>,
+    text: {
+      type: Object as PropType<ILandingPageText>,
+      required: true,
+    },
     linkage: String,
   },
 });

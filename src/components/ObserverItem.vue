@@ -5,13 +5,14 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'ObserverItem',
   props: {
     unobserve: Boolean,
   },
+  emits: ['is-visible'],
   data() {
     return {
       observer: {} as IntersectionObserver,
@@ -21,7 +22,7 @@ export default Vue.extend({
     this.observer = new IntersectionObserver(this.isIntersecting);
     this.observer.observe(this.$el);
   },
-  beforeDestroy() {
+  beforeUnmount() {
     this.observer.disconnect();
   },
   methods: {

@@ -27,8 +27,11 @@ npm run test:unit
 ### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
 
 ```sh
+# Run on Vite's dev server
+npm run test:e2e:dev
+# Then, on the production build
 npm run build
-npm run test:e2e # or `npm run test:e2e:ci` for headless testing
+npm run test:e2e
 ```
 
 ### Lint with [ESLint](https://eslint.org/)

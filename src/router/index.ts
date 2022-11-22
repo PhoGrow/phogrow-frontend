@@ -1,12 +1,8 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-import HomeView from '../views/HomeView.vue';
+import { createRouter, createWebHistory } from 'vue-router';
+import HomeView from '@/views/HomeView.vue';
 
-Vue.use(VueRouter);
-
-const router = new VueRouter({
-  mode: 'history',
-  base: import.meta.env.BASE_URL,
+const router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
   scrollBehavior() {
     document?.querySelector('#app')?.scrollIntoView();
   },
@@ -19,32 +15,32 @@ const router = new VueRouter({
     {
       path: '/aboutus',
       name: 'AboutUs',
-      component: () => import('../views/AboutUs.vue'),
+      component: () => import('@/views/AboutUs.vue'),
     },
     {
       path: '/roadmap',
       name: 'RoadMap',
-      component: () => import('../views/RoadMap.vue'),
+      component: () => import('@/views/RoadMap.vue'),
     },
     {
       path: '/blog',
       name: 'BlogView',
-      component: () => import('../views/BlogView.vue'),
+      component: () => import('@/views/BlogView.vue'),
     },
     {
       path: '/blog/:year_month_title',
       name: 'BlogEntry',
-      component: () => import('../views/BlogEntry.vue'),
+      component: () => import('@/views/BlogEntry.vue'),
     },
     {
       path: '/contact',
       name: 'ContactView',
-      component: () => import('../views/ContactView.vue'),
+      component: () => import('@/views/ContactView.vue'),
     },
     {
-      path: '/:catchAll(.*)',
+      path: '/:pathMatch(.*)*',
       name: 'NotFound',
-      component: () => import('../views/NotFound.vue'),
+      component: () => import('@/views/NotFound.vue'),
     },
   ],
 });

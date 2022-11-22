@@ -1,18 +1,17 @@
-import Vue from 'vue';
-import { createPinia, PiniaVuePlugin } from 'pinia';
+import { createApp } from 'vue';
+import { createPinia } from 'pinia';
 
 import App from '@/App.vue';
 import router from '@/router';
 
-import Oruga from '@oruga-ui/oruga';
+import Oruga from '@oruga-ui/oruga-next';
 import { bulmaConfig } from '@oruga-ui/theme-bulma';
 import '@/assets/style.scss';
 
-Vue.use(PiniaVuePlugin);
-Vue.use(Oruga, bulmaConfig);
+const app = createApp(App);
 
-new Vue({
-  router,
-  pinia: createPinia(),
-  render: (h) => h(App),
-}).$mount('#app');
+app.use(createPinia());
+app.use(router);
+app.use(Oruga, bulmaConfig);
+
+app.mount('#app');

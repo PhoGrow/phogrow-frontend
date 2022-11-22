@@ -18,12 +18,11 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import SlotWithTitle from '@/components/SlotWithTitle.vue';
-import BlogItem from '@/components/BlogItem.vue';
+import { defineComponent } from 'vue';
+import { SlotWithTitle, BlogItem } from '@/components';
 import type { IBlogEntry } from '@/types';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'BlogEntry',
   components: {
     SlotWithTitle,
@@ -45,15 +44,16 @@ export default Vue.extend({
   },
   methods: {
     async loadEntry(): Promise<void> {
-      const [year, month, ...titleInArray] =
-        this.$route.params.year_month_title.split('-');
+      const [year, month, ...titleInArray] = (
+        this.$route.params.year_month_title as string
+      ).split('-');
       const titleInLowerCase = titleInArray.join(' ');
       const res = await fetch('/blog/' + year + '/' + month + '.json');
       if (res.ok) {
         const { entries }: { entries: IBlogEntry[] } = await res.json();
         this.blogEntry = entries.filter(
           ({ title }) =>
-            title.replaceAll('-', ' ').toLowerCase() === titleInLowerCase
+            title.split('-').join(' ').toLowerCase() === titleInLowerCase
         )[0];
         const markdown = await fetch(
           '/blog/' + year + '/markdown/' + this.blogEntry.text
