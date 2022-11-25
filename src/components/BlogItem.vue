@@ -62,7 +62,7 @@
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue';
 import { RouterLink } from 'vue-router';
-import { ImageItem } from '@/components';
+import ImageItem from '@/components/ImageItem.vue';
 import { marked } from 'marked';
 import type { IBlogEntry } from '@/types';
 

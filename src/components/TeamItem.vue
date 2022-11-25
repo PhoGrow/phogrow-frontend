@@ -16,17 +16,15 @@
             :aria-expanded="open"
           >
             <p
-              class="card-header-title title has-text-weight-medium amaranth p-6 mb-0"
+              class="card-header-title title has-text-weight-medium amaranth is-unselectable p-6 mb-0"
             >
               {{ workArea }}
             </p>
             <a class="card-header-icon px-6">
-              <ImageItem
-                :src="
-                  '/icons/' +
-                  (open ? 'keyboard_arrow_up' : 'keyboard_arrow_down') +
-                  '.svg'
-                "
+              <IconItem
+                :icon="open ? 'keyboard_arrow_up' : 'keyboard_arrow_down'"
+                size="is-large"
+                class="has-text-grey"
               />
             </a>
           </div>
@@ -73,12 +71,13 @@
 
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue';
-import { ImageItem } from '@/components';
+import { IconItem, ImageItem } from '@/components';
 import type { ITeam } from '@/types';
 
 export default defineComponent({
   name: 'TeamItem',
   components: {
+    IconItem,
     ImageItem,
   },
   props: {

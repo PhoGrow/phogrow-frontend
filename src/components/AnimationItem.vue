@@ -11,21 +11,17 @@
     ></o-skeleton>
     <button
       v-if="hasFullscreenSupport && loadedAnimation"
-      class="button is-rounded has-background-bright-green is-absolute p-2 mb-4 mr-4"
+      class="button is-rounded has-background-bright-green is-absolute p-4 mb-4 mr-4"
       @click="toggleFullscreen"
     >
-      <ImageItem
-        :src="
-          '/icons/' + (isFullscreen ? 'fullscreen_exit' : 'fullscreen') + '.svg'
-        "
-      />
+      <IconItem :icon="isFullscreen ? 'fullscreen_exit' : 'fullscreen'" />
     </button>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import ImageItem from '@/components/ImageItem.vue';
+import IconItem from '@/components/IconItem.vue';
 import screenfull from 'screenfull';
 import {
   Scene,
@@ -43,7 +39,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 export default defineComponent({
   name: 'AnimationItem',
   components: {
-    ImageItem,
+    IconItem,
   },
   props: {
     animation: String,

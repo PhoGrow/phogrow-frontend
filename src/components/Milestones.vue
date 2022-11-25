@@ -19,7 +19,7 @@
             class="timeline-item"
           >
             <div class="timeline-marker is-icon">
-              <ImageItem :src="'/icons/' + marker + '.svg'" />
+              <IconItem :icon="marker" />
             </div>
             <div class="timeline-content">
               <p class="heading mb-0">{{ quarter }} {{ year }}</p>
@@ -41,13 +41,13 @@
 
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue';
-import { ImageItem } from '@/components';
+import { IconItem } from '@/components';
 import type { IMilestone } from '@/types';
 
 export default defineComponent({
   name: 'MileStones',
   components: {
-    ImageItem,
+    IconItem,
   },
   props: {
     steps: Array as PropType<IMilestone[]>,

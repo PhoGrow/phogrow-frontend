@@ -1,9 +1,7 @@
-// Import Bulma's core
+// Import Bulma's core, Amaranth font, and rounded Material icons
 @import 'bulma/sass/utilities/_all.sass';
-@font-face {
-  font-family: 'Amaranth';
-  src: url('/fonts/Amaranth-Regular.ttf') format('truetype');
-}
+@import '@fontsource/amaranth/index.css';
+@import '@fontsource/material-icons-rounded/index.css';
 
 // Set your colors
 $bright-green: #e1fead;
@@ -45,7 +43,7 @@ $skeleton-border-radius: 2rem;
 // Timeline
 $timeline-icon-size: $size-4;
 
-// Import Bulma, timeline extension, and Oruga styles
+// Import Bulma, timeline extension, and Oruga's Bulma theme
 @import 'bulma/bulma.sass';
 @import '@oruga-ui/theme-bulma/dist/scss/bulma.scss';
 @import 'bulma-timeline/dist/css/bulma-timeline.sass';

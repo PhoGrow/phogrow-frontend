@@ -13,6 +13,8 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@fontsource/amaranth": "^4.5.9",
+    "@fontsource/material-icons-rounded": "^4.5.4",
     "@oruga-ui/oruga-next": "^0.5.9",
     "@oruga-ui/theme-bulma": "^0.2.8",
     "bulma-timeline": "^3.0.5",

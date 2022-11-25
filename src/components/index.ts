@@ -3,6 +3,7 @@ import BlogItem from '@/components/BlogItem.vue';
 import FinancialPartners from '@/components/FinancialPartners.vue';
 import FooterItem from '@/components/FooterItem.vue';
 import FurtherLinks from '@/components/FurtherLinks.vue';
+import IconItem from '@/components/IconItem.vue';
 import ImageItem from '@/components/ImageItem.vue';
 import ImprintItem from '@/components/ImprintItem.vue';
 import InformationItem from '@/components/InformationItem.vue';
@@ -21,6 +22,7 @@ export {
   FinancialPartners,
   FooterItem,
   FurtherLinks,
+  IconItem,
   ImageItem,
   ImprintItem,
   InformationItem,
