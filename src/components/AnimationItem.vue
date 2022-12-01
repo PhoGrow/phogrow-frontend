@@ -111,7 +111,7 @@ export default defineComponent({
           // obj.material.transparent = true;
           obj.material.opacity = 1;
           // obj.material.visible = false;
-          obj.blendTime = counter * this.blendTime;
+          // obj.blendTime = counter * this.blendTime;
           this.meshes.push(obj);
           counter++;
         }
