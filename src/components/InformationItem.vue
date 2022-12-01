@@ -20,6 +20,11 @@
             />
             <ObserverItem v-if="animation" @is-visible="isVisible[i] = $event">
               <AnimationItem v-if="isVisible[i]" :animation="animation" />
+              <ImageItem
+                v-else
+                :src="'/animations/' + animation.replace('glb', 'png')"
+                class="box has-background-light p-0"
+              />
             </ObserverItem>
           </div>
           <div class="column is-narrow m-5"></div>
