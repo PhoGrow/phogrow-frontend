@@ -66,10 +66,10 @@ export default defineComponent({
           path: '/',
           name: 'Home',
         },
-        {
-          path: '/blog',
-          name: 'Blog',
-        },
+        // {
+        //   path: '/blog',
+        //   name: 'Blog',
+        // },
         {
           path: '/aboutus',
           name: 'About Us',
