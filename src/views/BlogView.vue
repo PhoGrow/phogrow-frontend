@@ -100,9 +100,14 @@ export default defineComponent({
           this.currentMonth +
           '.json'
       );
-      if (res.ok) {
+      let ok = res.ok;
+      if (ok) {
         const { entries } = await res.json();
-        this.blogEntries.push(...entries);
+        if (entries && entries.length) {
+          this.blogEntries.push(...entries);
+        } else {
+          ok = false;
+        }
       }
       this.isLoading = false;
       if (
@@ -118,7 +123,7 @@ export default defineComponent({
       } else {
         this.currentMonth -= 1;
       }
-      if (!res.ok) {
+      if (!ok) {
         this.loadNextEntries(true);
       }
     },
