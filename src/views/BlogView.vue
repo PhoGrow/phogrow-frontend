@@ -100,20 +100,21 @@ export default defineComponent({
           this.currentMonth +
           '.json'
       );
-      console.log('Full response', res);
-
       let ok = res.ok;
       if (ok) {
-        const data = await res.json();
-        console.log('Full JSON', data);
-
-        const { entries } = data;
-        console.log('Entries', entries);
-
-        if (entries && entries.length) {
-          this.blogEntries.push(...entries);
-        } else {
-          ok = false;
+        try {
+          const { entries } = await res.json();
+          if (entries && entries.length) {
+            this.blogEntries.push(...entries);
+          } else {
+            ok = false;
+          }
+        } catch (err) {
+          if (err instanceof SyntaxError) {
+            ok = false;
+          } else {
+            console.log(err);
+          }
         }
       }
       this.isLoading = false;
