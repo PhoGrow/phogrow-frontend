@@ -16,7 +16,7 @@
     <div class="card">
       <div class="card-image">
         <ImageItem
-          :src="'/blog/' + date.getFullYear() + '/images/' + entry.image"
+          :src="'/blogs/' + date.getFullYear() + '/images/' + entry.image"
         />
       </div>
       <header class="px-6 py-5">

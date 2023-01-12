@@ -93,7 +93,7 @@ export default defineComponent({
       }
       this.isLoading = true;
       const res = await fetch(
-        '/blog/' +
+        '/blogs/' +
           this.currentYear +
           '/' +
           (this.currentMonth < 10 ? '0' : '') +

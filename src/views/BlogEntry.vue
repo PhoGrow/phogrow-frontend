@@ -48,7 +48,7 @@ export default defineComponent({
         this.$route.params.year_month_title as string
       ).split('-');
       const titleInLowerCase = titleInArray.join(' ');
-      const res = await fetch('/blog/' + year + '/' + month + '.json');
+      const res = await fetch('/blogs/' + year + '/' + month + '.json');
       if (res.ok) {
         const { entries }: { entries: IBlogEntry[] } = await res.json();
         this.blogEntry = entries.filter(
@@ -56,7 +56,7 @@ export default defineComponent({
             title.split('-').join(' ').toLowerCase() === titleInLowerCase
         )[0];
         const markdown = await fetch(
-          '/blog/' + year + '/markdown/' + this.blogEntry.text
+          '/blogs/' + year + '/markdown/' + this.blogEntry.text
         );
         if (markdown.ok) {
           const text = await markdown.text();
