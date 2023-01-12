@@ -100,9 +100,16 @@ export default defineComponent({
           this.currentMonth +
           '.json'
       );
+      console.log('Full response', res);
+
       let ok = res.ok;
       if (ok) {
-        const { entries } = await res.json();
+        const data = await res.json();
+        console.log('Full JSON', data);
+
+        const { entries } = data;
+        console.log('Entries', entries);
+
         if (entries && entries.length) {
           this.blogEntries.push(...entries);
         } else {
