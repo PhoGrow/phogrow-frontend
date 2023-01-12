@@ -124,6 +124,9 @@ export default defineComponent({
         this.currentMonth -= 1;
       }
       if (!ok) {
+        // if (res.status === 404) {
+        //   console.clear();
+        // }
         this.loadNextEntries(true);
       }
     },
