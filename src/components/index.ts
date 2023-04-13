@@ -4,6 +4,7 @@ import FinancialPartners from '@/components/FinancialPartners.vue';
 import FooterItem from '@/components/FooterItem.vue';
 import FurtherLinks from '@/components/FurtherLinks.vue';
 import IconItem from '@/components/IconItem.vue';
+import IframeVideo from '@/components/IframeVideo.vue';
 import ImageItem from '@/components/ImageItem.vue';
 import ImprintItem from '@/components/ImprintItem.vue';
 import InformationItem from '@/components/InformationItem.vue';
@@ -23,6 +24,7 @@ export {
   FooterItem,
   FurtherLinks,
   IconItem,
+  IframeVideo,
   ImageItem,
   ImprintItem,
   InformationItem,

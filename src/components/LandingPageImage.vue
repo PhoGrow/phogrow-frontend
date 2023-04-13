@@ -1,11 +1,14 @@
 <template>
   <div>
-    <ImageItem
-      v-if="images.length === 1"
-      :src="'/illustrations/' + images[0]"
-      :lazy="false"
-      class="box has-background-light p-5"
-    />
+    <template v-if="images.length === 1">
+      <ImageItem
+        v-if="images[0].includes('.')"
+        :src="'/illustrations/' + images[0]"
+        :lazy="false"
+        class="box has-background-light p-5"
+      />
+      <IframeVideo v-else :video-id="images[0]" />
+    </template>
     <div
       v-if="images.length > 1"
       class="columns is-gapless is-multiline is-mobile box has-background-bright-green p-5"
@@ -35,12 +38,13 @@
 
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue';
-import { ImageItem } from '@/components';
+import { ImageItem, IframeVideo } from '@/components';
 
 export default defineComponent({
   name: 'LandingPageImage',
   components: {
     ImageItem,
+    IframeVideo,
   },
   props: {
     images: {

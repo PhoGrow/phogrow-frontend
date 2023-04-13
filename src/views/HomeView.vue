@@ -70,7 +70,7 @@ export default defineComponent({
             'We create digital growing plants for your own creative use case.',
           buttons: [{ message: 'Learn more' }],
         } as ILandingPageText,
-        images: ['flowers.svg'],
+        images: ['4EDj7kzX1CE'], // flowers.svg
       },
       information: [
         {
