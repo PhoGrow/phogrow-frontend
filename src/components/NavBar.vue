@@ -36,11 +36,20 @@
             :active="$route.path === path"
             :class="[
               'navbar-item has-text-right px-4',
-              { 'has-text-weight-semibold': $route.path === path },
+              {
+                'has-text-weight-semibold': $route.path === path,
+                'has-gradient-border': path.includes('join'),
+              },
             ]"
             @click="hasOpenMenu = false"
           >
             {{ name }}
+            <span
+              v-if="path.includes('join')"
+              class="is-absolute is-size-7 px-3 py-2 has-background-bright-green is-rounded has-text-weight-semibold"
+              style="top: -0.75rem; right: -0.75rem"
+              >2</span
+            >
           </RouterLink>
           <div class="is-hidden-touch px-4"></div>
         </div>
@@ -82,6 +91,10 @@ export default defineComponent({
           path: '/contact',
           name: 'Contact',
         },
+        // {
+        //   path: '/joinus',
+        //   name: 'Join Us',
+        // },
       ],
     };
   },
@@ -101,5 +114,11 @@ export default defineComponent({
   padding-top: calc(4.25rem - 0.5rem + 0.75rem);
   padding-bottom: 0.75rem;
   margin-top: calc(-4.25rem + 0.5rem);
+}
+
+.has-gradient-border {
+  border-width: 1px;
+  border-style: solid;
+  border-image: linear-gradient(to right top, #e1fead, #56d000) 1;
 }
 </style>

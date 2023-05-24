@@ -8,6 +8,7 @@ import IframeVideo from '@/components/IframeVideo.vue';
 import ImageItem from '@/components/ImageItem.vue';
 import ImprintItem from '@/components/ImprintItem.vue';
 import InformationItem from '@/components/InformationItem.vue';
+import JobPostings from '@/components/JobPostings.vue';
 import LandingPage from '@/components/LandingPage.vue';
 import LandingPageImage from '@/components/LandingPageImage.vue';
 import LandingPageText from '@/components/LandingPageText.vue';
@@ -28,6 +29,7 @@ export {
   ImageItem,
   ImprintItem,
   InformationItem,
+  JobPostings,
   LandingPage,
   LandingPageImage,
   LandingPageText,

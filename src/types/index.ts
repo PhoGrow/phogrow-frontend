@@ -60,3 +60,14 @@ export interface IBlogEntry {
   tldr: string;
   text: string;
 }
+
+export interface IJobPosting {
+  jobTitle: string;
+  employmentType: string[];
+  location: string[];
+  salary: string;
+  description: string;
+  responsibilities: string[];
+  requirements: string[];
+  benefits: string[];
+}

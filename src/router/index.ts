@@ -38,6 +38,11 @@ const router = createRouter({
       component: () => import('@/views/ContactView.vue'),
     },
     {
+      path: '/joinus',
+      name: 'JoinUs',
+      component: () => import('@/views/JoinUs.vue'),
+    },
+    {
       path: '/:pathMatch(.*)*',
       name: 'NotFound',
       component: () => import('@/views/NotFound.vue'),
