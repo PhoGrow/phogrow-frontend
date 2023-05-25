@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      v-for="({ image, animation, title, subtitle, message }, i) of info"
+      v-for="({ image, animation, title, subtitle, message, mail }, i) of info"
       :key="title"
       class="columns is-centered is-gapless is-multiline m-0"
     >
@@ -10,13 +10,14 @@
           <div class="column is-5-tablet is-10-mobile">
             <ImageItem
               v-if="image"
-              :src="
-                (image.includes('.svg') ? '/illustrations/' : '/team/') + image
-              "
+              :src="`/${getImagePath(image)}/${image}`"
               :class="{
                 'box has-background-light p-5': image.includes('.svg'),
+                'has-background-light br-2': image.includes('.avif'),
               }"
-              :custom-class="image.includes('.jpg') ? 'br-2' : ''"
+              :custom-class="
+                image.includes('.jpg') || image.includes('.avif') ? 'br-2' : ''
+              "
             />
             <ObserverItem v-if="animation" @is-visible="isVisible[i] = $event">
               <AnimationItem v-if="isVisible[i]" :animation="animation" />
@@ -41,6 +42,7 @@
               {{ subtitle }}
             </h2>
             <p class="subtitle has-text-grey">{{ message }}</p>
+            <a v-if="mail" :href="`mailto:${mail}`">{{ mail }}</a>
           </div>
         </div>
       </div>
@@ -81,6 +83,18 @@ export default defineComponent({
     for (let i = 0; i < this.info.length; i++) {
       this.isVisible.push(false);
     }
+  },
+  methods: {
+    getImagePath(image: string): string {
+      switch (true) {
+        case image.includes('.svg'):
+          return 'illustrations';
+        case image.includes('.avif'):
+          return 'images';
+        default:
+          return 'team';
+      }
+    },
   },
 });
 </script>

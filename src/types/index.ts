@@ -14,6 +14,7 @@ export interface ILandingPageText extends Info {
 export interface IInformation extends Info {
   image?: string;
   animation?: string;
+  mail?: string;
 }
 
 export interface IPartner {

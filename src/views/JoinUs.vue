@@ -4,7 +4,7 @@
       <template #text>
         <LandingPageText
           :text="landingPage.text"
-          :linkage="employerOverview.title"
+          :linkage="jobPostings.title"
         />
       </template>
       <template #image>
@@ -12,12 +12,12 @@
       </template>
     </LandingPage>
     <hr />
-    <SlotWithTitle :title="employerOverview.title">
-      <InformationItem :info="employerOverview.info" />
-    </SlotWithTitle>
-    <hr />
     <SlotWithTitle :title="jobPostings.title">
       <JobPostings :positions="jobPostings.positions" />
+    </SlotWithTitle>
+    <hr />
+    <SlotWithTitle :title="employerOverview.title">
+      <InformationItem :info="employerOverview.info" />
     </SlotWithTitle>
   </div>
 </template>
@@ -48,11 +48,11 @@ export default defineComponent({
     return {
       landingPage: {
         text: {
-          title: 'Want to work with us?',
-          subtitle: '– Join our mission!',
+          title: 'Grow with us',
+          subtitle: 'Join our mission',
           message:
             'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.',
-          buttons: [{ message: 'Learn more' }],
+          buttons: [{ message: 'Join us' }],
         } as ILandingPageText,
         images: ['team_collaboration.svg'],
       },
@@ -87,7 +87,7 @@ export default defineComponent({
             employmentType: ['Full-time'],
             location: ['Office in Cologne', 'remote'],
             salary: 'Competitive salary (2500€ gross + bonus)',
-            description: `You will have the unique opportunity to become co-founder of a Cologne based AI-startup, tackling the most challenging problems of today from a new perspective.\n
+            description: `You will have the unique opportunity to become co-founder of a Cologne-based AI startup, tackling the most challenging problems of today from a new perspective.\n
                 Providing digital twins of plants, to help humans and robots make data-driven decisions in agriculture, is our contribution to ensure future food supply, despite the challenges of climate change and population growth. We have ambitious goals, but a clear vision, that we can only realize together, as a team.\n
                 If you want to have an impact on modern agriculture practices, believe in the potential of smart digital twins and enjoy working in a startup environment, we would love to hear from you.`,
             responsibilities: [
@@ -111,7 +111,7 @@ export default defineComponent({
             employmentType: ['Full-time', 'part-time'],
             location: ['Office in Cologne', 'remote'],
             salary: 'Gratuitous',
-            description: `You will have the unique opportunity to become intern of a Cologne based AI-startup, tackling the most challenging problems of today from a new perspective.\n
+            description: `You will have the unique opportunity to become intern of a Cologne-based AI startup, tackling the most challenging problems of today from a new perspective.\n
                 Providing digital twins of plants, to help humans and robots make data-driven decisions in agriculture, is our contribution to ensure future food supply, despite the challenges of climate change and population growth. We have ambitious goals, but a clear vision, that we can only realize together, as a team.\n
                 If you want to have an impact on modern agriculture practices, believe in the potential of smart digital twins and enjoy working in a startup environment, we would love to hear from you.`,
             responsibilities: [

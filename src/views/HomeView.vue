@@ -67,36 +67,53 @@ export default defineComponent({
           title: 'PhoGrow',
           subtitle: 'Experience plant growth in 3D.',
           message:
-            'We create digital growing plants for your own creative use case.',
+            'Providing digital twins of plants to help humans and robots make data-driven decisions in agriculture.',
           buttons: [{ message: 'Learn more' }],
         } as ILandingPageText,
         images: ['4EDj7kzX1CE'], // flowers.svg
       },
       information: [
         {
-          title: 'What we do',
+          title: 'We provide...',
+          info: [
+            {
+              image: 'digital_twins.avif',
+              title: 'Digital twins',
+              message: `Our AI solution creates annotated representations of plants from all perspectives, which can be obtained via our app.`,
+            },
+            {
+              image: 'forecasting_changes.avif',
+              title: 'Change prognosis',
+              message: `Given a set of parameters, our models can predict how plants will change, providing valuable insights from all perspectives.`,
+            },
+            {
+              image: 'flexible_training_data.avif',
+              title: 'Extension to fields',
+              message: `We provide easy access to photorealistic digital replicas of fields, that can be edited and tailored to your needs.`,
+            },
+          ] as IInformation[],
+        },
+        {
+          title: 'What makes us unique',
           info: [
             {
               image: 'team.jpg',
               title: 'Capture plants',
-              message:
-                'In our PhoGrow-Box, real plants grow autonomously under variable conditions. ' +
-                'This growth process is captured by cameras from different perspectives.',
+              message: `Our PhoGrow-Box captures real plant growth under controllable conditions and brings them into the digital world.
+                The box operates completely autonomous and captures 24/7.`,
             },
             {
               animation: 'austernSeitling_reduced.glb',
-              title: 'Our Results',
-              message:
-                'We create photorealistic animations of real plants and mushrooms, just like the one on your left. ' +
-                'You can look at it from different perspectives by clicking and dragging.',
+              title: 'Interactive examples',
+              message: `Feel free to explore an interactive example of the data we provide on the left.
+                You can look at it from different perspectives by clicking and dragging.`,
             },
             {
-              image: 'animating.svg',
-              title: 'Applications',
-              message:
-                'Now you can use the animations in your application. ' +
-                'Place our plants inside your website, movie, or video game. ' +
-                'Or, of course, in your very own use case where you want to make nature more real.',
+              image: 'contact_us.svg',
+              title: 'Reach out to us',
+              message: `You need high quality data for your agriculture problems?
+                - Simply reach out to us and we will find a custom solution.`,
+              mail: 'info@phogrow3d.com',
             },
           ] as IInformation[],
         },

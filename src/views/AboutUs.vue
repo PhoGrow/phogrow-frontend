@@ -48,9 +48,10 @@ export default defineComponent({
     return {
       landingPage: {
         text: {
-          title: 'Who is PhoGrow?',
-          subtitle: `– That's us!`,
-          message: 'A team of 8 young people who share a passionated vision.',
+          title: 'We are PhoGrow',
+          subtitle: `A Cologne-based AI startup`,
+          message:
+            'We are a motivated team tackling the most ambitious challenges of our time from a new perspective by providing smart digital twins for agriculture.',
           buttons: [{ message: 'Learn more' }],
         } as ILandingPageText,
         images: [
@@ -65,29 +66,23 @@ export default defineComponent({
         ],
       },
       information: {
-        title: 'Our Vision',
+        title: 'Our vision',
         info: [
           {
-            image: 'explore.svg',
-            title: 'Explore plants interactively in 3D',
-            message:
-              'Dive into a digital world where you can interact with the vegetation and watch the plants grow. ' +
-              'Experience the plants from every perspective at every stage of growth.',
+            image: 'convert.svg',
+            title: 'Digital twins for agriculture',
+            message: `We provide digital twins for agriculture as high-quality, flexible and annotated 4D scans from individual plants to holistic fields.`,
           },
           {
-            image: 'web_devices.svg',
-            title: 'Accessible on every platform',
-            message:
-              'You can experience the beauty of our plants and mushrooms on every device, from anywhere. ' +
-              'Let it be outside in the forest, on a fieldtrip using your smartphone, ' +
-              'or simply on your tablet and desktop at home.',
+            image: 'data.svg',
+            title: 'Importance of accurate data',
+            message: `In order to overcome the lack of high quality data, accurate data is needed to meet the challenges of our time.`,
           },
           {
-            image: 'launching.svg',
-            title: 'First database for 3D plant growth',
-            message:
-              'We provide you with the first database of 3D plant growth ' +
-              'that allows to experience a huge variety of different vegetations in real time.',
+            image: 'forming_ideas.svg',
+            title: 'Tackle challenges in farming',
+            message: `GPS navigation inaccuracies of up to 50 cm and reception latency make precision farming difficult.
+              More than 400 wheat ears per square meter need to be accurately detected by optical sensor systems.`,
           },
         ] as IInformation[],
       },

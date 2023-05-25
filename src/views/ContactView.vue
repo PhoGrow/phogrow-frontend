@@ -33,8 +33,8 @@ export default defineComponent({
     return {
       landingPage: {
         text: {
-          title: 'Bump into PhoGrow?',
-          subtitle: `– We've got you covered!`,
+          title: `Let's connect`,
+          subtitle: `Be part of our network`,
           message:
             'Questions or suggestions – Reach out to us. We look forward to your inquiry.',
           buttons: [
