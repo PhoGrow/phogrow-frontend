@@ -13,7 +13,7 @@
               :src="`/${getImagePath(image)}/${image}`"
               :class="{
                 'box has-background-light p-5': image.includes('.svg'),
-                'has-background-light br-2': image.includes('.avif'),
+                'has-background-light': image.includes('.avif'),
               }"
               :custom-class="
                 image.includes('.jpg') || image.includes('.avif') ? 'br-2' : ''

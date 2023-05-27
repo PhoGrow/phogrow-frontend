@@ -50,7 +50,10 @@ export default defineComponent({
     IconItem,
   },
   props: {
-    steps: Array as PropType<IMilestone[]>,
+    steps: {
+      type: Array as PropType<IMilestone[]>,
+      required: true,
+    },
   },
 });
 </script>

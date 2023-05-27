@@ -64,6 +64,7 @@ export interface IBlogEntry {
 
 export interface IJobPosting {
   jobTitle: string;
+  icon: string;
   employmentType: string[];
   location: string[];
   salary: string;

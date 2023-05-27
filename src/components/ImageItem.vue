@@ -15,9 +15,18 @@ import { defineComponent } from 'vue';
 export default defineComponent({
   name: 'ImageItem',
   props: {
-    src: String,
-    alt: String,
-    customClass: String,
+    src: {
+      type: String,
+      required: true,
+    },
+    alt: {
+      type: String,
+      required: true,
+    },
+    customClass: {
+      type: String,
+      default: '',
+    },
     lazy: {
       type: Boolean,
       default: true,

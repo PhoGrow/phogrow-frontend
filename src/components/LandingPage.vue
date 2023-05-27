@@ -11,7 +11,7 @@
       <div
         :class="[
           'columns is-vcentered is-gapless is-flex-direction-row-reverse',
-          { 'box': !hasBgImage },
+          { box: !hasBgImage },
         ]"
         style="width: 100%"
       >

@@ -44,7 +44,10 @@ import type { IRedirect } from '@/types';
 export default defineComponent({
   name: 'FurtherLinks',
   props: {
-    links: Array as PropType<IRedirect[]>,
+    links: {
+      type: Array as PropType<IRedirect[]>,
+      required: true,
+    },
   },
 });
 </script>

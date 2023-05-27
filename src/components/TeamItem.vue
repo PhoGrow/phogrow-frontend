@@ -1,35 +1,15 @@
 <template>
   <div class="columns is-centered is-gapless">
     <div class="column is-8-tablet">
-      <o-collapse
+      <CollapseItem
         v-for="{ workArea, developers } of people"
         :key="workArea"
-        class="card mb-6"
-        animation="slide"
-        :aria-id="workArea"
+        :aria="workArea"
       >
-        <template #trigger="{ open }">
-          <div
-            class="card-header is-shadowless is-clickable"
-            role="button"
-            :aria-controls="workArea"
-            :aria-expanded="open"
-          >
-            <p
-              class="card-header-title title has-text-weight-medium amaranth is-unselectable p-6 mb-0"
-            >
-              {{ workArea }}
-            </p>
-            <a class="card-header-icon px-6">
-              <IconItem
-                :icon="open ? 'keyboard_arrow_up' : 'keyboard_arrow_down'"
-                size="is-large"
-                class="has-text-grey"
-              />
-            </a>
-          </div>
+        <template #title>
+          {{ workArea }}
         </template>
-        <div class="card-content pt-0">
+        <template #content>
           <div
             v-for="({ image, name, task, message }, i) of developers"
             :key="name"
@@ -63,25 +43,28 @@
               ]"
             ></div>
           </div>
-        </div>
-      </o-collapse>
+        </template>
+      </CollapseItem>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue';
-import { IconItem, ImageItem } from '@/components';
+import { CollapseItem, ImageItem } from '@/components';
 import type { ITeam } from '@/types';
 
 export default defineComponent({
   name: 'TeamItem',
   components: {
-    IconItem,
     ImageItem,
+    CollapseItem,
   },
   props: {
-    people: Array as PropType<ITeam[]>,
+    people: {
+      type: Array as PropType<ITeam[]>,
+      required: true,
+    },
   },
 });
 </script>

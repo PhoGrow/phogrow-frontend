@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <LandingPage :hasBgImage="landingPage.hasBgImage">
+    <LandingPage :has-bg-image="landingPage.hasBgImage">
       <template #text>
         <LandingPageText :text="landingPage.text" :linkage="imprint.title" />
       </template>

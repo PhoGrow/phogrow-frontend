@@ -34,13 +34,13 @@ export default defineComponent({
       blogEntry: {} as IBlogEntry,
     };
   },
-  async created() {
-    await this.loadEntry();
-  },
   watch: {
     async $route(): Promise<void> {
       await this.loadEntry();
     },
+  },
+  async created() {
+    await this.loadEntry();
   },
   methods: {
     async loadEntry(): Promise<void> {

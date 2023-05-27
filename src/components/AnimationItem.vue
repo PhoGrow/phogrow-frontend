@@ -42,7 +42,10 @@ export default defineComponent({
     IconItem,
   },
   props: {
-    animation: String,
+    animation: {
+      type: String,
+      required: true,
+    },
   },
   data() {
     return {
@@ -102,7 +105,7 @@ export default defineComponent({
         });
         // Sort meshes by names
         // Apply blending start times to them
-        let counter = 0;
+        // let counter = 0;
         const test = Object.keys(listObjs).sort();
         for (let i = 0; i < test.length; i++) {
           const key = test[i];
@@ -113,7 +116,7 @@ export default defineComponent({
           // obj.material.visible = false;
           // obj.blendTime = counter * this.blendTime;
           this.meshes.push(obj);
-          counter++;
+          // counter++;
         }
         // Store the overall blending time
         this.totalBlendTime = this.blendTime * this.meshes.length;

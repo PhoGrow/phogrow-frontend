@@ -10,7 +10,10 @@ import { defineComponent } from 'vue';
 export default defineComponent({
   name: 'IconItem',
   props: {
-    icon: String,
+    icon: {
+      type: String,
+      required: true,
+    },
     size: {
       type: String,
       default: 'is-normal',

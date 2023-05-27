@@ -84,12 +84,13 @@ export default defineComponent({
         positions: [
           {
             jobTitle: 'Marketing Lead',
+            icon: 'trending_up',
             employmentType: ['Full-time'],
             location: ['Office in Cologne', 'remote'],
-            salary: 'Competitive salary (2500€ gross + bonus)',
-            description: `You will have the unique opportunity to become co-founder of a Cologne-based AI startup, tackling the most challenging problems of today from a new perspective.\n
-                Providing digital twins of plants, to help humans and robots make data-driven decisions in agriculture, is our contribution to ensure future food supply, despite the challenges of climate change and population growth. We have ambitious goals, but a clear vision, that we can only realize together, as a team.\n
-                If you want to have an impact on modern agriculture practices, believe in the potential of smart digital twins and enjoy working in a startup environment, we would love to hear from you.`,
+            salary: '2500€ (gr.) + bonus',
+            description: `You will have the unique opportunity to become a co-founder of a Cologne-based AI startup, tackling today's most challenging problems from a new perspective.\n
+              Providing digital twins of plants to help humans and robots make data-driven decisions in agriculture is our contribution to ensure future food supply despite the challenges of climate change and population growth. We have ambitious goals, but a clear vision that can only be achieved together, as a team.\n
+              If you want to make an impact on modern agricultural practices, believe in the potential of smart digital twins and enjoy working in a startup environment, we would love to hear from you.`,
             responsibilities: [
               'We are experts in our fields and so should you be an expert in marketing related topics and enjoy the exchange with our customers.',
               'Business plan',
@@ -108,12 +109,13 @@ export default defineComponent({
           },
           {
             jobTitle: 'Creative Intern',
+            icon: 'palette',
             employmentType: ['Full-time', 'part-time'],
             location: ['Office in Cologne', 'remote'],
             salary: 'Gratuitous',
-            description: `You will have the unique opportunity to become intern of a Cologne-based AI startup, tackling the most challenging problems of today from a new perspective.\n
-                Providing digital twins of plants, to help humans and robots make data-driven decisions in agriculture, is our contribution to ensure future food supply, despite the challenges of climate change and population growth. We have ambitious goals, but a clear vision, that we can only realize together, as a team.\n
-                If you want to have an impact on modern agriculture practices, believe in the potential of smart digital twins and enjoy working in a startup environment, we would love to hear from you.`,
+            description: `You will have the unique opportunity to become an intern at a Cologne-based AI startup, tackling today's most challenging problems from a new perspective.\n
+              Providing digital twins of plants to help humans and robots make data-driven decisions in agriculture is our contribution to ensure future food supply despite the challenges of climate change and population growth. We have ambitious goals, but a clear vision that can only be achieved together, as a team.\n
+              If you want to make an impact on modern agricultural practices, believe in the potential of smart digital twins and enjoy working in a startup environment, we would love to hear from you.`,
             responsibilities: [
               'We are experts in our fields and thus you will have a lot of opportunities to learn.',
               'Capturing objects in 3D',

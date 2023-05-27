@@ -14,7 +14,10 @@ import { defineComponent } from 'vue';
 export default defineComponent({
   name: 'IframeVideo',
   props: {
-    videoId: String,
+    videoId: {
+      type: String,
+      required: true,
+    },
   },
 });
 </script>

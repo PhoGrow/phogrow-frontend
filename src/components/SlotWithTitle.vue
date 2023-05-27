@@ -25,8 +25,14 @@ import { defineComponent } from 'vue';
 export default defineComponent({
   name: 'SlotWithTitle',
   props: {
-    title: String,
-    note: String,
+    title: {
+      type: String,
+      default: '',
+    },
+    note: {
+      type: String,
+      default: '',
+    },
   },
 });
 </script>

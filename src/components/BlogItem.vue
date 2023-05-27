@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-v-html -->
 <template>
   <component
     :is="isFullPage ? 'div' : 'RouterLink'"
@@ -51,8 +52,8 @@
         </p>
         <p
           v-if="isFullPage && markdownInHtml"
-          v-html="markdownInHtml"
           class="content pt-5"
+          v-html="markdownInHtml"
         ></p>
       </div>
     </div>

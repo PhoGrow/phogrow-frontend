@@ -4,6 +4,7 @@
       <ImageItem
         v-if="images[0].includes('.')"
         :src="'/illustrations/' + images[0]"
+        :alt="images[0].split('.')[0].replace('_', ' ')"
         :lazy="false"
         class="box has-background-light p-5"
       />
@@ -16,6 +17,7 @@
       <div v-for="(image, i) of images" :key="image" class="column is-3">
         <ImageItem
           :src="(image.includes('logo') ? '/logos/' : '/team/') + image"
+          :alt="image.split('.')[0].replace('_', ' ')"
           class="is-flex is-align-items-center is-justify-content-center"
           style="height: 100%"
           :custom-class="

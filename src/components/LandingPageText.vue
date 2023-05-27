@@ -14,6 +14,7 @@
         <ImageItem
           v-if="href && href.includes('instagram')"
           src="/logos/instagram.png"
+          alt="instagram logo"
           :lazy="false"
           class="is-32x32 ml-3"
         />
@@ -37,7 +38,10 @@ export default defineComponent({
       type: Object as PropType<ILandingPageText>,
       required: true,
     },
-    linkage: String,
+    linkage: {
+      type: String,
+      required: true,
+    },
   },
 });
 </script>

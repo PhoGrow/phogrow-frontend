@@ -1,5 +1,6 @@
 import AnimationItem from '@/components/AnimationItem.vue';
 import BlogItem from '@/components/BlogItem.vue';
+import CollapseItem from '@/components/CollapseItem.vue';
 import FinancialPartners from '@/components/FinancialPartners.vue';
 import FooterItem from '@/components/FooterItem.vue';
 import FurtherLinks from '@/components/FurtherLinks.vue';
@@ -21,6 +22,7 @@ import TeamItem from '@/components/TeamItem.vue';
 export {
   AnimationItem,
   BlogItem,
+  CollapseItem,
   FinancialPartners,
   FooterItem,
   FurtherLinks,

@@ -58,8 +58,14 @@ export default defineComponent({
     ImageItem,
   },
   props: {
-    organizations: Array as PropType<IPartner[]>,
-    redirect: Array as PropType<IRedirect[]>,
+    organizations: {
+      type: Array as PropType<IPartner[]>,
+      required: true,
+    },
+    redirect: {
+      type: Array as PropType<IRedirect[]>,
+      required: true,
+    },
   },
 });
 </script>
