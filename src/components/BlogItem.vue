@@ -18,6 +18,7 @@
       <div class="card-image">
         <ImageItem
           :src="'/blogs/' + date.getFullYear() + '/images/' + entry.image"
+          :alt="entry.image.split('.')[0].replace('_', ' ')"
         />
       </div>
       <header class="px-6 py-5">

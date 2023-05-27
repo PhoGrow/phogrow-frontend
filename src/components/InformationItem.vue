@@ -11,6 +11,7 @@
             <ImageItem
               v-if="image"
               :src="`/${getImagePath(image)}/${image}`"
+              :alt="image.split('.')[0].replace('_', ' ')"
               :class="{
                 'box has-background-light p-5': image.includes('.svg'),
                 'has-background-light': image.includes('.avif'),
@@ -24,6 +25,7 @@
               <ImageItem
                 v-else
                 :src="'/animations/' + animation.replace('glb', 'png')"
+                :alt="animation.split('.')[0].replace('_', ' ')"
                 class="box has-background-light p-0"
               />
             </ObserverItem>

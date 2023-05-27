@@ -17,7 +17,11 @@
           <span class="has-text-weight-semibold is-size-6 mr-2"
             >@phogrow3d</span
           >
-          <ImageItem src="/logos/instagram.png" class="is-32x32" />
+          <ImageItem
+            src="/logos/instagram.png"
+            alt="instagram logo"
+            class="is-32x32"
+          />
         </a>
       </div>
     </div>

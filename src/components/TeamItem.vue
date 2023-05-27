@@ -21,6 +21,7 @@
               >
                 <ImageItem
                   :src="'/team/' + image"
+                  :alt="image.split('.')[0].replace('_', ' ')"
                   class="is-96x96"
                   custom-class="is-rounded"
                 />
@@ -57,8 +58,8 @@ import type { ITeam } from '@/types';
 export default defineComponent({
   name: 'TeamItem',
   components: {
-    ImageItem,
     CollapseItem,
+    ImageItem,
   },
   props: {
     people: {

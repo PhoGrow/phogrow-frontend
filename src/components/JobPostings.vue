@@ -22,7 +22,8 @@
               ]"
               :key="icon"
               class="tag is-rounded"
-              ><IconItem :icon="icon" class="has-text-grey mr-2" />
+            >
+              <IconItem :icon="icon" class="has-text-grey mr-2" />
               <span>{{ Array.isArray(info) ? info.join(' / ') : info }}</span>
             </span>
           </div>
