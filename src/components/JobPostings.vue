@@ -28,7 +28,9 @@
             </span>
           </div>
           <template v-for="{ title, text } of p.description" :key="title">
-            <p class="has-text-weight-semibold amaranth">{{ title }}</p>
+            <p v-if="title" class="has-text-weight-semibold amaranth">
+              {{ title }}
+            </p>
             <p style="white-space: pre-line">{{ text }}</p>
           </template>
           <template
@@ -53,7 +55,7 @@
               questions:
             </p>
             <ul>
-              <li v-for="c of p.contact" :key="c">{{ c }}</li>
+              <li v-for="m of p.motivation" :key="m">{{ m }}</li>
             </ul>
           </div>
         </template>

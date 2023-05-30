@@ -69,11 +69,11 @@ export interface IJobPosting {
   location: string[];
   salary: string;
   description: {
-    title: string;
+    title?: string;
     text: string;
   }[];
   responsibilities: string[];
   requirements: string[];
   benefits: string[];
-  contact: string[];
+  motivation: string[];
 }

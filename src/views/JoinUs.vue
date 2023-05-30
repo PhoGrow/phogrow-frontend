@@ -90,7 +90,6 @@ export default defineComponent({
             salary: 'Competitive salary (equal pay)',
             description: [
               {
-                title: '',
                 text: `You will have the unique opportunity to become the marketing lead and potentially co-founder of a Cologne-based AI startup, tackling today's most challenging problems from a new perspective.`,
               },
               {
@@ -129,7 +128,7 @@ export default defineComponent({
               'Opportunity to work in an interdisciplinary environment and collaborate with different stakeholders',
               'Personal development through taking on responsibility and learning new skills',
             ],
-            contact: [
+            motivation: [
               'Why are you the right fit for this position?',
               'What is the role of plants as digital twins in modern agricultural practices?',
               'Which companies do you think are most likely to benefit from our service and how?',
@@ -143,7 +142,6 @@ export default defineComponent({
             salary: 'Negotiable',
             description: [
               {
-                title: '',
                 text: `You will have the unique opportunity to become an intern of a Cologne-based AI startup, tackling today's most challenging problems from a new perspective.`,
               },
               {
@@ -178,7 +176,7 @@ export default defineComponent({
               'Opportunity to work in an interdisciplinary environment and collaborate with different stakeholders',
               'Personal development through taking on responsibility and learning new skills',
             ],
-            contact: [
+            motivation: [
               'What are your specialities and in which field do you strive to support and learn from the team?',
               'What are the benefits of digital twins for modern industrial practice?',
             ],
