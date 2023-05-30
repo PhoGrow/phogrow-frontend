@@ -94,7 +94,7 @@ export default defineComponent({
               },
               {
                 title: 'Opportunity',
-                text: `To this end, agriculture is one of the least digitized industries, which is currently undergoing a radical change with autonomous machines starting to optimize conventional agriculture practices. The rapid development in this field is driven by corporate competition, where startups play an important role in exploring radical new ideas and potentially transforming the future of agriculture.\n
+                text: `To this end, agriculture is one of the least digitized industries, which is currently undergoing a radical change with autonomous machines starting to optimize conventional agriculture practices. The rapid development in this field is driven by corporate competition, where startups play an important role in exploring new ideas and potentially transforming the future of agriculture.\n
                   At PhoGrow, we strive to become the go-to platform for big agricultural companies looking for high quality digital twins of plants to optimize their processes.`,
               },
               {
@@ -146,7 +146,7 @@ export default defineComponent({
               },
               {
                 title: 'Opportunity',
-                text: `To this end, agriculture is one of the least digitized industries, which is currently undergoing a radical change with autonomous machines starting to optimize conventional agriculture practices. The rapid development in this field is driven by corporate competition, where startups play an important role in exploring radical new ideas and potentially transforming the future of agriculture.\n
+                text: `To this end, agriculture is one of the least digitized industries, which is currently undergoing a radical change with autonomous machines starting to optimize conventional agriculture practices. The rapid development in this field is driven by corporate competition, where startups play an important role in exploring new ideas and potentially transforming the future of agriculture.\n
                 At PhoGrow, we strive to become the go-to platform for big agricultural companies looking for high quality digital twins of plants to optimize their processes.`,
               },
               {
