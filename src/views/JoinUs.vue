@@ -51,7 +51,7 @@ export default defineComponent({
           title: 'Grow with us',
           subtitle: 'Join our mission',
           message:
-            'Providing digital twins of plants is our contribution to ensure future food supply despite the challenges of climate change and population growth. We have ambitious goals, but a clear vision that can only be achieved together, as a team.',
+            'Providing digital twins of plants to help humans and robots make data-driven decisions in agriculture. We have ambitious goals, but a clear vision that can only be achieved together, as a team.',
           buttons: [{ message: 'Join us' }],
         } as ILandingPageText,
         images: ['team_collaboration.svg'],
