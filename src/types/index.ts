@@ -68,8 +68,12 @@ export interface IJobPosting {
   employmentType: string[];
   location: string[];
   salary: string;
-  description: string;
+  description: {
+    title: string;
+    text: string;
+  }[];
   responsibilities: string[];
   requirements: string[];
   benefits: string[];
+  contact: string[];
 }

@@ -5,7 +5,7 @@
         class="columns is-centered is-vcentered is-variable is-6 is-multiline box p-5 m-0"
       >
         <div
-          v-for="{ title, linkTo } of links"
+          v-for="{ title, text, linkTo } of links"
           :key="linkTo"
           class="column is-6-tablet py-5"
         >
@@ -21,13 +21,13 @@
             <div class="column is-narrow is-align-self-flex-end">
               <o-button
                 tag="router-link"
-                :to="'/' + linkTo.replace(' ', '').toLowerCase()"
+                :to="linkTo"
                 class="has-text-weight-medium"
                 size="large"
                 rounded
                 expanded
               >
-                {{ linkTo }}
+                {{ text }}
               </o-button>
             </div>
           </div>

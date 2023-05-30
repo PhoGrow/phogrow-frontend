@@ -27,7 +27,10 @@
               <span>{{ Array.isArray(info) ? info.join(' / ') : info }}</span>
             </span>
           </div>
-          <p style="white-space: pre-line">{{ p.description }}</p>
+          <template v-for="{ title, text } of p.description" :key="title">
+            <p class="has-text-weight-semibold amaranth">{{ title }}</p>
+            <p style="white-space: pre-line">{{ text }}</p>
+          </template>
           <template
             v-for="{ title, points } of [
               { title: 'responsibilities', points: p.responsibilities },
@@ -41,13 +44,17 @@
               <li v-for="point of points" :key="point">{{ point }}</li>
             </ul>
           </template>
-          <div class="box has-background-light is-size-5 mt-6">
+          <div class="box has-background-light mt-6">
             <p class="has-text-weight-semibold">Does this sound like you?</p>
             <p>
               Then we'd love to hear from you! Please send us your CV at
-              <a href="mailto:info@phogrow3d.com">info@phogrow3d.com</a> and let
-              us know your earliest possible starting date.
+              <a href="mailto:info@phogrow3d.com">info@phogrow3d.com</a> and
+              show us your motivation by briefly answering the following
+              questions:
             </p>
+            <ul>
+              <li v-for="c of p.contact" :key="c">{{ c }}</li>
+            </ul>
           </div>
         </template>
       </CollapseItem>

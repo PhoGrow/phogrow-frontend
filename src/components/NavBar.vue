@@ -80,8 +80,8 @@ export default defineComponent({
         //   name: 'Blog',
         // },
         {
-          path: '/aboutus',
-          name: 'About Us',
+          path: '/about',
+          name: 'About',
         },
         // {
         //   path: '/roadmap',
@@ -91,10 +91,10 @@ export default defineComponent({
           path: '/contact',
           name: 'Contact',
         },
-        // {
-        //   path: '/joinus',
-        //   name: 'Join Us',
-        // },
+        {
+          path: '/joinus',
+          name: 'Join us',
+        },
       ],
     };
   },

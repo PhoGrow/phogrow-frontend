@@ -211,11 +211,13 @@ export default defineComponent({
         links: [
           {
             title: 'Who is PhoGrow?',
-            linkTo: 'About Us',
+            text: 'About us',
+            linkTo: '/about',
           },
           {
             title: 'Bump into PhoGrow?',
-            linkTo: 'Contact',
+            text: 'Contact us',
+            linkTo: '/contact',
           },
         ] as IRedirect[],
       },

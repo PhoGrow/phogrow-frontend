@@ -51,7 +51,7 @@ export default defineComponent({
           title: 'Grow with us',
           subtitle: 'Join our mission',
           message:
-            'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.',
+            'Providing digital twins of plants is our contribution to ensure future food supply despite the challenges of climate change and population growth. We have ambitious goals, but a clear vision that can only be achieved together, as a team.',
           buttons: [{ message: 'Join us' }],
         } as ILandingPageText,
         images: ['team_collaboration.svg'],
@@ -61,15 +61,15 @@ export default defineComponent({
         info: [
           {
             image: 'welcome.svg',
-            title: 'How to describe us',
+            title: 'We are PhoGrow',
             message:
-              'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.',
+              'We are a motivated team tackling the most ambitious challenges of our time from a new perspective by providing smart digital twins for agriculture.',
           },
           {
             image: 'investment_data.svg',
-            title: 'Your opportunities',
+            title: 'Opportunities',
             message:
-              'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.',
+              'At PhoGrow, we strive to become the go-to platform for big agricultural companies looking for high quality digital twins of plants to optimize their operations in a more sustainable way.',
           },
           {
             image: 'happy_feeling.svg',
@@ -87,41 +87,101 @@ export default defineComponent({
             icon: 'trending_up',
             employmentType: ['Full-time'],
             location: ['Office in Cologne', 'remote'],
-            salary: '2500€ (gr.) + bonus',
-            description: `You will have the unique opportunity to become a co-founder of a Cologne-based AI startup, tackling today's most challenging problems from a new perspective.\n
-              Providing digital twins of plants to help humans and robots make data-driven decisions in agriculture is our contribution to ensure future food supply despite the challenges of climate change and population growth. We have ambitious goals, but a clear vision that can only be achieved together, as a team.\n
-              If you want to make an impact on modern agricultural practices, believe in the potential of smart digital twins and enjoy working in a startup environment, we would love to hear from you.`,
+            salary: 'Competitive salary (equal pay)',
+            description: [
+              {
+                title: '',
+                text: `You will have the unique opportunity to become the marketing lead and potentially co-founder of a Cologne-based AI startup, tackling today's most challenging problems from a new perspective.`,
+              },
+              {
+                title: 'Opportunity',
+                text: `To this end, agriculture is one of the least digitized industries, which is currently undergoing a radical change with autonomous machines starting to optimize conventional agriculture practices. The rapid development in this field is driven by corporate competition, where startups play an important role in exploring radical new ideas and potentially transforming the future of agriculture.\n
+                  At PhoGrow, we strive to become the go-to platform for big agricultural companies looking for high quality digital twins of plants to optimize their processes.`,
+              },
+              {
+                title: 'We offer...',
+                text: 'As a young and ambitious team, we provide a creative working environment with flat hierarchies and celebrate diversity, where everything you do matters. We apply cutting-edge AI technologies and distributed systems IoT to improve modern agricultural practices for the better.',
+              },
+              {
+                title: 'We are looking for...',
+                text: `You should be a highly motivated marketing specialist, eager to establish PhoGrow as the go-to platform for big agricultural companies, looking for high quality digital twins of plants to optimize their processes. As we are experts in our fields, you should be an expert in marketing related topics, enjoy interacting with our customers, be efficient in raising new funds, and most importantly be a team player who believes in our common vision.\n
+                  If you want to have an impact on more sustainable agricultural practices, believe in the potential of smart digital twins, and enjoy working in a fast moving startup environment with flat hierarchies, we would love to hear from you.`,
+              },
+            ],
             responsibilities: [
-              'We are experts in our fields and so should you be an expert in marketing related topics and enjoy the exchange with our customers.',
-              'Business plan',
-              'Talk to customers',
-              'Acquire new customers',
-              'Acquire founding',
+              'Branding + positioning of the company and identification of sales opportunities',
+              'Lead generation, customer acquisition, and target group segmentation',
+              'Development and implementation of marketing strategies',
+              'Budget planning, sales activities, and acquiring new funding',
+              'Support in management of tax matters and compliance with tax regulations',
             ],
             requirements: [
-              'BWL',
+              'Completed studies in business administration, marketing, or related fields',
               '2+ years of professional experience',
-              'Excellent verbal + written communication',
-              'Fluent in German/English',
-              'Startup experience is a plus',
+              'Strong communication and negotiation skills',
+              'Experience in dealing with distribution and sales processes',
+              'Fluent oral and written communication in English and German',
             ],
-            benefits: [''],
+            benefits: [
+              'Mutual respect and openness',
+              'Opportunity to have a direct influence on the success of the company',
+              'Versatile tasks and responsibilities that allow for broad professional development',
+              'Opportunity to work in an interdisciplinary environment and collaborate with different stakeholders',
+              'Personal development through taking on responsibility and learning new skills',
+            ],
+            contact: [
+              'Why are you the right fit for this position?',
+              'What is the role of plants as digital twins in modern agricultural practices?',
+              'Which companies do you think are most likely to benefit from our service and how?',
+            ],
           },
           {
             jobTitle: 'Creative Intern',
             icon: 'palette',
-            employmentType: ['Full-time', 'part-time'],
+            employmentType: ['Part-time'],
             location: ['Office in Cologne', 'remote'],
-            salary: 'Gratuitous',
-            description: `You will have the unique opportunity to become an intern at a Cologne-based AI startup, tackling today's most challenging problems from a new perspective.\n
-              Providing digital twins of plants to help humans and robots make data-driven decisions in agriculture is our contribution to ensure future food supply despite the challenges of climate change and population growth. We have ambitious goals, but a clear vision that can only be achieved together, as a team.\n
-              If you want to make an impact on modern agricultural practices, believe in the potential of smart digital twins and enjoy working in a startup environment, we would love to hear from you.`,
-            responsibilities: [
-              'We are experts in our fields and thus you will have a lot of opportunities to learn.',
-              'Capturing objects in 3D',
+            salary: 'Negotiable',
+            description: [
+              {
+                title: '',
+                text: `You will have the unique opportunity to become an intern of a Cologne-based AI startup, tackling today's most challenging problems from a new perspective.`,
+              },
+              {
+                title: 'Opportunity',
+                text: `To this end, agriculture is one of the least digitized industries, which is currently undergoing a radical change with autonomous machines starting to optimize conventional agriculture practices. The rapid development in this field is driven by corporate competition, where startups play an important role in exploring radical new ideas and potentially transforming the future of agriculture.\n
+                At PhoGrow, we strive to become the go-to platform for big agricultural companies looking for high quality digital twins of plants to optimize their processes.`,
+              },
+              {
+                title: 'We offer...',
+                text: 'As a young and ambitious team, we provide a creative working environment with flat hierarchies and celebrate diversity, where everything you do matters. We apply cutting-edge AI technologies and distributed systems IoT to improve modern agricultural practices for the better.',
+              },
+              {
+                title: 'We are looking for...',
+                text: 'You should be a motivated student, eager to learn, and support experts in the field of digital content creation: From the creation of 3D content using AI technologies to hardware development (3D printing) and web technologies that make our services available to our customers at any time, we can teach you a lot. Depending on the field you are applying for, you should have some prior knowledge but major interest to deepen your skillset.',
+              },
             ],
-            requirements: ['Enrolled in a university'],
-            benefits: [''],
+            responsibilities: [
+              'Capturing objects in 3D',
+              'Support in web development',
+              'Supporting the team with various tasks and projects',
+              'Data entry and management',
+              'Support with administrative tasks and documentation',
+            ],
+            requirements: [
+              'Ongoing studies in a relevant field',
+              'Interest in 3D content creation, hardware development, or web development',
+              'Fluent communication in English and German',
+            ],
+            benefits: [
+              'Mutual respect and openness',
+              'Versatile tasks and responsibilities that allow for broad professional development',
+              'Opportunity to work in an interdisciplinary environment and collaborate with different stakeholders',
+              'Personal development through taking on responsibility and learning new skills',
+            ],
+            contact: [
+              'What are your specialities and in which field do you strive to support and learn from the team?',
+              'What are the benefits of digital twins for modern industrial practice?',
+            ],
           },
         ] as IJobPosting[],
       },
