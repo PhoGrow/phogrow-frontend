@@ -40,7 +40,7 @@ export default defineComponent({
           buttons: [
             {
               message: 'Send mail',
-              href: 'mailto:phogrow@gmail.com',
+              href: 'mailto:info@phogrow3d.com',
             },
             {
               message: 'Follow us',
