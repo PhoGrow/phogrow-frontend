@@ -1,5 +1,10 @@
 <template>
   <div id="app">
+    <p
+      class="has-background-bright-green has-text-centered has-text-weight-semibold py-3"
+    >
+      This project has been discontinued since September 2023.
+    </p>
     <NavBar />
     <RouterView />
     <FooterItem />
